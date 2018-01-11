@@ -33,7 +33,7 @@ DEFINE_string(http_content_type, "application/json", "Content type of http reque
 
 int main(int argc, char* argv[]) {
 	// Parse gflags. We recommend you to use gflags as well.
-	GFLAGS_NS::ParseCommandLineFlags(&argc, &argv, true);
+	gflags::ParseCommandLineFlags(&argc, &argv, true);
 
 	// A Channel represents a communication line to a Server. Notice that 
 	// Channel is thread-safe and can be shared by all threads in your program.
@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
 		// We will receive response synchronously, safe to put variables
 		// on stack.
 		im::login::IMLoginReq request;
-		im::login::IMLoginResp response;
+		im::login::IMLoginRes response;
 		brpc::Controller cntl;
 
 		//request.set_message("hello world");
@@ -79,11 +79,11 @@ int main(int argc, char* argv[]) {
 
 		// Because `done'(last parameter) is NULL, this function waits until
 		// the response comes back or error occurs(including timedout).
-		stub.Echo(&cntl, &request, &response, NULL);
+		stub.IMLogin(&cntl, &request, &response, NULL);
 		if (!cntl.Failed()) {
 			LOG(INFO) << "Received response from " << cntl.remote_side()
 				<< " to " << cntl.local_side()
-				<< ": " << response.message() << " (attached="
+			//	<< ": " << response.message() << " (attached="
 				<< cntl.response_attachment() << ")"
 				<< " latency=" << cntl.latency_us() << "us";
 		}
