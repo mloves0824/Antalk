@@ -57,11 +57,11 @@ namespace antalk {
 				// that compression may be costly, evaluate before turning on.
 				// cntl->set_response_compress_type(brpc::COMPRESS_TYPE_GZIP);
 
-				if (GFLAGS_NAMESPACE::FLAGS_echo_attachment) {
+				//if (FLAGS_echo_attachment) {
 					// Set attachment which is wired to network directly instead of
 					// being serialized into protobuf messages.
 					//cntl->response_attachment().append(cntl->request_attachment());
-				}
+				//}
 			}
 		};
 	}  // namespace example

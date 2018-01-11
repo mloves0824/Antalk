@@ -15,6 +15,8 @@ clean:
 	@echo "Generating $@"
 	@$(PROTOC) --cpp_out=. --proto_path=. $(PROTOC_EXTRA_ARGS) $<
 
+libproto.so:%.o
+
 %.o:%.cpp
 	@echo "Compiling $@"
 	@$(CXX) -c $(HDRPATHS) $(CXXFLAGS) $< -o $@
