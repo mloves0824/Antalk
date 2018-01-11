@@ -1,6 +1,6 @@
-package im.base_define;
+package im.base;
 option java_package = "com.antalk.pb";
-option optimize_for = LITE_RUNTIME;
+//option optimize_for = LITE_RUNTIME;
 
 
 enum ResultType {
@@ -36,3 +36,9 @@ message UserInfo {
     optional string sign_info = 11;
 }
 
+enum UserStatType{
+	USER_STATUS_ONLINE 	= 1;
+	USER_STATUS_OFFLINE	= 2;
+	USER_STATUS_LEAVE	= 3;
+
+}

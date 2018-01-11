@@ -1,24 +1,24 @@
 package im.login;
-import "im.base_define.proto";
+import "im.base.proto";
 option java_package = "com.antalk.pb";
-option optimize_for = LITE_RUNTIME;
+//option optimize_for = LITE_RUNTIME;
 
 option cc_generic_services = true;
 
 message IMLoginReq {
 	required string username = 1;
 	required string password = 2;
-	required IM.BaseDefine.UserStatType online_status = 3;
-	required IM.BaseDefine.ClientType client_type = 4;
+	required im.base.UserStatType online_status = 3;
+	required im.base.ClientType client_type = 4;
 	optional string client_version = 5;
 }
 
 message IMLoginRes {
 	required uint32 server_time = 1;
-	required IM.BaseDefine.ResultType result_code = 2;
+	required im.base.ResultType result_code = 2;
 	optional string result_string = 3;
-	optional IM.BaseDefine.UserStatType online_status = 4;
-	optional IM.BaseDefine.UserInfo user_info = 5;
+	optional im.base.UserStatType online_status = 4;
+	optional im.base.UserInfo user_info = 5;
 }
 
 
