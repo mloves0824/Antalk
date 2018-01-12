@@ -1,0 +1,17 @@
+package data.user;
+import "im.base.proto";
+option java_package = "com.antalk.pb";
+option cc_generic_services = true;
+
+message GetUserInfoReq {
+	required uint32 user_id = 1;
+}
+
+message GetUserInfoRes {
+	required im.base.UserInfo user_info = 1;
+	required string password = 2; 
+}
+
+service GetUserInfoService {
+      rpc GetUserInfo(GetUserInfoReq) returns (GetUserInfoRes);
+};

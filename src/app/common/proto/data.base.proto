@@ -1,0 +1,3 @@
+package im.base;
+option java_package = "com.antalk.pb";
+//option optimize_for = LITE_RUNTIME;
