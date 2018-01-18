@@ -23,3 +23,12 @@ _testmain.go
 *.test
 *.prof
 brpc
+
+*.sdf
+*.sln
+*.vcxproj*
+*.opensdf
+*.v12.suo
+
+#ops/output/*
+

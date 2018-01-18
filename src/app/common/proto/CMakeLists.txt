@@ -9,8 +9,8 @@ ELSE(WIN32)
 	IF (CMAKE_BUILD_TYPE MATCHES DEBUG)
 		ADD_DEFINITIONS(-DDEBUG)
 		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -fshort-wchar")
-		SET(PROJECT_LIB_DIR ${PROJECT_SOURCE_DIR}/../../../../pkg/output/debug/debug_linux_x64/dep)
-		SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../../../../pkg/output/debug/debug_linux_x64/dep)
+		SET(PROJECT_LIB_DIR ${PROJECT_SOURCE_DIR}/../../../../ops/output/debug/debug_linux_x64/dep)
+		SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../../../../ops/output/debug/debug_linux_x64/dep)
 		SET(PROJECT_LIBS_PLATFORM
 			protobuf
 			brpc

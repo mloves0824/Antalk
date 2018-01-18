@@ -1,2 +1,2 @@
 # Antalk
-Distributed IM Server Writen By Go
+Distributed IM Server Writen By c++.
