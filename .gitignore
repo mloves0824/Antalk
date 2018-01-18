@@ -30,5 +30,5 @@ brpc
 *.opensdf
 *.v12.suo
 
-#ops/output/*
+ops/output/*
 

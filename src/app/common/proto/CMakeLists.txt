@@ -43,7 +43,7 @@ ELSE(WIN32)
 	INCLUDE_DIRECTORIES(
 		${PROJECT_SOURCE_DIR}/
 		${PROJECT_SOURCE_DIR}/../common/proto
-		${PROJECT_SOURCE_DIR}/../../dep/third/brpc/src
+		${PROJECT_SOURCE_DIR}/../../dep/third/brpc/include
 	)
 
 	LINK_DIRECTORIES(${PROJECT_LIB_DIR})
