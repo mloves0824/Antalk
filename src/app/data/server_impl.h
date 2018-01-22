@@ -16,17 +16,17 @@
 // Date: $time$
 
 #include <gflags/gflags.h>
-#include "im.login.pb.h"
+#include "data.user.pb.h"
 #include <brpc/server.h>
 
 
-// Your implementation of im::login::IMLoginService
+// Your implementation of data::user::GetUserInfoService
 // Notice that implementing brpc::Describable grants the ability to put
 // additional information in /status.
 namespace antalk {
-namespace apigw {
+namespace data {
 
-class IMLoginServiceImpl : public im::login::IMLoginService {
+class GetUserInfoServiceImpl : public data::user::GetUserInfoService {
 public:
 	IMLoginServiceImpl() {};
 	virtual ~IMLoginServiceImpl() {};

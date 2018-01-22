@@ -38,7 +38,7 @@ void protobuf_AssignDesc_im_2ebase_2eproto() {
       "im.base.proto");
   GOOGLE_CHECK(file != NULL);
   UserInfo_descriptor_ = file->message_type(0);
-  static const int UserInfo_offsets_[11] = {
+  static const int UserInfo_offsets_[13] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, user_gender_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, user_nick_name_),
@@ -50,6 +50,8 @@ void protobuf_AssignDesc_im_2ebase_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, user_domain_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, status_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, sign_info_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, passwd_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, en_type_),
   };
   UserInfo_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -95,25 +97,26 @@ void protobuf_AddDesc_im_2ebase_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rim.base.proto\022\007im.base\"\344\001\n\010UserInfo\022\017\n"
+    "\n\rim.base.proto\022\007im.base\"\205\002\n\010UserInfo\022\017\n"
     "\007user_id\030\001 \002(\r\022\023\n\013user_gender\030\002 \002(\r\022\026\n\016u"
     "ser_nick_name\030\003 \002(\t\022\022\n\navatar_url\030\004 \002(\t\022"
     "\025\n\rdepartment_id\030\005 \002(\r\022\r\n\005email\030\006 \002(\t\022\026\n"
     "\016user_real_name\030\007 \002(\t\022\020\n\010user_tel\030\010 \002(\t\022"
     "\023\n\013user_domain\030\t \002(\t\022\016\n\006status\030\n \002(\r\022\021\n\t"
-    "sign_info\030\013 \001(\t*\227\002\n\nResultType\022\026\n\022REFUSE"
-    "_REASON_NONE\020\000\022\037\n\033REFUSE_REASON_NO_MSG_S"
-    "ERVER\020\001\022!\n\035REFUSE_REASON_MSG_SERVER_FULL"
-    "\020\002\022\036\n\032REFUSE_REASON_NO_DB_SERVER\020\003\022!\n\035RE"
-    "FUSE_REASON_NO_LOGIN_SERVER\020\004\022!\n\035REFUSE_"
-    "REASON_NO_ROUTE_SERVER\020\005\022$\n REFUSE_REASO"
-    "N_DB_VALIDATE_FAILED\020\006\022!\n\035REFUSE_REASON_"
-    "VERSION_TOO_OLD\020\007*h\n\nClientType\022\027\n\023CLIEN"
-    "T_TYPE_WINDOWS\020\001\022\023\n\017CLIENT_TYPE_MAC\020\002\022\023\n"
-    "\017CLIENT_TYPE_IOS\020\021\022\027\n\023CLIENT_TYPE_ANDROI"
-    "D\020\022*V\n\014UserStatType\022\026\n\022USER_STATUS_ONLIN"
-    "E\020\001\022\027\n\023USER_STATUS_OFFLINE\020\002\022\025\n\021USER_STA"
-    "TUS_LEAVE\020\003B\017\n\rcom.antalk.pb", 748);
+    "sign_info\030\013 \001(\t\022\016\n\006passwd\030\014 \002(\t\022\017\n\007en_ty"
+    "pe\030\r \001(\r*\227\002\n\nResultType\022\026\n\022REFUSE_REASON"
+    "_NONE\020\000\022\037\n\033REFUSE_REASON_NO_MSG_SERVER\020\001"
+    "\022!\n\035REFUSE_REASON_MSG_SERVER_FULL\020\002\022\036\n\032R"
+    "EFUSE_REASON_NO_DB_SERVER\020\003\022!\n\035REFUSE_RE"
+    "ASON_NO_LOGIN_SERVER\020\004\022!\n\035REFUSE_REASON_"
+    "NO_ROUTE_SERVER\020\005\022$\n REFUSE_REASON_DB_VA"
+    "LIDATE_FAILED\020\006\022!\n\035REFUSE_REASON_VERSION"
+    "_TOO_OLD\020\007*h\n\nClientType\022\027\n\023CLIENT_TYPE_"
+    "WINDOWS\020\001\022\023\n\017CLIENT_TYPE_MAC\020\002\022\023\n\017CLIENT"
+    "_TYPE_IOS\020\021\022\027\n\023CLIENT_TYPE_ANDROID\020\022*V\n\014"
+    "UserStatType\022\026\n\022USER_STATUS_ONLINE\020\001\022\027\n\023"
+    "USER_STATUS_OFFLINE\020\002\022\025\n\021USER_STATUS_LEA"
+    "VE\020\003B\017\n\rcom.antalk.pb", 781);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "im.base.proto", &protobuf_RegisterTypes);
   UserInfo::default_instance_ = new UserInfo();
@@ -193,6 +196,8 @@ const int UserInfo::kUserTelFieldNumber;
 const int UserInfo::kUserDomainFieldNumber;
 const int UserInfo::kStatusFieldNumber;
 const int UserInfo::kSignInfoFieldNumber;
+const int UserInfo::kPasswdFieldNumber;
+const int UserInfo::kEnTypeFieldNumber;
 #endif  // !_MSC_VER
 
 UserInfo::UserInfo()
@@ -222,6 +227,8 @@ void UserInfo::SharedCtor() {
   user_domain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   status_ = 0u;
   sign_info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  passwd_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  en_type_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -250,6 +257,9 @@ void UserInfo::SharedDtor() {
   }
   if (sign_info_ != &::google::protobuf::internal::kEmptyString) {
     delete sign_info_;
+  }
+  if (passwd_ != &::google::protobuf::internal::kEmptyString) {
+    delete passwd_;
   }
   if (this != default_instance_) {
   }
@@ -319,6 +329,12 @@ void UserInfo::Clear() {
         sign_info_->clear();
       }
     }
+    if (has_passwd()) {
+      if (passwd_ != &::google::protobuf::internal::kEmptyString) {
+        passwd_->clear();
+      }
+    }
+    en_type_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -508,6 +524,39 @@ bool UserInfo::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(98)) goto parse_passwd;
+        break;
+      }
+
+      // required string passwd = 12;
+      case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_passwd:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_passwd()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->passwd().data(), this->passwd().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(104)) goto parse_en_type;
+        break;
+      }
+
+      // optional uint32 en_type = 13;
+      case 13: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_en_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &en_type_)));
+          set_has_en_type();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -613,6 +662,20 @@ void UserInfo::SerializeWithCachedSizes(
       11, this->sign_info(), output);
   }
 
+  // required string passwd = 12;
+  if (has_passwd()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->passwd().data(), this->passwd().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      12, this->passwd(), output);
+  }
+
+  // optional uint32 en_type = 13;
+  if (has_en_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->en_type(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -711,6 +774,21 @@ void UserInfo::SerializeWithCachedSizes(
         11, this->sign_info(), target);
   }
 
+  // required string passwd = 12;
+  if (has_passwd()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->passwd().data(), this->passwd().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        12, this->passwd(), target);
+  }
+
+  // optional uint32 en_type = 13;
+  if (has_en_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->en_type(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -801,6 +879,20 @@ int UserInfo::ByteSize() const {
           this->sign_info());
     }
 
+    // required string passwd = 12;
+    if (has_passwd()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->passwd());
+    }
+
+    // optional uint32 en_type = 13;
+    if (has_en_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->en_type());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -863,6 +955,12 @@ void UserInfo::MergeFrom(const UserInfo& from) {
     if (from.has_sign_info()) {
       set_sign_info(from.sign_info());
     }
+    if (from.has_passwd()) {
+      set_passwd(from.passwd());
+    }
+    if (from.has_en_type()) {
+      set_en_type(from.en_type());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -880,7 +978,7 @@ void UserInfo::CopyFrom(const UserInfo& from) {
 }
 
 bool UserInfo::IsInitialized() const {
-  if ((_has_bits_[0] & 0x000003ff) != 0x000003ff) return false;
+  if ((_has_bits_[0] & 0x00000bff) != 0x00000bff) return false;
 
   return true;
 }
@@ -898,6 +996,8 @@ void UserInfo::Swap(UserInfo* other) {
     std::swap(user_domain_, other->user_domain_);
     std::swap(status_, other->status_);
     std::swap(sign_info_, other->sign_info_);
+    std::swap(passwd_, other->passwd_);
+    std::swap(en_type_, other->en_type_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

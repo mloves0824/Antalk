@@ -271,6 +271,25 @@ class UserInfo : public ::google::protobuf::Message {
   inline ::std::string* release_sign_info();
   inline void set_allocated_sign_info(::std::string* sign_info);
 
+  // required string passwd = 12;
+  inline bool has_passwd() const;
+  inline void clear_passwd();
+  static const int kPasswdFieldNumber = 12;
+  inline const ::std::string& passwd() const;
+  inline void set_passwd(const ::std::string& value);
+  inline void set_passwd(const char* value);
+  inline void set_passwd(const char* value, size_t size);
+  inline ::std::string* mutable_passwd();
+  inline ::std::string* release_passwd();
+  inline void set_allocated_passwd(::std::string* passwd);
+
+  // optional uint32 en_type = 13;
+  inline bool has_en_type() const;
+  inline void clear_en_type();
+  static const int kEnTypeFieldNumber = 13;
+  inline ::google::protobuf::uint32 en_type() const;
+  inline void set_en_type(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:im.base.UserInfo)
  private:
   inline void set_has_user_id();
@@ -295,6 +314,10 @@ class UserInfo : public ::google::protobuf::Message {
   inline void clear_has_status();
   inline void set_has_sign_info();
   inline void clear_has_sign_info();
+  inline void set_has_passwd();
+  inline void clear_has_passwd();
+  inline void set_has_en_type();
+  inline void clear_has_en_type();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -309,9 +332,11 @@ class UserInfo : public ::google::protobuf::Message {
   ::std::string* user_tel_;
   ::std::string* user_domain_;
   ::std::string* sign_info_;
+  ::std::string* passwd_;
+  ::google::protobuf::uint32 en_type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
 
   friend void  protobuf_AddDesc_im_2ebase_2eproto();
   friend void protobuf_AssignDesc_im_2ebase_2eproto();
@@ -903,6 +928,98 @@ inline void UserInfo::set_allocated_sign_info(::std::string* sign_info) {
     clear_has_sign_info();
     sign_info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// required string passwd = 12;
+inline bool UserInfo::has_passwd() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void UserInfo::set_has_passwd() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void UserInfo::clear_has_passwd() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void UserInfo::clear_passwd() {
+  if (passwd_ != &::google::protobuf::internal::kEmptyString) {
+    passwd_->clear();
+  }
+  clear_has_passwd();
+}
+inline const ::std::string& UserInfo::passwd() const {
+  return *passwd_;
+}
+inline void UserInfo::set_passwd(const ::std::string& value) {
+  set_has_passwd();
+  if (passwd_ == &::google::protobuf::internal::kEmptyString) {
+    passwd_ = new ::std::string;
+  }
+  passwd_->assign(value);
+}
+inline void UserInfo::set_passwd(const char* value) {
+  set_has_passwd();
+  if (passwd_ == &::google::protobuf::internal::kEmptyString) {
+    passwd_ = new ::std::string;
+  }
+  passwd_->assign(value);
+}
+inline void UserInfo::set_passwd(const char* value, size_t size) {
+  set_has_passwd();
+  if (passwd_ == &::google::protobuf::internal::kEmptyString) {
+    passwd_ = new ::std::string;
+  }
+  passwd_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* UserInfo::mutable_passwd() {
+  set_has_passwd();
+  if (passwd_ == &::google::protobuf::internal::kEmptyString) {
+    passwd_ = new ::std::string;
+  }
+  return passwd_;
+}
+inline ::std::string* UserInfo::release_passwd() {
+  clear_has_passwd();
+  if (passwd_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = passwd_;
+    passwd_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void UserInfo::set_allocated_passwd(::std::string* passwd) {
+  if (passwd_ != &::google::protobuf::internal::kEmptyString) {
+    delete passwd_;
+  }
+  if (passwd) {
+    set_has_passwd();
+    passwd_ = passwd;
+  } else {
+    clear_has_passwd();
+    passwd_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 en_type = 13;
+inline bool UserInfo::has_en_type() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void UserInfo::set_has_en_type() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void UserInfo::clear_has_en_type() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void UserInfo::clear_en_type() {
+  en_type_ = 0u;
+  clear_has_en_type();
+}
+inline ::google::protobuf::uint32 UserInfo::en_type() const {
+  return en_type_;
+}
+inline void UserInfo::set_en_type(::google::protobuf::uint32 value) {
+  set_has_en_type();
+  en_type_ = value;
 }
 
 

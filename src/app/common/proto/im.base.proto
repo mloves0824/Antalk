@@ -33,7 +33,9 @@ message UserInfo {
 	required string user_tel = 8;
 	required string user_domain = 9;	//用户名拼音
     required uint32 status = 10;        //0:在职  1. 试用期 2. 正式 3. 离职 4.实习,  client端需要对“离职”进行不展示
-    optional string sign_info = 11;
+    optional string sign_info = 11;		//签名信息
+	required string passwd = 12;		//密码
+	optional uint32 en_type = 13;		//加密类型
 }
 
 enum UserStatType{

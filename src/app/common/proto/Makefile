@@ -2,7 +2,7 @@ PROTOC = protoc
 PROTOC_EXTRA_ARGS = 
 
 .PHONY:all
-all: im.base.pb.cc  im.login.pb.cc 
+all: im.base.pb.cc  im.login.pb.cc data.user.pb.cc 
 
 .PHONY:clean
 clean:

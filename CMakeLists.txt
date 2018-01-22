@@ -7,6 +7,7 @@ ELSE (WIN32)
 
 	ADD_SUBDIRECTORY(src/app/common/proto)
 	ADD_SUBDIRECTORY(src/app/apigw)
+	ADD_SUBDIRECTORY(src/app/data)
 
 	IF (CMAKE_BUILD_TYPE MATCHES DEBUG)
 		#ADD_SUBDIRECTORY(tools/test/functest)
