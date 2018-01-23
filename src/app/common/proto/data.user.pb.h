@@ -28,6 +28,7 @@
 #include "im.base.pb.h"
 // @@protoc_insertion_point(includes)
 
+namespace antalk {
 namespace data {
 namespace user {
 
@@ -121,7 +122,7 @@ class GetUserInfoReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 user_id() const;
   inline void set_user_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:data.user.GetUserInfoReq)
+  // @@protoc_insertion_point(class_scope:antalk.data.user.GetUserInfoReq)
  private:
   inline void set_has_user_name();
   inline void clear_has_user_name();
@@ -211,7 +212,7 @@ class GetUserInfoRes : public ::google::protobuf::Message {
   inline ::im::base::UserInfo* release_user_info();
   inline void set_allocated_user_info(::im::base::UserInfo* user_info);
 
-  // @@protoc_insertion_point(class_scope:data.user.GetUserInfoRes)
+  // @@protoc_insertion_point(class_scope:antalk.data.user.GetUserInfoRes)
  private:
   inline void set_has_user_info();
   inline void clear_has_user_info();
@@ -246,8 +247,8 @@ class GetUserInfoService : public ::google::protobuf::Service {
   static const ::google::protobuf::ServiceDescriptor* descriptor();
 
   virtual void GetUserInfo(::google::protobuf::RpcController* controller,
-                       const ::data::user::GetUserInfoReq* request,
-                       ::data::user::GetUserInfoRes* response,
+                       const ::antalk::data::user::GetUserInfoReq* request,
+                       ::antalk::data::user::GetUserInfoRes* response,
                        ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
@@ -279,8 +280,8 @@ class GetUserInfoService_Stub : public GetUserInfoService {
   // implements GetUserInfoService ------------------------------------------
 
   void GetUserInfo(::google::protobuf::RpcController* controller,
-                       const ::data::user::GetUserInfoReq* request,
-                       ::data::user::GetUserInfoRes* response,
+                       const ::antalk::data::user::GetUserInfoReq* request,
+                       ::antalk::data::user::GetUserInfoRes* response,
                        ::google::protobuf::Closure* done);
  private:
   ::google::protobuf::RpcChannel* channel_;
@@ -457,6 +458,7 @@ inline void GetUserInfoRes::set_allocated_user_info(::im::base::UserInfo* user_i
 
 }  // namespace user
 }  // namespace data
+}  // namespace antalk
 
 #ifndef SWIG
 namespace google {

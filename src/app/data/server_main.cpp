@@ -39,12 +39,12 @@ int main(int argc, char* argv[]) {
 	brpc::Server server;
 
 	// Instance of your service.
-	antalk::apigw::IMLoginServiceImpl login_service_impl;
+	antalk::data::GetUserInfoServiceImpl getuserinfo_service_impl;
 
 	// Add the service into server. Notice the second parameter, because the
 	// service is put on stack, we don't want server to delete it, otherwise
 	// use brpc::SERVER_OWNS_SERVICE.
-	if (server.AddService(&login_service_impl,
+	if (server.AddService(&getuserinfo_service_impl,
 		brpc::SERVER_DOESNT_OWN_SERVICE) != 0) {
 		LOG(ERROR) << "Fail to add service";
 		return -1;

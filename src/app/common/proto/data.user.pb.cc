@@ -16,6 +16,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
+namespace antalk {
 namespace data {
 namespace user {
 
@@ -106,14 +107,14 @@ void protobuf_AddDesc_data_2euser_2eproto() {
 
   ::im::base::protobuf_AddDesc_im_2ebase_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\017data.user.proto\022\tdata.user\032\rim.base.pr"
-    "oto\"E\n\016GetUserInfoReq\022\021\n\tuser_name\030\001 \002(\t"
-    "\022\017\n\007saas_id\030\002 \001(\r\022\017\n\007user_id\030\003 \001(\r\"6\n\016Ge"
-    "tUserInfoRes\022$\n\tuser_info\030\001 \002(\0132\021.im.bas"
-    "e.UserInfo2Y\n\022GetUserInfoService\022C\n\013GetU"
-    "serInfo\022\031.data.user.GetUserInfoReq\032\031.dat"
-    "a.user.GetUserInfoResB\022\n\rcom.antalk.pb\200\001"
-    "\001", 281);
+    "\n\017data.user.proto\022\020antalk.data.user\032\rim."
+    "base.proto\"E\n\016GetUserInfoReq\022\021\n\tuser_nam"
+    "e\030\001 \002(\t\022\017\n\007saas_id\030\002 \001(\r\022\017\n\007user_id\030\003 \001("
+    "\r\"6\n\016GetUserInfoRes\022$\n\tuser_info\030\001 \002(\0132\021"
+    ".im.base.UserInfo2g\n\022GetUserInfoService\022"
+    "Q\n\013GetUserInfo\022 .antalk.data.user.GetUse"
+    "rInfoReq\032 .antalk.data.user.GetUserInfoR"
+    "esB\022\n\rcom.antalk.pb\200\001\001", 302);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "data.user.proto", &protobuf_RegisterTypes);
   GetUserInfoReq::default_instance_ = new GetUserInfoReq();
@@ -668,8 +669,8 @@ const ::google::protobuf::ServiceDescriptor* GetUserInfoService::GetDescriptor()
 }
 
 void GetUserInfoService::GetUserInfo(::google::protobuf::RpcController* controller,
-                         const ::data::user::GetUserInfoReq*,
-                         ::data::user::GetUserInfoRes*,
+                         const ::antalk::data::user::GetUserInfoReq*,
+                         ::antalk::data::user::GetUserInfoRes*,
                          ::google::protobuf::Closure* done) {
   controller->SetFailed("Method GetUserInfo() not implemented.");
   done->Run();
@@ -684,8 +685,8 @@ void GetUserInfoService::CallMethod(const ::google::protobuf::MethodDescriptor* 
   switch(method->index()) {
     case 0:
       GetUserInfo(controller,
-             ::google::protobuf::down_cast<const ::data::user::GetUserInfoReq*>(request),
-             ::google::protobuf::down_cast< ::data::user::GetUserInfoRes*>(response),
+             ::google::protobuf::down_cast<const ::antalk::data::user::GetUserInfoReq*>(request),
+             ::google::protobuf::down_cast< ::antalk::data::user::GetUserInfoRes*>(response),
              done);
       break;
     default:
@@ -699,7 +700,7 @@ const ::google::protobuf::Message& GetUserInfoService::GetRequestPrototype(
   GOOGLE_DCHECK_EQ(method->service(), descriptor());
   switch(method->index()) {
     case 0:
-      return ::data::user::GetUserInfoReq::default_instance();
+      return ::antalk::data::user::GetUserInfoReq::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *reinterpret_cast< ::google::protobuf::Message*>(NULL);
@@ -711,7 +712,7 @@ const ::google::protobuf::Message& GetUserInfoService::GetResponsePrototype(
   GOOGLE_DCHECK_EQ(method->service(), descriptor());
   switch(method->index()) {
     case 0:
-      return ::data::user::GetUserInfoRes::default_instance();
+      return ::antalk::data::user::GetUserInfoRes::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *reinterpret_cast< ::google::protobuf::Message*>(NULL);
@@ -730,8 +731,8 @@ GetUserInfoService_Stub::~GetUserInfoService_Stub() {
 }
 
 void GetUserInfoService_Stub::GetUserInfo(::google::protobuf::RpcController* controller,
-                              const ::data::user::GetUserInfoReq* request,
-                              ::data::user::GetUserInfoRes* response,
+                              const ::antalk::data::user::GetUserInfoReq* request,
+                              ::antalk::data::user::GetUserInfoRes* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(0),
                        controller, request, response, done);
@@ -741,5 +742,6 @@ void GetUserInfoService_Stub::GetUserInfo(::google::protobuf::RpcController* con
 
 }  // namespace user
 }  // namespace data
+}  // namespace antalk
 
 // @@protoc_insertion_point(global_scope)

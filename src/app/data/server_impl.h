@@ -25,18 +25,19 @@
 // additional information in /status.
 namespace antalk {
 namespace data {
-
-class GetUserInfoServiceImpl : public data::user::GetUserInfoService {
+	
+class GetUserInfoServiceImpl : public user::GetUserInfoService {
 public:
-	IMLoginServiceImpl() {};
-	virtual ~IMLoginServiceImpl() {};
-	virtual void IMLogin(google::protobuf::RpcController* cntl_base,
-		const im::login::IMLoginReq* request,
-		im::login::IMLoginRes* response,
+	GetUserInfoServiceImpl() {};
+	virtual ~GetUserInfoServiceImpl() {};
+	virtual void GetUserInfo(google::protobuf::RpcController* cntl_base,
+		const user::GetUserInfoReq* request,
+		user::GetUserInfoRes* response,
 		google::protobuf::Closure* done) {
 		// This object helps you to call done->Run() in RAII style. If you need
 		// to process the request asynchronously, pass done_guard.release().
 		brpc::ClosureGuard done_guard(done);
+		
 
 		brpc::Controller* cntl =
 			static_cast<brpc::Controller*>(cntl_base);
@@ -47,11 +48,11 @@ public:
 		LOG(INFO) << "Received request[log_id=" << cntl->log_id()
 			<< "] from " << cntl->remote_side()
 			<< " to " << cntl->local_side()
-			//<< ": " << request->message()
+			<< ": " << request->user_id()
 			<< " (attached=" << cntl->request_attachment() << ")";
 
 		// Fill response.
-		response->set_result_code(im::base::REFUSE_REASON_NONE);
+		//response->set_result_code(im::base::REFUSE_REASON_NONE);
 
 		// You can compress the response by setting Controller, but be aware
 		// that compression may be costly, evaluate before turning on.
