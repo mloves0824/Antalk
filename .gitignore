@@ -31,4 +31,6 @@ brpc
 *.v12.suo
 
 ops/output/*
-
+pkg/output/*
+lib/*
+bin/*
