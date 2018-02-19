@@ -13,11 +13,23 @@
 // limitations under the License.
 
 // Author: chenbang@antalk.com
-#ifndef SRC_APP_DATA_CACHE_MANAGER_H_
-#define SRC_APP_DATA_CACHE_MANAGER_H_
 
+#include "data_manager.h"
 
+namespace antalk {
+namespace data {
 
+DataManager::~DataManager() {}
+DataManager::DataManager() {}
 
+DataManager& DataManager::Instance() {
+	static DataManager g_data_manager;
+	return g_data_manager;
+}
 
-#endif /* SRC_APP_DATA_CACHE_MANAGER_H_ */
+im::base::UserInfo& DataManager::GetUserInfo(const antalk::data::user::GetUserInfoReq *req) {
+
+}
+
+}
+}

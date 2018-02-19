@@ -18,6 +18,7 @@
 #include <gflags/gflags.h>
 #include "data.user.pb.h"
 #include <brpc/server.h>
+#include "data_manager.h"
 
 
 // Your implementation of data::user::GetUserInfoService
@@ -50,6 +51,8 @@ public:
 			<< " to " << cntl->local_side()
 			<< ": " << request->user_id()
 			<< " (attached=" << cntl->request_attachment() << ")";
+
+		im::base::UserInfo user_info = DataManager::Instance().GetUserInfo(request);
 
 		// Fill response.
 		//response->set_result_code(im::base::REFUSE_REASON_NONE);
