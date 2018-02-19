@@ -14,6 +14,10 @@
 
 // Author: chenbang (chenbang@antalk.com)
 // Date: $time$
+#ifndef __APP_DATA_SERVER_IMPL_H_
+#define __APP_DATA_SERVER_IMPL_H_
+
+
 
 #include <gflags/gflags.h>
 #include "data.user.pb.h"
@@ -53,6 +57,7 @@ public:
 			<< " (attached=" << cntl->request_attachment() << ")";
 
 		im::base::UserInfo user_info = DataManager::Instance().GetUserInfo(request);
+		//response->set_allocated_user_info();
 
 		// Fill response.
 		//response->set_result_code(im::base::REFUSE_REASON_NONE);
@@ -71,3 +76,5 @@ public:
 
 }  // namespace example
 }
+
+#endif

@@ -1,12 +1,12 @@
 syntax = "proto2";
-package im.login;
+package antalk.user;
 import "im.base.proto";
 option java_package = "com.antalk.pb";
 //option optimize_for = LITE_RUNTIME;
 
 option cc_generic_services = true;
 
-message IMLoginReq {
+message LoginReq {
 	required string username = 1;
 	required string password = 2;
 	required im.base.UserStatType online_status = 3;
@@ -14,7 +14,7 @@ message IMLoginReq {
 	optional string client_version = 5;
 }
 
-message IMLoginRes {
+message LoginRes {
 	required uint32 server_time = 1;
 	required im.base.ResultType result_code = 2;
 	optional string result_string = 3;
@@ -23,6 +23,6 @@ message IMLoginRes {
 }
 
 
-service IMLoginService {
-      rpc IMLogin(IMLoginReq) returns (IMLoginRes);
+service LoginService {
+      rpc Login(LoginReq) returns (LoginRes);
 };
