@@ -20,7 +20,7 @@
 
 
 #include <gflags/gflags.h>
-#include "data.user.pb.h"
+#include "data.pb.h"
 #include <brpc/server.h>
 #include "data_manager.h"
 
@@ -31,13 +31,13 @@
 namespace antalk {
 namespace data {
 	
-class GetUserInfoServiceImpl : public user::GetUserInfoService {
+class GetUserInfoServiceImpl : public GetUserInfoService {
 public:
 	GetUserInfoServiceImpl() {};
 	virtual ~GetUserInfoServiceImpl() {};
 	virtual void GetUserInfo(google::protobuf::RpcController* cntl_base,
-		const user::GetUserInfoReq* request,
-		user::GetUserInfoRes* response,
+		const GetUserInfoReq* request,
+		GetUserInfoRes* response,
 		google::protobuf::Closure* done) {
 		// This object helps you to call done->Run() in RAII style. If you need
 		// to process the request asynchronously, pass done_guard.release().
@@ -56,7 +56,8 @@ public:
 			<< ": " << request->user_id()
 			<< " (attached=" << cntl->request_attachment() << ")";
 
-		im::base::UserInfo user_info = DataManager::Instance().GetUserInfo(request);
+		antalk::common::UserInfo user_info;
+		//DataManager::Instance().GetUserInfo(request->saas_id(), request->user_id(), user_info);
 		//response->set_allocated_user_info();
 
 		// Fill response.

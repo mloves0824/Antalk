@@ -13,7 +13,6 @@
 // limitations under the License.
 
 // Author: chenbang (chenbang@antalk.com)
-// Date: $time$
 
 
 #include <gflags/gflags.h>

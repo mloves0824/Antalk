@@ -39,7 +39,7 @@ void LoginServiceImpl::Login(google::protobuf::RpcController* cntl_base,
 	LOG(INFO) << "Received request[log_id=" << cntl->log_id()
 		<< "] from " << cntl->remote_side()
 		<< " to " << cntl->local_side()
-		//<< ": " << request->message()
+		<< ": " << request->username()
 		<< " (attached=" << cntl->request_attachment() << ")";
 
 	//get user_info from data_svr
@@ -48,11 +48,14 @@ void LoginServiceImpl::Login(google::protobuf::RpcController* cntl_base,
 	data::user::GetUserInfoRes getuserinfo_resp;
 	StubManager::Instance().GetStub()->GetUserInfo(&datasvr_cntl, &getuserinfo_req, &getuserinfo_resp, NULL);
 	if (datasvr_cntl.Failed()) {
-
+		response->set_result_code(im::base::REFUSE_REASON_NO_DB_SERVER);
+	} else 	if (getuserinfo_resp.user_info().passwd() != request->password()) {
+		response->set_result_code(im::base::REFUSE_REASON_INVALID_PASSWD);
+	} else {
+		// Fill response.
+		response->set_result_code(im::base::REFUSE_REASON_NONE);
 	}
 
-	// Fill response.
-	response->set_result_code(im::base::REFUSE_REASON_NONE);
 
 	// You can compress the response by setting Controller, but be aware
 	// that compression may be costly, evaluate before turning on.

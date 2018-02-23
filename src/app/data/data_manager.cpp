@@ -27,8 +27,10 @@ DataManager& DataManager::Instance() {
 	return g_data_manager;
 }
 
-im::base::UserInfo& DataManager::GetUserInfo(const antalk::data::user::GetUserInfoReq *req) {
-
+bool DataManager::GetUserinfo(const std::string& saas_id,
+		                      const std::string& user_id,
+							  antalk::common::UserInfo& user_info) {
+	return true;
 }
 
 }

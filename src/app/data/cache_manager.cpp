@@ -13,29 +13,27 @@
 // limitations under the License.
 
 // Author: chenbang@antalk.com
-#ifndef SRC_APP_DATA_DATA_MANAGER_H_
-#define SRC_APP_DATA_DATA_MANAGER_H_
 
-#include "common.pb.h"
-#include "data.pb.h"
+#include "cache_manager.h"
 
 namespace antalk {
 namespace data {
 
-class DataManager {
-public:
-	static DataManager& Instance();
-	bool GetUserinfo(const std::string& saas_id, const std::string& user_id, antalk::common::UserInfo& user_info);
+CacheManager& CacheManager::Instance() {
+	static CacheManager g_cache_manager;
+	return g_cache_manager;
+}
 
-private:
-	DataManager();
-	~DataManager();
+CacheManager::CacheManager() {}
 
-};
+CacheManager::~CacheManager() {}
+
+bool CacheManager::GetUserinfo(const std::string& saas_id,
+		                       const std::string& user_id,
+							   antalk::common::UserInfo& user_info) {
+	return true;
+}
 
 }
 }
 
-
-
-#endif /* SRC_APP_DATA_DATA_MANAGER_H_ */

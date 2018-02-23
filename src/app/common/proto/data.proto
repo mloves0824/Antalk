@@ -1,17 +1,16 @@
 syntax = "proto2";
-package antalk.data.user;
-import "im.base.proto";
+package antalk.data;
+import "common.proto";
 option java_package = "com.antalk.pb";
 option cc_generic_services = true;
 
 message GetUserInfoReq {
-	required string user_name = 1;
-	optional uint32 saas_id = 2;
-	optional uint32 user_id = 3;
+	required uint32 saas_id = 1;
+	required uint32 user_id = 2;
 }
 
 message GetUserInfoRes {
-	required im.base.UserInfo user_info = 1;
+	required antalk.common.UserInfo user_info = 1;
 }
 
 service GetUserInfoService {

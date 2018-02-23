@@ -16,7 +16,28 @@
 #ifndef SRC_APP_DATA_CACHE_MANAGER_H_
 #define SRC_APP_DATA_CACHE_MANAGER_H_
 
+#include <string>
+#include "common.pb.h"
 
+namespace antalk {
+namespace data {
+
+#define KEY_USERINFO	"antalk:userinfo:ssid:%s:userid:%s"
+
+
+class CacheManager {
+public:
+	static CacheManager& Instance();
+	bool GetUserinfo(const std::string& saas_id, const std::string& user_id, antalk::common::UserInfo& user_info);
+
+private:
+	CacheManager();
+	~CacheManager();
+
+};
+
+}
+}
 
 
 
