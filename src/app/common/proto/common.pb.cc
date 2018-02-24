@@ -7,6 +7,7 @@
 #include <algorithm>
 
 #include <google/protobuf/stubs/common.h>
+#include <google/protobuf/stubs/port.h>
 #include <google/protobuf/stubs/once.h>
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/wire_format_lite_inl.h>
@@ -31,6 +32,7 @@ const ::google::protobuf::EnumDescriptor* UserStatType_descriptor_ = NULL;
 }  // namespace
 
 
+void protobuf_AssignDesc_common_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AssignDesc_common_2eproto() {
   protobuf_AddDesc_common_2eproto();
   const ::google::protobuf::FileDescriptor* file =
@@ -54,16 +56,16 @@ void protobuf_AssignDesc_common_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, en_type_),
   };
   UserInfo_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
       UserInfo_descriptor_,
       UserInfo::default_instance_,
       UserInfo_offsets_,
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, _unknown_fields_),
       -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(UserInfo));
+      -1,
+      sizeof(UserInfo),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(UserInfo, _internal_metadata_),
+      -1);
   ResultType_descriptor_ = file->enum_type(0);
   ClientType_descriptor_ = file->enum_type(1);
   UserStatType_descriptor_ = file->enum_type(2);
@@ -77,10 +79,11 @@ inline void protobuf_AssignDescriptorsOnce() {
                  &protobuf_AssignDesc_common_2eproto);
 }
 
+void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    UserInfo_descriptor_, &UserInfo::default_instance());
+      UserInfo_descriptor_, &UserInfo::default_instance());
 }
 
 }  // namespace
@@ -90,6 +93,7 @@ void protobuf_ShutdownFile_common_2eproto() {
   delete UserInfo_reflection_;
 }
 
+void protobuf_AddDesc_common_2eproto() GOOGLE_ATTRIBUTE_COLD;
 void protobuf_AddDesc_common_2eproto() {
   static bool already_here = false;
   if (already_here) return;
@@ -186,7 +190,7 @@ bool UserStatType_IsValid(int value) {
 
 // ===================================================================
 
-#ifndef _MSC_VER
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int UserInfo::kUserIdFieldNumber;
 const int UserInfo::kUserGenderFieldNumber;
 const int UserInfo::kUserNickNameFieldNumber;
@@ -200,69 +204,58 @@ const int UserInfo::kStatusFieldNumber;
 const int UserInfo::kSignInfoFieldNumber;
 const int UserInfo::kPasswdFieldNumber;
 const int UserInfo::kEnTypeFieldNumber;
-#endif  // !_MSC_VER
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 UserInfo::UserInfo()
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   SharedCtor();
+  // @@protoc_insertion_point(constructor:antalk.common.UserInfo)
 }
 
 void UserInfo::InitAsDefaultInstance() {
 }
 
 UserInfo::UserInfo(const UserInfo& from)
-  : ::google::protobuf::Message() {
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
   SharedCtor();
   MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:antalk.common.UserInfo)
 }
 
 void UserInfo::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   user_id_ = 0u;
   user_gender_ = 0u;
-  user_nick_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  avatar_url_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  user_nick_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  avatar_url_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   department_id_ = 0u;
-  email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  user_real_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  user_tel_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  user_domain_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  email_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_real_name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_tel_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_domain_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   status_ = 0u;
-  sign_info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  passwd_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  sign_info_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  passwd_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   en_type_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
 UserInfo::~UserInfo() {
+  // @@protoc_insertion_point(destructor:antalk.common.UserInfo)
   SharedDtor();
 }
 
 void UserInfo::SharedDtor() {
-  if (user_nick_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete user_nick_name_;
-  }
-  if (avatar_url_ != &::google::protobuf::internal::kEmptyString) {
-    delete avatar_url_;
-  }
-  if (email_ != &::google::protobuf::internal::kEmptyString) {
-    delete email_;
-  }
-  if (user_real_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete user_real_name_;
-  }
-  if (user_tel_ != &::google::protobuf::internal::kEmptyString) {
-    delete user_tel_;
-  }
-  if (user_domain_ != &::google::protobuf::internal::kEmptyString) {
-    delete user_domain_;
-  }
-  if (sign_info_ != &::google::protobuf::internal::kEmptyString) {
-    delete sign_info_;
-  }
-  if (passwd_ != &::google::protobuf::internal::kEmptyString) {
-    delete passwd_;
-  }
+  user_nick_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  avatar_url_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  email_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_real_name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_tel_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  user_domain_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  sign_info_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  passwd_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != default_instance_) {
   }
 }
@@ -284,80 +277,93 @@ const UserInfo& UserInfo::default_instance() {
 
 UserInfo* UserInfo::default_instance_ = NULL;
 
-UserInfo* UserInfo::New() const {
-  return new UserInfo;
+UserInfo* UserInfo::New(::google::protobuf::Arena* arena) const {
+  UserInfo* n = new UserInfo;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
 }
 
 void UserInfo::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    user_id_ = 0u;
-    user_gender_ = 0u;
+// @@protoc_insertion_point(message_clear_start:antalk.common.UserInfo)
+#if defined(__clang__)
+#define ZR_HELPER_(f) \
+  _Pragma("clang diagnostic push") \
+  _Pragma("clang diagnostic ignored \"-Winvalid-offsetof\"") \
+  __builtin_offsetof(UserInfo, f) \
+  _Pragma("clang diagnostic pop")
+#else
+#define ZR_HELPER_(f) reinterpret_cast<char*>(\
+  &reinterpret_cast<UserInfo*>(16)->f)
+#endif
+
+#define ZR_(first, last) do {\
+  ::memset(&(first), 0,\
+           ZR_HELPER_(last) - ZR_HELPER_(first) + sizeof(last));\
+} while (0)
+
+  if (_has_bits_[0 / 32] & 255u) {
+    ZR_(user_id_, user_gender_);
     if (has_user_nick_name()) {
-      if (user_nick_name_ != &::google::protobuf::internal::kEmptyString) {
-        user_nick_name_->clear();
-      }
+      user_nick_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_avatar_url()) {
-      if (avatar_url_ != &::google::protobuf::internal::kEmptyString) {
-        avatar_url_->clear();
-      }
+      avatar_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     department_id_ = 0u;
     if (has_email()) {
-      if (email_ != &::google::protobuf::internal::kEmptyString) {
-        email_->clear();
-      }
+      email_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_user_real_name()) {
-      if (user_real_name_ != &::google::protobuf::internal::kEmptyString) {
-        user_real_name_->clear();
-      }
+      user_real_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_user_tel()) {
-      if (user_tel_ != &::google::protobuf::internal::kEmptyString) {
-        user_tel_->clear();
-      }
+      user_tel_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
   }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+  if (_has_bits_[8 / 32] & 7936u) {
     if (has_user_domain()) {
-      if (user_domain_ != &::google::protobuf::internal::kEmptyString) {
-        user_domain_->clear();
-      }
+      user_domain_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     status_ = 0u;
     if (has_sign_info()) {
-      if (sign_info_ != &::google::protobuf::internal::kEmptyString) {
-        sign_info_->clear();
-      }
+      sign_info_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     if (has_passwd()) {
-      if (passwd_ != &::google::protobuf::internal::kEmptyString) {
-        passwd_->clear();
-      }
+      passwd_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
     }
     en_type_ = 0u;
   }
+
+#undef ZR_HELPER_
+#undef ZR_
+
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
+  if (_internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->Clear();
+  }
 }
 
 bool UserInfo::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
+  // @@protoc_insertion_point(parse_start:antalk.common.UserInfo)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
       // required uint32 user_id = 1;
       case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+        if (tag == 8) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &user_id_)));
           set_has_user_id();
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(16)) goto parse_user_gender;
         break;
@@ -365,15 +371,14 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // required uint32 user_gender = 2;
       case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+        if (tag == 16) {
          parse_user_gender:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &user_gender_)));
           set_has_user_gender();
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(26)) goto parse_user_nick_name;
         break;
@@ -381,16 +386,16 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // required string user_nick_name = 3;
       case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+        if (tag == 26) {
          parse_user_nick_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_user_nick_name()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->user_nick_name().data(), this->user_nick_name().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "antalk.common.UserInfo.user_nick_name");
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(34)) goto parse_avatar_url;
         break;
@@ -398,16 +403,16 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // required string avatar_url = 4;
       case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+        if (tag == 34) {
          parse_avatar_url:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_avatar_url()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->avatar_url().data(), this->avatar_url().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "antalk.common.UserInfo.avatar_url");
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(40)) goto parse_department_id;
         break;
@@ -415,15 +420,14 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // required uint32 department_id = 5;
       case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+        if (tag == 40) {
          parse_department_id:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &department_id_)));
           set_has_department_id();
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(50)) goto parse_email;
         break;
@@ -431,16 +435,16 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // required string email = 6;
       case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+        if (tag == 50) {
          parse_email:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_email()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->email().data(), this->email().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "antalk.common.UserInfo.email");
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(58)) goto parse_user_real_name;
         break;
@@ -448,16 +452,16 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // required string user_real_name = 7;
       case 7: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+        if (tag == 58) {
          parse_user_real_name:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_user_real_name()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->user_real_name().data(), this->user_real_name().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "antalk.common.UserInfo.user_real_name");
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(66)) goto parse_user_tel;
         break;
@@ -465,16 +469,16 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // required string user_tel = 8;
       case 8: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+        if (tag == 66) {
          parse_user_tel:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_user_tel()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->user_tel().data(), this->user_tel().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "antalk.common.UserInfo.user_tel");
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(74)) goto parse_user_domain;
         break;
@@ -482,16 +486,16 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // required string user_domain = 9;
       case 9: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+        if (tag == 74) {
          parse_user_domain:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_user_domain()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->user_domain().data(), this->user_domain().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "antalk.common.UserInfo.user_domain");
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(80)) goto parse_status;
         break;
@@ -499,15 +503,14 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // required uint32 status = 10;
       case 10: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+        if (tag == 80) {
          parse_status:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &status_)));
           set_has_status();
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(90)) goto parse_sign_info;
         break;
@@ -515,16 +518,16 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // optional string sign_info = 11;
       case 11: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+        if (tag == 90) {
          parse_sign_info:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_sign_info()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->sign_info().data(), this->sign_info().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "antalk.common.UserInfo.sign_info");
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(98)) goto parse_passwd;
         break;
@@ -532,16 +535,16 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // required string passwd = 12;
       case 12: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+        if (tag == 98) {
          parse_passwd:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_passwd()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
             this->passwd().data(), this->passwd().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "antalk.common.UserInfo.passwd");
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
         if (input->ExpectTag(104)) goto parse_en_type;
         break;
@@ -549,25 +552,25 @@ bool UserInfo::MergePartialFromCodedStream(
 
       // optional uint32 en_type = 13;
       case 13: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+        if (tag == 104) {
          parse_en_type:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &en_type_)));
           set_has_en_type();
         } else {
-          goto handle_uninterpreted;
+          goto handle_unusual;
         }
-        if (input->ExpectAtEnd()) return true;
+        if (input->ExpectAtEnd()) goto success;
         break;
       }
 
       default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
+          goto success;
         }
         DO_(::google::protobuf::internal::WireFormat::SkipField(
               input, tag, mutable_unknown_fields()));
@@ -575,12 +578,18 @@ bool UserInfo::MergePartialFromCodedStream(
       }
     }
   }
+success:
+  // @@protoc_insertion_point(parse_success:antalk.common.UserInfo)
   return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:antalk.common.UserInfo)
+  return false;
 #undef DO_
 }
 
 void UserInfo::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:antalk.common.UserInfo)
   // required uint32 user_id = 1;
   if (has_user_id()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->user_id(), output);
@@ -593,19 +602,21 @@ void UserInfo::SerializeWithCachedSizes(
 
   // required string user_nick_name = 3;
   if (has_user_nick_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->user_nick_name().data(), this->user_nick_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.user_nick_name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       3, this->user_nick_name(), output);
   }
 
   // required string avatar_url = 4;
   if (has_avatar_url()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->avatar_url().data(), this->avatar_url().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.avatar_url");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       4, this->avatar_url(), output);
   }
 
@@ -616,37 +627,41 @@ void UserInfo::SerializeWithCachedSizes(
 
   // required string email = 6;
   if (has_email()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->email().data(), this->email().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.email");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       6, this->email(), output);
   }
 
   // required string user_real_name = 7;
   if (has_user_real_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->user_real_name().data(), this->user_real_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.user_real_name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       7, this->user_real_name(), output);
   }
 
   // required string user_tel = 8;
   if (has_user_tel()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->user_tel().data(), this->user_tel().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.user_tel");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       8, this->user_tel(), output);
   }
 
   // required string user_domain = 9;
   if (has_user_domain()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->user_domain().data(), this->user_domain().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.user_domain");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       9, this->user_domain(), output);
   }
 
@@ -657,19 +672,21 @@ void UserInfo::SerializeWithCachedSizes(
 
   // optional string sign_info = 11;
   if (has_sign_info()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->sign_info().data(), this->sign_info().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.sign_info");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       11, this->sign_info(), output);
   }
 
   // required string passwd = 12;
   if (has_passwd()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->passwd().data(), this->passwd().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.passwd");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       12, this->passwd(), output);
   }
 
@@ -678,14 +695,17 @@ void UserInfo::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->en_type(), output);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
   }
+  // @@protoc_insertion_point(serialize_end:antalk.common.UserInfo)
 }
 
-::google::protobuf::uint8* UserInfo::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
+::google::protobuf::uint8* UserInfo::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:antalk.common.UserInfo)
   // required uint32 user_id = 1;
   if (has_user_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->user_id(), target);
@@ -698,9 +718,10 @@ void UserInfo::SerializeWithCachedSizes(
 
   // required string user_nick_name = 3;
   if (has_user_nick_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->user_nick_name().data(), this->user_nick_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.user_nick_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         3, this->user_nick_name(), target);
@@ -708,9 +729,10 @@ void UserInfo::SerializeWithCachedSizes(
 
   // required string avatar_url = 4;
   if (has_avatar_url()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->avatar_url().data(), this->avatar_url().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.avatar_url");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         4, this->avatar_url(), target);
@@ -723,9 +745,10 @@ void UserInfo::SerializeWithCachedSizes(
 
   // required string email = 6;
   if (has_email()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->email().data(), this->email().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.email");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         6, this->email(), target);
@@ -733,9 +756,10 @@ void UserInfo::SerializeWithCachedSizes(
 
   // required string user_real_name = 7;
   if (has_user_real_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->user_real_name().data(), this->user_real_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.user_real_name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         7, this->user_real_name(), target);
@@ -743,9 +767,10 @@ void UserInfo::SerializeWithCachedSizes(
 
   // required string user_tel = 8;
   if (has_user_tel()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->user_tel().data(), this->user_tel().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.user_tel");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         8, this->user_tel(), target);
@@ -753,9 +778,10 @@ void UserInfo::SerializeWithCachedSizes(
 
   // required string user_domain = 9;
   if (has_user_domain()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->user_domain().data(), this->user_domain().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.user_domain");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         9, this->user_domain(), target);
@@ -768,9 +794,10 @@ void UserInfo::SerializeWithCachedSizes(
 
   // optional string sign_info = 11;
   if (has_sign_info()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->sign_info().data(), this->sign_info().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.sign_info");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         11, this->sign_info(), target);
@@ -778,9 +805,10 @@ void UserInfo::SerializeWithCachedSizes(
 
   // required string passwd = 12;
   if (has_passwd()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->passwd().data(), this->passwd().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.common.UserInfo.passwd");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         12, this->passwd(), target);
@@ -791,101 +819,166 @@ void UserInfo::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->en_type(), target);
   }
 
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
   }
+  // @@protoc_insertion_point(serialize_to_array_end:antalk.common.UserInfo)
   return target;
 }
 
-int UserInfo::ByteSize() const {
+int UserInfo::RequiredFieldsByteSizeFallback() const {
+// @@protoc_insertion_point(required_fields_byte_size_fallback_start:antalk.common.UserInfo)
   int total_size = 0;
 
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+  if (has_user_id()) {
     // required uint32 user_id = 1;
-    if (has_user_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->user_id());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
+  }
+
+  if (has_user_gender()) {
+    // required uint32 user_gender = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_gender());
+  }
+
+  if (has_user_nick_name()) {
+    // required string user_nick_name = 3;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_nick_name());
+  }
+
+  if (has_avatar_url()) {
+    // required string avatar_url = 4;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->avatar_url());
+  }
+
+  if (has_department_id()) {
+    // required uint32 department_id = 5;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->department_id());
+  }
+
+  if (has_email()) {
+    // required string email = 6;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->email());
+  }
+
+  if (has_user_real_name()) {
+    // required string user_real_name = 7;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_real_name());
+  }
+
+  if (has_user_tel()) {
+    // required string user_tel = 8;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_tel());
+  }
+
+  if (has_user_domain()) {
+    // required string user_domain = 9;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_domain());
+  }
+
+  if (has_status()) {
+    // required uint32 status = 10;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->status());
+  }
+
+  if (has_passwd()) {
+    // required string passwd = 12;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->passwd());
+  }
+
+  return total_size;
+}
+int UserInfo::ByteSize() const {
+// @@protoc_insertion_point(message_byte_size_start:antalk.common.UserInfo)
+  int total_size = 0;
+
+  if (((_has_bits_[0] & 0x00000bff) ^ 0x00000bff) == 0) {  // All required fields are present.
+    // required uint32 user_id = 1;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_id());
 
     // required uint32 user_gender = 2;
-    if (has_user_gender()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->user_gender());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->user_gender());
 
     // required string user_nick_name = 3;
-    if (has_user_nick_name()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->user_nick_name());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_nick_name());
 
     // required string avatar_url = 4;
-    if (has_avatar_url()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->avatar_url());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->avatar_url());
 
     // required uint32 department_id = 5;
-    if (has_department_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->department_id());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->department_id());
 
     // required string email = 6;
-    if (has_email()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->email());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->email());
 
     // required string user_real_name = 7;
-    if (has_user_real_name()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->user_real_name());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_real_name());
 
     // required string user_tel = 8;
-    if (has_user_tel()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->user_tel());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_tel());
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     // required string user_domain = 9;
-    if (has_user_domain()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->user_domain());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->user_domain());
 
     // required uint32 status = 10;
-    if (has_status()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->status());
-    }
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::UInt32Size(
+        this->status());
 
+    // required string passwd = 12;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->passwd());
+
+  } else {
+    total_size += RequiredFieldsByteSizeFallback();
+  }
+  if (_has_bits_[10 / 32] & 5120u) {
     // optional string sign_info = 11;
     if (has_sign_info()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->sign_info());
-    }
-
-    // required string passwd = 12;
-    if (has_passwd()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->passwd());
     }
 
     // optional uint32 en_type = 13;
@@ -896,7 +989,7 @@ int UserInfo::ByteSize() const {
     }
 
   }
-  if (!unknown_fields().empty()) {
+  if (_internal_metadata_.have_unknown_fields()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         unknown_fields());
@@ -908,19 +1001,27 @@ int UserInfo::ByteSize() const {
 }
 
 void UserInfo::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const UserInfo* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const UserInfo*>(
-      &from);
+// @@protoc_insertion_point(generalized_merge_from_start:antalk.common.UserInfo)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
+  const UserInfo* source = 
+      ::google::protobuf::internal::DynamicCastToGenerated<const UserInfo>(
+          &from);
   if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:antalk.common.UserInfo)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:antalk.common.UserInfo)
     MergeFrom(*source);
   }
 }
 
 void UserInfo::MergeFrom(const UserInfo& from) {
-  GOOGLE_CHECK_NE(&from, this);
+// @@protoc_insertion_point(class_specific_merge_from_start:antalk.common.UserInfo)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) {
+    ::google::protobuf::internal::MergeFromFail(__FILE__, __LINE__);
+  }
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_user_id()) {
       set_user_id(from.user_id());
@@ -929,51 +1030,63 @@ void UserInfo::MergeFrom(const UserInfo& from) {
       set_user_gender(from.user_gender());
     }
     if (from.has_user_nick_name()) {
-      set_user_nick_name(from.user_nick_name());
+      set_has_user_nick_name();
+      user_nick_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_nick_name_);
     }
     if (from.has_avatar_url()) {
-      set_avatar_url(from.avatar_url());
+      set_has_avatar_url();
+      avatar_url_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.avatar_url_);
     }
     if (from.has_department_id()) {
       set_department_id(from.department_id());
     }
     if (from.has_email()) {
-      set_email(from.email());
+      set_has_email();
+      email_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.email_);
     }
     if (from.has_user_real_name()) {
-      set_user_real_name(from.user_real_name());
+      set_has_user_real_name();
+      user_real_name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_real_name_);
     }
     if (from.has_user_tel()) {
-      set_user_tel(from.user_tel());
+      set_has_user_tel();
+      user_tel_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_tel_);
     }
   }
   if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_user_domain()) {
-      set_user_domain(from.user_domain());
+      set_has_user_domain();
+      user_domain_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.user_domain_);
     }
     if (from.has_status()) {
       set_status(from.status());
     }
     if (from.has_sign_info()) {
-      set_sign_info(from.sign_info());
+      set_has_sign_info();
+      sign_info_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.sign_info_);
     }
     if (from.has_passwd()) {
-      set_passwd(from.passwd());
+      set_has_passwd();
+      passwd_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.passwd_);
     }
     if (from.has_en_type()) {
       set_en_type(from.en_type());
     }
   }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  if (from._internal_metadata_.have_unknown_fields()) {
+    mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+  }
 }
 
 void UserInfo::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:antalk.common.UserInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void UserInfo::CopyFrom(const UserInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:antalk.common.UserInfo)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -986,24 +1099,26 @@ bool UserInfo::IsInitialized() const {
 }
 
 void UserInfo::Swap(UserInfo* other) {
-  if (other != this) {
-    std::swap(user_id_, other->user_id_);
-    std::swap(user_gender_, other->user_gender_);
-    std::swap(user_nick_name_, other->user_nick_name_);
-    std::swap(avatar_url_, other->avatar_url_);
-    std::swap(department_id_, other->department_id_);
-    std::swap(email_, other->email_);
-    std::swap(user_real_name_, other->user_real_name_);
-    std::swap(user_tel_, other->user_tel_);
-    std::swap(user_domain_, other->user_domain_);
-    std::swap(status_, other->status_);
-    std::swap(sign_info_, other->sign_info_);
-    std::swap(passwd_, other->passwd_);
-    std::swap(en_type_, other->en_type_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
+  if (other == this) return;
+  InternalSwap(other);
+}
+void UserInfo::InternalSwap(UserInfo* other) {
+  std::swap(user_id_, other->user_id_);
+  std::swap(user_gender_, other->user_gender_);
+  user_nick_name_.Swap(&other->user_nick_name_);
+  avatar_url_.Swap(&other->avatar_url_);
+  std::swap(department_id_, other->department_id_);
+  email_.Swap(&other->email_);
+  user_real_name_.Swap(&other->user_real_name_);
+  user_tel_.Swap(&other->user_tel_);
+  user_domain_.Swap(&other->user_domain_);
+  std::swap(status_, other->status_);
+  sign_info_.Swap(&other->sign_info_);
+  passwd_.Swap(&other->passwd_);
+  std::swap(en_type_, other->en_type_);
+  std::swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
 }
 
 ::google::protobuf::Metadata UserInfo::GetMetadata() const {
@@ -1014,6 +1129,562 @@ void UserInfo::Swap(UserInfo* other) {
   return metadata;
 }
 
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// UserInfo
+
+// required uint32 user_id = 1;
+bool UserInfo::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+void UserInfo::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+void UserInfo::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+void UserInfo::clear_user_id() {
+  user_id_ = 0u;
+  clear_has_user_id();
+}
+ ::google::protobuf::uint32 UserInfo::user_id() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.user_id)
+  return user_id_;
+}
+ void UserInfo::set_user_id(::google::protobuf::uint32 value) {
+  set_has_user_id();
+  user_id_ = value;
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.user_id)
+}
+
+// required uint32 user_gender = 2;
+bool UserInfo::has_user_gender() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+void UserInfo::set_has_user_gender() {
+  _has_bits_[0] |= 0x00000002u;
+}
+void UserInfo::clear_has_user_gender() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+void UserInfo::clear_user_gender() {
+  user_gender_ = 0u;
+  clear_has_user_gender();
+}
+ ::google::protobuf::uint32 UserInfo::user_gender() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.user_gender)
+  return user_gender_;
+}
+ void UserInfo::set_user_gender(::google::protobuf::uint32 value) {
+  set_has_user_gender();
+  user_gender_ = value;
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.user_gender)
+}
+
+// required string user_nick_name = 3;
+bool UserInfo::has_user_nick_name() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+void UserInfo::set_has_user_nick_name() {
+  _has_bits_[0] |= 0x00000004u;
+}
+void UserInfo::clear_has_user_nick_name() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+void UserInfo::clear_user_nick_name() {
+  user_nick_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_nick_name();
+}
+ const ::std::string& UserInfo::user_nick_name() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.user_nick_name)
+  return user_nick_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_user_nick_name(const ::std::string& value) {
+  set_has_user_nick_name();
+  user_nick_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.user_nick_name)
+}
+ void UserInfo::set_user_nick_name(const char* value) {
+  set_has_user_nick_name();
+  user_nick_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.UserInfo.user_nick_name)
+}
+ void UserInfo::set_user_nick_name(const char* value, size_t size) {
+  set_has_user_nick_name();
+  user_nick_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.UserInfo.user_nick_name)
+}
+ ::std::string* UserInfo::mutable_user_nick_name() {
+  set_has_user_nick_name();
+  // @@protoc_insertion_point(field_mutable:antalk.common.UserInfo.user_nick_name)
+  return user_nick_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UserInfo::release_user_nick_name() {
+  // @@protoc_insertion_point(field_release:antalk.common.UserInfo.user_nick_name)
+  clear_has_user_nick_name();
+  return user_nick_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_allocated_user_nick_name(::std::string* user_nick_name) {
+  if (user_nick_name != NULL) {
+    set_has_user_nick_name();
+  } else {
+    clear_has_user_nick_name();
+  }
+  user_nick_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_nick_name);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.user_nick_name)
+}
+
+// required string avatar_url = 4;
+bool UserInfo::has_avatar_url() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+void UserInfo::set_has_avatar_url() {
+  _has_bits_[0] |= 0x00000008u;
+}
+void UserInfo::clear_has_avatar_url() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+void UserInfo::clear_avatar_url() {
+  avatar_url_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_avatar_url();
+}
+ const ::std::string& UserInfo::avatar_url() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.avatar_url)
+  return avatar_url_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_avatar_url(const ::std::string& value) {
+  set_has_avatar_url();
+  avatar_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.avatar_url)
+}
+ void UserInfo::set_avatar_url(const char* value) {
+  set_has_avatar_url();
+  avatar_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.UserInfo.avatar_url)
+}
+ void UserInfo::set_avatar_url(const char* value, size_t size) {
+  set_has_avatar_url();
+  avatar_url_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.UserInfo.avatar_url)
+}
+ ::std::string* UserInfo::mutable_avatar_url() {
+  set_has_avatar_url();
+  // @@protoc_insertion_point(field_mutable:antalk.common.UserInfo.avatar_url)
+  return avatar_url_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UserInfo::release_avatar_url() {
+  // @@protoc_insertion_point(field_release:antalk.common.UserInfo.avatar_url)
+  clear_has_avatar_url();
+  return avatar_url_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_allocated_avatar_url(::std::string* avatar_url) {
+  if (avatar_url != NULL) {
+    set_has_avatar_url();
+  } else {
+    clear_has_avatar_url();
+  }
+  avatar_url_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), avatar_url);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.avatar_url)
+}
+
+// required uint32 department_id = 5;
+bool UserInfo::has_department_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+void UserInfo::set_has_department_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+void UserInfo::clear_has_department_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+void UserInfo::clear_department_id() {
+  department_id_ = 0u;
+  clear_has_department_id();
+}
+ ::google::protobuf::uint32 UserInfo::department_id() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.department_id)
+  return department_id_;
+}
+ void UserInfo::set_department_id(::google::protobuf::uint32 value) {
+  set_has_department_id();
+  department_id_ = value;
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.department_id)
+}
+
+// required string email = 6;
+bool UserInfo::has_email() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+void UserInfo::set_has_email() {
+  _has_bits_[0] |= 0x00000020u;
+}
+void UserInfo::clear_has_email() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+void UserInfo::clear_email() {
+  email_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_email();
+}
+ const ::std::string& UserInfo::email() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.email)
+  return email_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_email(const ::std::string& value) {
+  set_has_email();
+  email_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.email)
+}
+ void UserInfo::set_email(const char* value) {
+  set_has_email();
+  email_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.UserInfo.email)
+}
+ void UserInfo::set_email(const char* value, size_t size) {
+  set_has_email();
+  email_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.UserInfo.email)
+}
+ ::std::string* UserInfo::mutable_email() {
+  set_has_email();
+  // @@protoc_insertion_point(field_mutable:antalk.common.UserInfo.email)
+  return email_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UserInfo::release_email() {
+  // @@protoc_insertion_point(field_release:antalk.common.UserInfo.email)
+  clear_has_email();
+  return email_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_allocated_email(::std::string* email) {
+  if (email != NULL) {
+    set_has_email();
+  } else {
+    clear_has_email();
+  }
+  email_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), email);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.email)
+}
+
+// required string user_real_name = 7;
+bool UserInfo::has_user_real_name() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+void UserInfo::set_has_user_real_name() {
+  _has_bits_[0] |= 0x00000040u;
+}
+void UserInfo::clear_has_user_real_name() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+void UserInfo::clear_user_real_name() {
+  user_real_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_real_name();
+}
+ const ::std::string& UserInfo::user_real_name() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.user_real_name)
+  return user_real_name_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_user_real_name(const ::std::string& value) {
+  set_has_user_real_name();
+  user_real_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.user_real_name)
+}
+ void UserInfo::set_user_real_name(const char* value) {
+  set_has_user_real_name();
+  user_real_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.UserInfo.user_real_name)
+}
+ void UserInfo::set_user_real_name(const char* value, size_t size) {
+  set_has_user_real_name();
+  user_real_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.UserInfo.user_real_name)
+}
+ ::std::string* UserInfo::mutable_user_real_name() {
+  set_has_user_real_name();
+  // @@protoc_insertion_point(field_mutable:antalk.common.UserInfo.user_real_name)
+  return user_real_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UserInfo::release_user_real_name() {
+  // @@protoc_insertion_point(field_release:antalk.common.UserInfo.user_real_name)
+  clear_has_user_real_name();
+  return user_real_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_allocated_user_real_name(::std::string* user_real_name) {
+  if (user_real_name != NULL) {
+    set_has_user_real_name();
+  } else {
+    clear_has_user_real_name();
+  }
+  user_real_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_real_name);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.user_real_name)
+}
+
+// required string user_tel = 8;
+bool UserInfo::has_user_tel() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+void UserInfo::set_has_user_tel() {
+  _has_bits_[0] |= 0x00000080u;
+}
+void UserInfo::clear_has_user_tel() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+void UserInfo::clear_user_tel() {
+  user_tel_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_tel();
+}
+ const ::std::string& UserInfo::user_tel() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.user_tel)
+  return user_tel_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_user_tel(const ::std::string& value) {
+  set_has_user_tel();
+  user_tel_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.user_tel)
+}
+ void UserInfo::set_user_tel(const char* value) {
+  set_has_user_tel();
+  user_tel_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.UserInfo.user_tel)
+}
+ void UserInfo::set_user_tel(const char* value, size_t size) {
+  set_has_user_tel();
+  user_tel_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.UserInfo.user_tel)
+}
+ ::std::string* UserInfo::mutable_user_tel() {
+  set_has_user_tel();
+  // @@protoc_insertion_point(field_mutable:antalk.common.UserInfo.user_tel)
+  return user_tel_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UserInfo::release_user_tel() {
+  // @@protoc_insertion_point(field_release:antalk.common.UserInfo.user_tel)
+  clear_has_user_tel();
+  return user_tel_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_allocated_user_tel(::std::string* user_tel) {
+  if (user_tel != NULL) {
+    set_has_user_tel();
+  } else {
+    clear_has_user_tel();
+  }
+  user_tel_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_tel);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.user_tel)
+}
+
+// required string user_domain = 9;
+bool UserInfo::has_user_domain() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+void UserInfo::set_has_user_domain() {
+  _has_bits_[0] |= 0x00000100u;
+}
+void UserInfo::clear_has_user_domain() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+void UserInfo::clear_user_domain() {
+  user_domain_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_domain();
+}
+ const ::std::string& UserInfo::user_domain() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.user_domain)
+  return user_domain_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_user_domain(const ::std::string& value) {
+  set_has_user_domain();
+  user_domain_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.user_domain)
+}
+ void UserInfo::set_user_domain(const char* value) {
+  set_has_user_domain();
+  user_domain_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.UserInfo.user_domain)
+}
+ void UserInfo::set_user_domain(const char* value, size_t size) {
+  set_has_user_domain();
+  user_domain_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.UserInfo.user_domain)
+}
+ ::std::string* UserInfo::mutable_user_domain() {
+  set_has_user_domain();
+  // @@protoc_insertion_point(field_mutable:antalk.common.UserInfo.user_domain)
+  return user_domain_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UserInfo::release_user_domain() {
+  // @@protoc_insertion_point(field_release:antalk.common.UserInfo.user_domain)
+  clear_has_user_domain();
+  return user_domain_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_allocated_user_domain(::std::string* user_domain) {
+  if (user_domain != NULL) {
+    set_has_user_domain();
+  } else {
+    clear_has_user_domain();
+  }
+  user_domain_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_domain);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.user_domain)
+}
+
+// required uint32 status = 10;
+bool UserInfo::has_status() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+void UserInfo::set_has_status() {
+  _has_bits_[0] |= 0x00000200u;
+}
+void UserInfo::clear_has_status() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+void UserInfo::clear_status() {
+  status_ = 0u;
+  clear_has_status();
+}
+ ::google::protobuf::uint32 UserInfo::status() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.status)
+  return status_;
+}
+ void UserInfo::set_status(::google::protobuf::uint32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.status)
+}
+
+// optional string sign_info = 11;
+bool UserInfo::has_sign_info() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+void UserInfo::set_has_sign_info() {
+  _has_bits_[0] |= 0x00000400u;
+}
+void UserInfo::clear_has_sign_info() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+void UserInfo::clear_sign_info() {
+  sign_info_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_sign_info();
+}
+ const ::std::string& UserInfo::sign_info() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.sign_info)
+  return sign_info_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_sign_info(const ::std::string& value) {
+  set_has_sign_info();
+  sign_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.sign_info)
+}
+ void UserInfo::set_sign_info(const char* value) {
+  set_has_sign_info();
+  sign_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.UserInfo.sign_info)
+}
+ void UserInfo::set_sign_info(const char* value, size_t size) {
+  set_has_sign_info();
+  sign_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.UserInfo.sign_info)
+}
+ ::std::string* UserInfo::mutable_sign_info() {
+  set_has_sign_info();
+  // @@protoc_insertion_point(field_mutable:antalk.common.UserInfo.sign_info)
+  return sign_info_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UserInfo::release_sign_info() {
+  // @@protoc_insertion_point(field_release:antalk.common.UserInfo.sign_info)
+  clear_has_sign_info();
+  return sign_info_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_allocated_sign_info(::std::string* sign_info) {
+  if (sign_info != NULL) {
+    set_has_sign_info();
+  } else {
+    clear_has_sign_info();
+  }
+  sign_info_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), sign_info);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.sign_info)
+}
+
+// required string passwd = 12;
+bool UserInfo::has_passwd() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+void UserInfo::set_has_passwd() {
+  _has_bits_[0] |= 0x00000800u;
+}
+void UserInfo::clear_has_passwd() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+void UserInfo::clear_passwd() {
+  passwd_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_passwd();
+}
+ const ::std::string& UserInfo::passwd() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.passwd)
+  return passwd_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_passwd(const ::std::string& value) {
+  set_has_passwd();
+  passwd_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.passwd)
+}
+ void UserInfo::set_passwd(const char* value) {
+  set_has_passwd();
+  passwd_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.UserInfo.passwd)
+}
+ void UserInfo::set_passwd(const char* value, size_t size) {
+  set_has_passwd();
+  passwd_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.UserInfo.passwd)
+}
+ ::std::string* UserInfo::mutable_passwd() {
+  set_has_passwd();
+  // @@protoc_insertion_point(field_mutable:antalk.common.UserInfo.passwd)
+  return passwd_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ ::std::string* UserInfo::release_passwd() {
+  // @@protoc_insertion_point(field_release:antalk.common.UserInfo.passwd)
+  clear_has_passwd();
+  return passwd_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+ void UserInfo::set_allocated_passwd(::std::string* passwd) {
+  if (passwd != NULL) {
+    set_has_passwd();
+  } else {
+    clear_has_passwd();
+  }
+  passwd_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), passwd);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.passwd)
+}
+
+// optional uint32 en_type = 13;
+bool UserInfo::has_en_type() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+void UserInfo::set_has_en_type() {
+  _has_bits_[0] |= 0x00001000u;
+}
+void UserInfo::clear_has_en_type() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+void UserInfo::clear_en_type() {
+  en_type_ = 0u;
+  clear_has_en_type();
+}
+ ::google::protobuf::uint32 UserInfo::en_type() const {
+  // @@protoc_insertion_point(field_get:antalk.common.UserInfo.en_type)
+  return en_type_;
+}
+ void UserInfo::set_en_type(::google::protobuf::uint32 value) {
+  set_has_en_type();
+  en_type_ = value;
+  // @@protoc_insertion_point(field_set:antalk.common.UserInfo.en_type)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)
 

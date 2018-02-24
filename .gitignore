@@ -36,3 +36,5 @@ lib/*
 bin/*
 
 tags
+*.pb.cc
+*.pb.h
