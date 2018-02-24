@@ -28,10 +28,20 @@ CacheManager::CacheManager() {}
 
 CacheManager::~CacheManager() {}
 
+bool CacheManager::Init() {
+    brpc::ChannelOptions options;
+    options.protocol = brpc::PROTOCOL_REDIS;
+	if (channel_.Init(ServerConfig::Instance().GetRedisServer().c_str(), &options) != 0) {
+        LOG(ERROR) << "Fail to initialize channel";
+        return -1;
+    
+	}    
+}
+
 bool CacheManager::GetUserinfo(const std::string& saas_id,
-		                       const std::string& user_id,
-							   antalk::common::UserInfo& user_info) {
-	return true;
+		               const std::string& user_id,
+                               antalk::common::UserInfo& user_info) {
+    return true;
 }
 
 }

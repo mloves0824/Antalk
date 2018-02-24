@@ -32,7 +32,7 @@ DEFINE_int32(logoff_ms, 2000, "Maximum duration of server's LOGOFF state "
 
 int main(int argc, char* argv[]) {
 	// Parse gflags. We recommend you to use gflags as well.
-	google::ParseCommandLineFlags(&argc, &argv, true);
+	gflags::ParseCommandLineFlags(&argc, &argv, true);
 
 	// Generally you only need one Server.
 	brpc::Server server;

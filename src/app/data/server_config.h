@@ -13,38 +13,21 @@
 // limitations under the License.
 
 // Author: chenbang@antalk.com
-#ifndef SRC_APP_DATA_CACHE_MANAGER_H_
-#define SRC_APP_DATA_CACHE_MANAGER_H_
 
 #include <string>
-#include <brpc/channel.h>
-#include <brpc/redis.h>
-#include "common.pb.h"
-#include "server_config.h"
 
 namespace antalk {
 namespace data {
 
-#define KEY_USERINFO	"antalk:userinfo:ssid:%s:userid:%s"
-
-
-class CacheManager {
+class ServerConfig {
 public:
-	static CacheManager& Instance();
-    bool Init(); 
-	bool GetUserinfo(const std::string& saas_id, const std::string& user_id, antalk::common::UserInfo& user_info);
-
-private:
-	CacheManager();
-	~CacheManager();
-
-private:
-    brpc::Channel channel_;
+    static ServerConfig& Instance();
+    std::string& GetRedisServer();	
+    std::string& GetDbServer();
 };
 
+
+
 }
 }
 
-
-
-#endif /* SRC_APP_DATA_CACHE_MANAGER_H_ */

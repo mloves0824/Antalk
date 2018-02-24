@@ -34,3 +34,5 @@ ops/output/*
 pkg/output/*
 lib/*
 bin/*
+
+tags
