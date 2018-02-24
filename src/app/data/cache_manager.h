@@ -37,6 +37,7 @@ public:
 private:
 	CacheManager();
 	~CacheManager();
+	bool AccessRedis(brpc::Channel& channel, const std::string& command);
 
 private:
     brpc::Channel channel_;
