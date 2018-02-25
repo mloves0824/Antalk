@@ -53,7 +53,7 @@ bool CacheManager::AccessRedis(brpc::Channel& channel, const std::string& comman
         return false;
 	}
 
-
+	//response.reply()
 
 	return true;
 }
@@ -61,6 +61,7 @@ bool CacheManager::AccessRedis(brpc::Channel& channel, const std::string& comman
 bool CacheManager::GetUserinfo(const std::string& saas_id,
 		                       const std::string& user_id,
                                antalk::common::UserInfo& user_info) {
+	std::string command = "";
     return true;
 }
 
