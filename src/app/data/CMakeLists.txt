@@ -11,7 +11,7 @@ ELSE(WIN32)
 		SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../../../pkg/output/debug/debug_linux_x64/app)
 		SET(PROJECT_LIBS_PLATFORM
 			protobuf
-			${PROJECT_SOURCE_DIR}/../../../third/brpc/lib/libbrpc.so
+			${PROJECT_SOURCE_DIR}/../../../third/mbrpc/lib/libbrpc.so
 			${PROJECT_SOURCE_DIR}/../../../third/leveldb/lib/libleveldb.so
 			proto
 			gflags
@@ -43,7 +43,7 @@ ELSE(WIN32)
 	INCLUDE_DIRECTORIES(
 		${PROJECT_SOURCE_DIR}/
 		${PROJECT_SOURCE_DIR}/../common/proto
-		${PROJECT_SOURCE_DIR}/../../../third/brpc/include
+		${PROJECT_SOURCE_DIR}/../../../third/mbrpc/include
 		${PROJECT_SOURCE_DIR}/../../../third/gflags/include
 	)
 

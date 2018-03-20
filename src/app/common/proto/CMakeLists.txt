@@ -13,7 +13,7 @@ ELSE(WIN32)
 		SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../../../../ops/output/debug/debug_linux_x64/dep)
 		SET(PROJECT_LIBS_PLATFORM
 			protobuf
-			brpc
+			${PROJECT_SOURCE_DIR}/../../../../third/mbrpc/lib/libbrpc.so
 			gflags
 			pthread
 			dl
@@ -43,7 +43,7 @@ ELSE(WIN32)
 	INCLUDE_DIRECTORIES(
 		${PROJECT_SOURCE_DIR}/
 		${PROJECT_SOURCE_DIR}/../common/proto
-		${PROJECT_SOURCE_DIR}/../../dep/third/brpc/include
+		${PROJECT_SOURCE_DIR}/../../../../third/mbrpc/include
 	)
 
 	LINK_DIRECTORIES(${PROJECT_LIB_DIR})
