@@ -2,7 +2,7 @@ PROTOC = protoc
 PROTOC_EXTRA_ARGS = 
 
 .PHONY:all
-all: common.pb.cc  user.pb.cc data.pb.cc 
+all: common.pb.cc  user.pb.cc data.pb.cc apigw.pb.cc 
 
 .PHONY:clean
 clean:

@@ -36,6 +36,6 @@ lib/*
 bin/*
 
 tags
-*.pb.cc
-*.pb.h
+#*.pb.cc
+#*.pb.h
 nohup.out
