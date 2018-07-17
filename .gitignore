@@ -36,6 +36,7 @@ lib/*
 bin/*
 
 tags
-#*.pb.cc
-#*.pb.h
+*.pb.*
+*.pb.h
 nohup.out
+third/proto3
