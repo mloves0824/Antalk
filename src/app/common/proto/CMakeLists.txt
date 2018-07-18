@@ -8,12 +8,13 @@ IF (WIN32)
 ELSE(WIN32)
 	IF (CMAKE_BUILD_TYPE MATCHES DEBUG)
 		ADD_DEFINITIONS(-DDEBUG)
-		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -fshort-wchar")
+		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -fshort-wchar -fPIC")
 		SET(PROJECT_LIB_DIR ${PROJECT_SOURCE_DIR}/../../../../ops/output/debug/debug_linux_x64/dep)
 		SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../../../../ops/output/debug/debug_linux_x64/dep)
 		SET(PROJECT_LIBS_PLATFORM
-			protobuf
-			${PROJECT_SOURCE_DIR}/../../../../third/mbrpc/lib/libbrpc.so
+			#protobuf
+			/usr/lib/libprotobuf.so
+			#${PROJECT_SOURCE_DIR}/../../../../third/mbrpc/lib/libbrpc.so
 			gflags
 			pthread
 			dl
@@ -43,15 +44,15 @@ ELSE(WIN32)
 	INCLUDE_DIRECTORIES(
 		${PROJECT_SOURCE_DIR}/
 		${PROJECT_SOURCE_DIR}/../common/proto
+		/usr/include
 		#${PROJECT_SOURCE_DIR}/../../../../third/mbrpc/include
-		${PROJECT_SOURCE_DIR}/../../../../third/proto3/include
+		#${PROJECT_SOURCE_DIR}/../../../../third/proto3/include
 	)
 
 	LINK_DIRECTORIES(${PROJECT_LIB_DIR})
 
-	ADD_LIBRARY(${PROJECT_OUTNAME} ${PROJECT_SRCS})
+	ADD_LIBRARY(${PROJECT_OUTNAME} SHARED ${PROJECT_SRCS})
 	TARGET_LINK_LIBRARIES(${PROJECT_OUTNAME} ${PROJECT_LIBS_PLATFORM})
-	#ADD_DEPENDENCIES(${PROJECT_OUTNAME}    )
 ENDIF (WIN32)
 
 MESSAGE(STATUS "${PROJECT_OUTNAME} is BINARY dir:" ${PROJECT_BINARY_DIR})
