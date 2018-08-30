@@ -38,7 +38,7 @@ namespace protobuf_apigw_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[2];
+  static const ::google::protobuf::internal::ParseTable schema[8];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -46,11 +46,29 @@ struct TableStruct {
 void AddDescriptors();
 void InitDefaultsLoginReqImpl();
 void InitDefaultsLoginReq();
-void InitDefaultsLoginResImpl();
-void InitDefaultsLoginRes();
+void InitDefaultsLoginRespImpl();
+void InitDefaultsLoginResp();
+void InitDefaultsLogoutReqImpl();
+void InitDefaultsLogoutReq();
+void InitDefaultsLogoutRespImpl();
+void InitDefaultsLogoutResp();
+void InitDefaultsRegisterNoityReqImpl();
+void InitDefaultsRegisterNoityReq();
+void InitDefaultsNotifyImpl();
+void InitDefaultsNotify();
+void InitDefaultsServerKickoutNotifyReqImpl();
+void InitDefaultsServerKickoutNotifyReq();
+void InitDefaultsServerKickoutNotifyRespImpl();
+void InitDefaultsServerKickoutNotifyResp();
 inline void InitDefaults() {
   InitDefaultsLoginReq();
-  InitDefaultsLoginRes();
+  InitDefaultsLoginResp();
+  InitDefaultsLogoutReq();
+  InitDefaultsLogoutResp();
+  InitDefaultsRegisterNoityReq();
+  InitDefaultsNotify();
+  InitDefaultsServerKickoutNotifyReq();
+  InitDefaultsServerKickoutNotifyResp();
 }
 }  // namespace protobuf_apigw_2eproto
 namespace antalk {
@@ -58,9 +76,27 @@ namespace apigw {
 class LoginReq;
 class LoginReqDefaultTypeInternal;
 extern LoginReqDefaultTypeInternal _LoginReq_default_instance_;
-class LoginRes;
-class LoginResDefaultTypeInternal;
-extern LoginResDefaultTypeInternal _LoginRes_default_instance_;
+class LoginResp;
+class LoginRespDefaultTypeInternal;
+extern LoginRespDefaultTypeInternal _LoginResp_default_instance_;
+class LogoutReq;
+class LogoutReqDefaultTypeInternal;
+extern LogoutReqDefaultTypeInternal _LogoutReq_default_instance_;
+class LogoutResp;
+class LogoutRespDefaultTypeInternal;
+extern LogoutRespDefaultTypeInternal _LogoutResp_default_instance_;
+class Notify;
+class NotifyDefaultTypeInternal;
+extern NotifyDefaultTypeInternal _Notify_default_instance_;
+class RegisterNoityReq;
+class RegisterNoityReqDefaultTypeInternal;
+extern RegisterNoityReqDefaultTypeInternal _RegisterNoityReq_default_instance_;
+class ServerKickoutNotifyReq;
+class ServerKickoutNotifyReqDefaultTypeInternal;
+extern ServerKickoutNotifyReqDefaultTypeInternal _ServerKickoutNotifyReq_default_instance_;
+class ServerKickoutNotifyResp;
+class ServerKickoutNotifyRespDefaultTypeInternal;
+extern ServerKickoutNotifyRespDefaultTypeInternal _ServerKickoutNotifyResp_default_instance_;
 }  // namespace apigw
 }  // namespace antalk
 namespace antalk {
@@ -245,24 +281,24 @@ class LoginReq : public ::google::protobuf::Message /* @@protoc_insertion_point(
 };
 // -------------------------------------------------------------------
 
-class LoginRes : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.LoginRes) */ {
+class LoginResp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.LoginResp) */ {
  public:
-  LoginRes();
-  virtual ~LoginRes();
+  LoginResp();
+  virtual ~LoginResp();
 
-  LoginRes(const LoginRes& from);
+  LoginResp(const LoginResp& from);
 
-  inline LoginRes& operator=(const LoginRes& from) {
+  inline LoginResp& operator=(const LoginResp& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  LoginRes(LoginRes&& from) noexcept
-    : LoginRes() {
+  LoginResp(LoginResp&& from) noexcept
+    : LoginResp() {
     *this = ::std::move(from);
   }
 
-  inline LoginRes& operator=(LoginRes&& from) noexcept {
+  inline LoginResp& operator=(LoginResp&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -279,30 +315,30 @@ class LoginRes : public ::google::protobuf::Message /* @@protoc_insertion_point(
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const LoginRes& default_instance();
+  static const LoginResp& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const LoginRes* internal_default_instance() {
-    return reinterpret_cast<const LoginRes*>(
-               &_LoginRes_default_instance_);
+  static inline const LoginResp* internal_default_instance() {
+    return reinterpret_cast<const LoginResp*>(
+               &_LoginResp_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
     1;
 
-  void Swap(LoginRes* other);
-  friend void swap(LoginRes& a, LoginRes& b) {
+  void Swap(LoginResp* other);
+  friend void swap(LoginResp& a, LoginResp& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline LoginRes* New() const PROTOBUF_FINAL { return New(NULL); }
+  inline LoginResp* New() const PROTOBUF_FINAL { return New(NULL); }
 
-  LoginRes* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  LoginResp* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
   void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
   void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
-  void CopyFrom(const LoginRes& from);
-  void MergeFrom(const LoginRes& from);
+  void CopyFrom(const LoginResp& from);
+  void MergeFrom(const LoginResp& from);
   void Clear() PROTOBUF_FINAL;
   bool IsInitialized() const PROTOBUF_FINAL;
 
@@ -318,7 +354,7 @@ class LoginRes : public ::google::protobuf::Message /* @@protoc_insertion_point(
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const PROTOBUF_FINAL;
-  void InternalSwap(LoginRes* other);
+  void InternalSwap(LoginResp* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -379,7 +415,7 @@ class LoginRes : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::antalk::common::UserStatType online_status() const;
   void set_online_status(::antalk::common::UserStatType value);
 
-  // @@protoc_insertion_point(class_scope:antalk.apigw.LoginRes)
+  // @@protoc_insertion_point(class_scope:antalk.apigw.LoginResp)
  private:
   void set_has_server_time();
   void clear_has_server_time();
@@ -404,7 +440,699 @@ class LoginRes : public ::google::protobuf::Message /* @@protoc_insertion_point(
   int result_code_;
   int online_status_;
   friend struct ::protobuf_apigw_2eproto::TableStruct;
-  friend void ::protobuf_apigw_2eproto::InitDefaultsLoginResImpl();
+  friend void ::protobuf_apigw_2eproto::InitDefaultsLoginRespImpl();
+};
+// -------------------------------------------------------------------
+
+class LogoutReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.LogoutReq) */ {
+ public:
+  LogoutReq();
+  virtual ~LogoutReq();
+
+  LogoutReq(const LogoutReq& from);
+
+  inline LogoutReq& operator=(const LogoutReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  LogoutReq(LogoutReq&& from) noexcept
+    : LogoutReq() {
+    *this = ::std::move(from);
+  }
+
+  inline LogoutReq& operator=(LogoutReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LogoutReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const LogoutReq* internal_default_instance() {
+    return reinterpret_cast<const LogoutReq*>(
+               &_LogoutReq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    2;
+
+  void Swap(LogoutReq* other);
+  friend void swap(LogoutReq& a, LogoutReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LogoutReq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  LogoutReq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const LogoutReq& from);
+  void MergeFrom(const LogoutReq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(LogoutReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string uid = 1;
+  bool has_uid() const;
+  void clear_uid();
+  static const int kUidFieldNumber = 1;
+  const ::std::string& uid() const;
+  void set_uid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_uid(::std::string&& value);
+  #endif
+  void set_uid(const char* value);
+  void set_uid(const char* value, size_t size);
+  ::std::string* mutable_uid();
+  ::std::string* release_uid();
+  void set_allocated_uid(::std::string* uid);
+
+  // optional int64 time_stamp = 2;
+  bool has_time_stamp() const;
+  void clear_time_stamp();
+  static const int kTimeStampFieldNumber = 2;
+  ::google::protobuf::int64 time_stamp() const;
+  void set_time_stamp(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:antalk.apigw.LogoutReq)
+ private:
+  void set_has_uid();
+  void clear_has_uid();
+  void set_has_time_stamp();
+  void clear_has_time_stamp();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr uid_;
+  ::google::protobuf::int64 time_stamp_;
+  friend struct ::protobuf_apigw_2eproto::TableStruct;
+  friend void ::protobuf_apigw_2eproto::InitDefaultsLogoutReqImpl();
+};
+// -------------------------------------------------------------------
+
+class LogoutResp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.LogoutResp) */ {
+ public:
+  LogoutResp();
+  virtual ~LogoutResp();
+
+  LogoutResp(const LogoutResp& from);
+
+  inline LogoutResp& operator=(const LogoutResp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  LogoutResp(LogoutResp&& from) noexcept
+    : LogoutResp() {
+    *this = ::std::move(from);
+  }
+
+  inline LogoutResp& operator=(LogoutResp&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LogoutResp& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const LogoutResp* internal_default_instance() {
+    return reinterpret_cast<const LogoutResp*>(
+               &_LogoutResp_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    3;
+
+  void Swap(LogoutResp* other);
+  friend void swap(LogoutResp& a, LogoutResp& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline LogoutResp* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  LogoutResp* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const LogoutResp& from);
+  void MergeFrom(const LogoutResp& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(LogoutResp* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:antalk.apigw.LogoutResp)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_apigw_2eproto::TableStruct;
+  friend void ::protobuf_apigw_2eproto::InitDefaultsLogoutRespImpl();
+};
+// -------------------------------------------------------------------
+
+class RegisterNoityReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.RegisterNoityReq) */ {
+ public:
+  RegisterNoityReq();
+  virtual ~RegisterNoityReq();
+
+  RegisterNoityReq(const RegisterNoityReq& from);
+
+  inline RegisterNoityReq& operator=(const RegisterNoityReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  RegisterNoityReq(RegisterNoityReq&& from) noexcept
+    : RegisterNoityReq() {
+    *this = ::std::move(from);
+  }
+
+  inline RegisterNoityReq& operator=(RegisterNoityReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RegisterNoityReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const RegisterNoityReq* internal_default_instance() {
+    return reinterpret_cast<const RegisterNoityReq*>(
+               &_RegisterNoityReq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    4;
+
+  void Swap(RegisterNoityReq* other);
+  friend void swap(RegisterNoityReq& a, RegisterNoityReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RegisterNoityReq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  RegisterNoityReq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const RegisterNoityReq& from);
+  void MergeFrom(const RegisterNoityReq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(RegisterNoityReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string uid = 1;
+  bool has_uid() const;
+  void clear_uid();
+  static const int kUidFieldNumber = 1;
+  const ::std::string& uid() const;
+  void set_uid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_uid(::std::string&& value);
+  #endif
+  void set_uid(const char* value);
+  void set_uid(const char* value, size_t size);
+  ::std::string* mutable_uid();
+  ::std::string* release_uid();
+  void set_allocated_uid(::std::string* uid);
+
+  // @@protoc_insertion_point(class_scope:antalk.apigw.RegisterNoityReq)
+ private:
+  void set_has_uid();
+  void clear_has_uid();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr uid_;
+  friend struct ::protobuf_apigw_2eproto::TableStruct;
+  friend void ::protobuf_apigw_2eproto::InitDefaultsRegisterNoityReqImpl();
+};
+// -------------------------------------------------------------------
+
+class Notify : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.Notify) */ {
+ public:
+  Notify();
+  virtual ~Notify();
+
+  Notify(const Notify& from);
+
+  inline Notify& operator=(const Notify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Notify(Notify&& from) noexcept
+    : Notify() {
+    *this = ::std::move(from);
+  }
+
+  inline Notify& operator=(Notify&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Notify& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Notify* internal_default_instance() {
+    return reinterpret_cast<const Notify*>(
+               &_Notify_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    5;
+
+  void Swap(Notify* other);
+  friend void swap(Notify& a, Notify& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Notify* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Notify* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Notify& from);
+  void MergeFrom(const Notify& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Notify* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string body = 1;
+  bool has_body() const;
+  void clear_body();
+  static const int kBodyFieldNumber = 1;
+  const ::std::string& body() const;
+  void set_body(const ::std::string& value);
+  #if LANG_CXX11
+  void set_body(::std::string&& value);
+  #endif
+  void set_body(const char* value);
+  void set_body(const char* value, size_t size);
+  ::std::string* mutable_body();
+  ::std::string* release_body();
+  void set_allocated_body(::std::string* body);
+
+  // @@protoc_insertion_point(class_scope:antalk.apigw.Notify)
+ private:
+  void set_has_body();
+  void clear_has_body();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr body_;
+  friend struct ::protobuf_apigw_2eproto::TableStruct;
+  friend void ::protobuf_apigw_2eproto::InitDefaultsNotifyImpl();
+};
+// -------------------------------------------------------------------
+
+class ServerKickoutNotifyReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.ServerKickoutNotifyReq) */ {
+ public:
+  ServerKickoutNotifyReq();
+  virtual ~ServerKickoutNotifyReq();
+
+  ServerKickoutNotifyReq(const ServerKickoutNotifyReq& from);
+
+  inline ServerKickoutNotifyReq& operator=(const ServerKickoutNotifyReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ServerKickoutNotifyReq(ServerKickoutNotifyReq&& from) noexcept
+    : ServerKickoutNotifyReq() {
+    *this = ::std::move(from);
+  }
+
+  inline ServerKickoutNotifyReq& operator=(ServerKickoutNotifyReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ServerKickoutNotifyReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ServerKickoutNotifyReq* internal_default_instance() {
+    return reinterpret_cast<const ServerKickoutNotifyReq*>(
+               &_ServerKickoutNotifyReq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    6;
+
+  void Swap(ServerKickoutNotifyReq* other);
+  friend void swap(ServerKickoutNotifyReq& a, ServerKickoutNotifyReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ServerKickoutNotifyReq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  ServerKickoutNotifyReq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const ServerKickoutNotifyReq& from);
+  void MergeFrom(const ServerKickoutNotifyReq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(ServerKickoutNotifyReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string uid = 1;
+  bool has_uid() const;
+  void clear_uid();
+  static const int kUidFieldNumber = 1;
+  const ::std::string& uid() const;
+  void set_uid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_uid(::std::string&& value);
+  #endif
+  void set_uid(const char* value);
+  void set_uid(const char* value, size_t size);
+  ::std::string* mutable_uid();
+  ::std::string* release_uid();
+  void set_allocated_uid(::std::string* uid);
+
+  // optional .antalk.common.KickoutReason reason = 2;
+  bool has_reason() const;
+  void clear_reason();
+  static const int kReasonFieldNumber = 2;
+  ::antalk::common::KickoutReason reason() const;
+  void set_reason(::antalk::common::KickoutReason value);
+
+  // @@protoc_insertion_point(class_scope:antalk.apigw.ServerKickoutNotifyReq)
+ private:
+  void set_has_uid();
+  void clear_has_uid();
+  void set_has_reason();
+  void clear_has_reason();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr uid_;
+  int reason_;
+  friend struct ::protobuf_apigw_2eproto::TableStruct;
+  friend void ::protobuf_apigw_2eproto::InitDefaultsServerKickoutNotifyReqImpl();
+};
+// -------------------------------------------------------------------
+
+class ServerKickoutNotifyResp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.ServerKickoutNotifyResp) */ {
+ public:
+  ServerKickoutNotifyResp();
+  virtual ~ServerKickoutNotifyResp();
+
+  ServerKickoutNotifyResp(const ServerKickoutNotifyResp& from);
+
+  inline ServerKickoutNotifyResp& operator=(const ServerKickoutNotifyResp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  ServerKickoutNotifyResp(ServerKickoutNotifyResp&& from) noexcept
+    : ServerKickoutNotifyResp() {
+    *this = ::std::move(from);
+  }
+
+  inline ServerKickoutNotifyResp& operator=(ServerKickoutNotifyResp&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ServerKickoutNotifyResp& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ServerKickoutNotifyResp* internal_default_instance() {
+    return reinterpret_cast<const ServerKickoutNotifyResp*>(
+               &_ServerKickoutNotifyResp_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    7;
+
+  void Swap(ServerKickoutNotifyResp* other);
+  friend void swap(ServerKickoutNotifyResp& a, ServerKickoutNotifyResp& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ServerKickoutNotifyResp* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  ServerKickoutNotifyResp* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const ServerKickoutNotifyResp& from);
+  void MergeFrom(const ServerKickoutNotifyResp& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(ServerKickoutNotifyResp* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:antalk.apigw.ServerKickoutNotifyResp)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_apigw_2eproto::TableStruct;
+  friend void ::protobuf_apigw_2eproto::InitDefaultsServerKickoutNotifyRespImpl();
 };
 // ===================================================================
 
@@ -423,7 +1151,19 @@ class LoginService : public ::google::protobuf::Service {
 
   virtual void Login(::google::protobuf::RpcController* controller,
                        const ::antalk::apigw::LoginReq* request,
-                       ::antalk::apigw::LoginRes* response,
+                       ::antalk::apigw::LoginResp* response,
+                       ::google::protobuf::Closure* done);
+  virtual void Logout(::google::protobuf::RpcController* controller,
+                       const ::antalk::apigw::LogoutReq* request,
+                       ::antalk::apigw::LogoutResp* response,
+                       ::google::protobuf::Closure* done);
+  virtual void RegisterNoity(::google::protobuf::RpcController* controller,
+                       const ::antalk::apigw::RegisterNoityReq* request,
+                       ::antalk::apigw::Notify* response,
+                       ::google::protobuf::Closure* done);
+  virtual void ServerKickoutNotify(::google::protobuf::RpcController* controller,
+                       const ::antalk::apigw::ServerKickoutNotifyReq* request,
+                       ::antalk::apigw::ServerKickoutNotifyResp* response,
                        ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
@@ -456,7 +1196,19 @@ class LoginService_Stub : public LoginService {
 
   void Login(::google::protobuf::RpcController* controller,
                        const ::antalk::apigw::LoginReq* request,
-                       ::antalk::apigw::LoginRes* response,
+                       ::antalk::apigw::LoginResp* response,
+                       ::google::protobuf::Closure* done);
+  void Logout(::google::protobuf::RpcController* controller,
+                       const ::antalk::apigw::LogoutReq* request,
+                       ::antalk::apigw::LogoutResp* response,
+                       ::google::protobuf::Closure* done);
+  void RegisterNoity(::google::protobuf::RpcController* controller,
+                       const ::antalk::apigw::RegisterNoityReq* request,
+                       ::antalk::apigw::Notify* response,
+                       ::google::protobuf::Closure* done);
+  void ServerKickoutNotify(::google::protobuf::RpcController* controller,
+                       const ::antalk::apigw::ServerKickoutNotifyReq* request,
+                       ::antalk::apigw::ServerKickoutNotifyResp* response,
                        ::google::protobuf::Closure* done);
  private:
   ::google::protobuf::RpcChannel* channel_;
@@ -717,177 +1469,177 @@ inline void LoginReq::set_allocated_client_version(::std::string* client_version
 
 // -------------------------------------------------------------------
 
-// LoginRes
+// LoginResp
 
 // required uint32 server_time = 1;
-inline bool LoginRes::has_server_time() const {
+inline bool LoginResp::has_server_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void LoginRes::set_has_server_time() {
+inline void LoginResp::set_has_server_time() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void LoginRes::clear_has_server_time() {
+inline void LoginResp::clear_has_server_time() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void LoginRes::clear_server_time() {
+inline void LoginResp::clear_server_time() {
   server_time_ = 0u;
   clear_has_server_time();
 }
-inline ::google::protobuf::uint32 LoginRes::server_time() const {
-  // @@protoc_insertion_point(field_get:antalk.apigw.LoginRes.server_time)
+inline ::google::protobuf::uint32 LoginResp::server_time() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.LoginResp.server_time)
   return server_time_;
 }
-inline void LoginRes::set_server_time(::google::protobuf::uint32 value) {
+inline void LoginResp::set_server_time(::google::protobuf::uint32 value) {
   set_has_server_time();
   server_time_ = value;
-  // @@protoc_insertion_point(field_set:antalk.apigw.LoginRes.server_time)
+  // @@protoc_insertion_point(field_set:antalk.apigw.LoginResp.server_time)
 }
 
 // required .antalk.common.ResultType result_code = 2;
-inline bool LoginRes::has_result_code() const {
+inline bool LoginResp::has_result_code() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void LoginRes::set_has_result_code() {
+inline void LoginResp::set_has_result_code() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void LoginRes::clear_has_result_code() {
+inline void LoginResp::clear_has_result_code() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void LoginRes::clear_result_code() {
+inline void LoginResp::clear_result_code() {
   result_code_ = 0;
   clear_has_result_code();
 }
-inline ::antalk::common::ResultType LoginRes::result_code() const {
-  // @@protoc_insertion_point(field_get:antalk.apigw.LoginRes.result_code)
+inline ::antalk::common::ResultType LoginResp::result_code() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.LoginResp.result_code)
   return static_cast< ::antalk::common::ResultType >(result_code_);
 }
-inline void LoginRes::set_result_code(::antalk::common::ResultType value) {
+inline void LoginResp::set_result_code(::antalk::common::ResultType value) {
   assert(::antalk::common::ResultType_IsValid(value));
   set_has_result_code();
   result_code_ = value;
-  // @@protoc_insertion_point(field_set:antalk.apigw.LoginRes.result_code)
+  // @@protoc_insertion_point(field_set:antalk.apigw.LoginResp.result_code)
 }
 
 // optional string result_string = 3;
-inline bool LoginRes::has_result_string() const {
+inline bool LoginResp::has_result_string() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LoginRes::set_has_result_string() {
+inline void LoginResp::set_has_result_string() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LoginRes::clear_has_result_string() {
+inline void LoginResp::clear_has_result_string() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LoginRes::clear_result_string() {
+inline void LoginResp::clear_result_string() {
   result_string_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   clear_has_result_string();
 }
-inline const ::std::string& LoginRes::result_string() const {
-  // @@protoc_insertion_point(field_get:antalk.apigw.LoginRes.result_string)
+inline const ::std::string& LoginResp::result_string() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.LoginResp.result_string)
   return result_string_.GetNoArena();
 }
-inline void LoginRes::set_result_string(const ::std::string& value) {
+inline void LoginResp::set_result_string(const ::std::string& value) {
   set_has_result_string();
   result_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:antalk.apigw.LoginRes.result_string)
+  // @@protoc_insertion_point(field_set:antalk.apigw.LoginResp.result_string)
 }
 #if LANG_CXX11
-inline void LoginRes::set_result_string(::std::string&& value) {
+inline void LoginResp::set_result_string(::std::string&& value) {
   set_has_result_string();
   result_string_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:antalk.apigw.LoginRes.result_string)
+  // @@protoc_insertion_point(field_set_rvalue:antalk.apigw.LoginResp.result_string)
 }
 #endif
-inline void LoginRes::set_result_string(const char* value) {
+inline void LoginResp::set_result_string(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   set_has_result_string();
   result_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:antalk.apigw.LoginRes.result_string)
+  // @@protoc_insertion_point(field_set_char:antalk.apigw.LoginResp.result_string)
 }
-inline void LoginRes::set_result_string(const char* value, size_t size) {
+inline void LoginResp::set_result_string(const char* value, size_t size) {
   set_has_result_string();
   result_string_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:antalk.apigw.LoginRes.result_string)
+  // @@protoc_insertion_point(field_set_pointer:antalk.apigw.LoginResp.result_string)
 }
-inline ::std::string* LoginRes::mutable_result_string() {
+inline ::std::string* LoginResp::mutable_result_string() {
   set_has_result_string();
-  // @@protoc_insertion_point(field_mutable:antalk.apigw.LoginRes.result_string)
+  // @@protoc_insertion_point(field_mutable:antalk.apigw.LoginResp.result_string)
   return result_string_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* LoginRes::release_result_string() {
-  // @@protoc_insertion_point(field_release:antalk.apigw.LoginRes.result_string)
+inline ::std::string* LoginResp::release_result_string() {
+  // @@protoc_insertion_point(field_release:antalk.apigw.LoginResp.result_string)
   clear_has_result_string();
   return result_string_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void LoginRes::set_allocated_result_string(::std::string* result_string) {
+inline void LoginResp::set_allocated_result_string(::std::string* result_string) {
   if (result_string != NULL) {
     set_has_result_string();
   } else {
     clear_has_result_string();
   }
   result_string_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), result_string);
-  // @@protoc_insertion_point(field_set_allocated:antalk.apigw.LoginRes.result_string)
+  // @@protoc_insertion_point(field_set_allocated:antalk.apigw.LoginResp.result_string)
 }
 
 // optional .antalk.common.UserStatType online_status = 4;
-inline bool LoginRes::has_online_status() const {
+inline bool LoginResp::has_online_status() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void LoginRes::set_has_online_status() {
+inline void LoginResp::set_has_online_status() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void LoginRes::clear_has_online_status() {
+inline void LoginResp::clear_has_online_status() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void LoginRes::clear_online_status() {
+inline void LoginResp::clear_online_status() {
   online_status_ = 1;
   clear_has_online_status();
 }
-inline ::antalk::common::UserStatType LoginRes::online_status() const {
-  // @@protoc_insertion_point(field_get:antalk.apigw.LoginRes.online_status)
+inline ::antalk::common::UserStatType LoginResp::online_status() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.LoginResp.online_status)
   return static_cast< ::antalk::common::UserStatType >(online_status_);
 }
-inline void LoginRes::set_online_status(::antalk::common::UserStatType value) {
+inline void LoginResp::set_online_status(::antalk::common::UserStatType value) {
   assert(::antalk::common::UserStatType_IsValid(value));
   set_has_online_status();
   online_status_ = value;
-  // @@protoc_insertion_point(field_set:antalk.apigw.LoginRes.online_status)
+  // @@protoc_insertion_point(field_set:antalk.apigw.LoginResp.online_status)
 }
 
 // optional .antalk.common.UserInfo user_info = 5;
-inline bool LoginRes::has_user_info() const {
+inline bool LoginResp::has_user_info() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LoginRes::set_has_user_info() {
+inline void LoginResp::set_has_user_info() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void LoginRes::clear_has_user_info() {
+inline void LoginResp::clear_has_user_info() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline const ::antalk::common::UserInfo& LoginRes::user_info() const {
+inline const ::antalk::common::UserInfo& LoginResp::user_info() const {
   const ::antalk::common::UserInfo* p = user_info_;
-  // @@protoc_insertion_point(field_get:antalk.apigw.LoginRes.user_info)
+  // @@protoc_insertion_point(field_get:antalk.apigw.LoginResp.user_info)
   return p != NULL ? *p : *reinterpret_cast<const ::antalk::common::UserInfo*>(
       &::antalk::common::_UserInfo_default_instance_);
 }
-inline ::antalk::common::UserInfo* LoginRes::release_user_info() {
-  // @@protoc_insertion_point(field_release:antalk.apigw.LoginRes.user_info)
+inline ::antalk::common::UserInfo* LoginResp::release_user_info() {
+  // @@protoc_insertion_point(field_release:antalk.apigw.LoginResp.user_info)
   clear_has_user_info();
   ::antalk::common::UserInfo* temp = user_info_;
   user_info_ = NULL;
   return temp;
 }
-inline ::antalk::common::UserInfo* LoginRes::mutable_user_info() {
+inline ::antalk::common::UserInfo* LoginResp::mutable_user_info() {
   set_has_user_info();
   if (user_info_ == NULL) {
     user_info_ = new ::antalk::common::UserInfo;
   }
-  // @@protoc_insertion_point(field_mutable:antalk.apigw.LoginRes.user_info)
+  // @@protoc_insertion_point(field_mutable:antalk.apigw.LoginResp.user_info)
   return user_info_;
 }
-inline void LoginRes::set_allocated_user_info(::antalk::common::UserInfo* user_info) {
+inline void LoginResp::set_allocated_user_info(::antalk::common::UserInfo* user_info) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete reinterpret_cast< ::google::protobuf::MessageLite*>(user_info_);
@@ -903,12 +1655,349 @@ inline void LoginRes::set_allocated_user_info(::antalk::common::UserInfo* user_i
     clear_has_user_info();
   }
   user_info_ = user_info;
-  // @@protoc_insertion_point(field_set_allocated:antalk.apigw.LoginRes.user_info)
+  // @@protoc_insertion_point(field_set_allocated:antalk.apigw.LoginResp.user_info)
 }
+
+// -------------------------------------------------------------------
+
+// LogoutReq
+
+// optional string uid = 1;
+inline bool LogoutReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LogoutReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LogoutReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LogoutReq::clear_uid() {
+  uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_uid();
+}
+inline const ::std::string& LogoutReq::uid() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.LogoutReq.uid)
+  return uid_.GetNoArena();
+}
+inline void LogoutReq::set_uid(const ::std::string& value) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.apigw.LogoutReq.uid)
+}
+#if LANG_CXX11
+inline void LogoutReq::set_uid(::std::string&& value) {
+  set_has_uid();
+  uid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.apigw.LogoutReq.uid)
+}
+#endif
+inline void LogoutReq::set_uid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.apigw.LogoutReq.uid)
+}
+inline void LogoutReq::set_uid(const char* value, size_t size) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.apigw.LogoutReq.uid)
+}
+inline ::std::string* LogoutReq::mutable_uid() {
+  set_has_uid();
+  // @@protoc_insertion_point(field_mutable:antalk.apigw.LogoutReq.uid)
+  return uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LogoutReq::release_uid() {
+  // @@protoc_insertion_point(field_release:antalk.apigw.LogoutReq.uid)
+  clear_has_uid();
+  return uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LogoutReq::set_allocated_uid(::std::string* uid) {
+  if (uid != NULL) {
+    set_has_uid();
+  } else {
+    clear_has_uid();
+  }
+  uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uid);
+  // @@protoc_insertion_point(field_set_allocated:antalk.apigw.LogoutReq.uid)
+}
+
+// optional int64 time_stamp = 2;
+inline bool LogoutReq::has_time_stamp() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LogoutReq::set_has_time_stamp() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LogoutReq::clear_has_time_stamp() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LogoutReq::clear_time_stamp() {
+  time_stamp_ = GOOGLE_LONGLONG(0);
+  clear_has_time_stamp();
+}
+inline ::google::protobuf::int64 LogoutReq::time_stamp() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.LogoutReq.time_stamp)
+  return time_stamp_;
+}
+inline void LogoutReq::set_time_stamp(::google::protobuf::int64 value) {
+  set_has_time_stamp();
+  time_stamp_ = value;
+  // @@protoc_insertion_point(field_set:antalk.apigw.LogoutReq.time_stamp)
+}
+
+// -------------------------------------------------------------------
+
+// LogoutResp
+
+// -------------------------------------------------------------------
+
+// RegisterNoityReq
+
+// optional string uid = 1;
+inline bool RegisterNoityReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RegisterNoityReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RegisterNoityReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RegisterNoityReq::clear_uid() {
+  uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_uid();
+}
+inline const ::std::string& RegisterNoityReq::uid() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.RegisterNoityReq.uid)
+  return uid_.GetNoArena();
+}
+inline void RegisterNoityReq::set_uid(const ::std::string& value) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.apigw.RegisterNoityReq.uid)
+}
+#if LANG_CXX11
+inline void RegisterNoityReq::set_uid(::std::string&& value) {
+  set_has_uid();
+  uid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.apigw.RegisterNoityReq.uid)
+}
+#endif
+inline void RegisterNoityReq::set_uid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.apigw.RegisterNoityReq.uid)
+}
+inline void RegisterNoityReq::set_uid(const char* value, size_t size) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.apigw.RegisterNoityReq.uid)
+}
+inline ::std::string* RegisterNoityReq::mutable_uid() {
+  set_has_uid();
+  // @@protoc_insertion_point(field_mutable:antalk.apigw.RegisterNoityReq.uid)
+  return uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* RegisterNoityReq::release_uid() {
+  // @@protoc_insertion_point(field_release:antalk.apigw.RegisterNoityReq.uid)
+  clear_has_uid();
+  return uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void RegisterNoityReq::set_allocated_uid(::std::string* uid) {
+  if (uid != NULL) {
+    set_has_uid();
+  } else {
+    clear_has_uid();
+  }
+  uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uid);
+  // @@protoc_insertion_point(field_set_allocated:antalk.apigw.RegisterNoityReq.uid)
+}
+
+// -------------------------------------------------------------------
+
+// Notify
+
+// optional string body = 1;
+inline bool Notify::has_body() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Notify::set_has_body() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Notify::clear_has_body() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Notify::clear_body() {
+  body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_body();
+}
+inline const ::std::string& Notify::body() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.Notify.body)
+  return body_.GetNoArena();
+}
+inline void Notify::set_body(const ::std::string& value) {
+  set_has_body();
+  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.apigw.Notify.body)
+}
+#if LANG_CXX11
+inline void Notify::set_body(::std::string&& value) {
+  set_has_body();
+  body_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.apigw.Notify.body)
+}
+#endif
+inline void Notify::set_body(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_body();
+  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.apigw.Notify.body)
+}
+inline void Notify::set_body(const char* value, size_t size) {
+  set_has_body();
+  body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.apigw.Notify.body)
+}
+inline ::std::string* Notify::mutable_body() {
+  set_has_body();
+  // @@protoc_insertion_point(field_mutable:antalk.apigw.Notify.body)
+  return body_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Notify::release_body() {
+  // @@protoc_insertion_point(field_release:antalk.apigw.Notify.body)
+  clear_has_body();
+  return body_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Notify::set_allocated_body(::std::string* body) {
+  if (body != NULL) {
+    set_has_body();
+  } else {
+    clear_has_body();
+  }
+  body_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), body);
+  // @@protoc_insertion_point(field_set_allocated:antalk.apigw.Notify.body)
+}
+
+// -------------------------------------------------------------------
+
+// ServerKickoutNotifyReq
+
+// optional string uid = 1;
+inline bool ServerKickoutNotifyReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ServerKickoutNotifyReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ServerKickoutNotifyReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ServerKickoutNotifyReq::clear_uid() {
+  uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_uid();
+}
+inline const ::std::string& ServerKickoutNotifyReq::uid() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.ServerKickoutNotifyReq.uid)
+  return uid_.GetNoArena();
+}
+inline void ServerKickoutNotifyReq::set_uid(const ::std::string& value) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.apigw.ServerKickoutNotifyReq.uid)
+}
+#if LANG_CXX11
+inline void ServerKickoutNotifyReq::set_uid(::std::string&& value) {
+  set_has_uid();
+  uid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.apigw.ServerKickoutNotifyReq.uid)
+}
+#endif
+inline void ServerKickoutNotifyReq::set_uid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.apigw.ServerKickoutNotifyReq.uid)
+}
+inline void ServerKickoutNotifyReq::set_uid(const char* value, size_t size) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.apigw.ServerKickoutNotifyReq.uid)
+}
+inline ::std::string* ServerKickoutNotifyReq::mutable_uid() {
+  set_has_uid();
+  // @@protoc_insertion_point(field_mutable:antalk.apigw.ServerKickoutNotifyReq.uid)
+  return uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ServerKickoutNotifyReq::release_uid() {
+  // @@protoc_insertion_point(field_release:antalk.apigw.ServerKickoutNotifyReq.uid)
+  clear_has_uid();
+  return uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ServerKickoutNotifyReq::set_allocated_uid(::std::string* uid) {
+  if (uid != NULL) {
+    set_has_uid();
+  } else {
+    clear_has_uid();
+  }
+  uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uid);
+  // @@protoc_insertion_point(field_set_allocated:antalk.apigw.ServerKickoutNotifyReq.uid)
+}
+
+// optional .antalk.common.KickoutReason reason = 2;
+inline bool ServerKickoutNotifyReq::has_reason() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ServerKickoutNotifyReq::set_has_reason() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ServerKickoutNotifyReq::clear_has_reason() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ServerKickoutNotifyReq::clear_reason() {
+  reason_ = 1;
+  clear_has_reason();
+}
+inline ::antalk::common::KickoutReason ServerKickoutNotifyReq::reason() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.ServerKickoutNotifyReq.reason)
+  return static_cast< ::antalk::common::KickoutReason >(reason_);
+}
+inline void ServerKickoutNotifyReq::set_reason(::antalk::common::KickoutReason value) {
+  assert(::antalk::common::KickoutReason_IsValid(value));
+  set_has_reason();
+  reason_ = value;
+  // @@protoc_insertion_point(field_set:antalk.apigw.ServerKickoutNotifyReq.reason)
+}
+
+// -------------------------------------------------------------------
+
+// ServerKickoutNotifyResp
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

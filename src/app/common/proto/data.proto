@@ -13,6 +13,19 @@ message GetUserInfoRes {
 	required antalk.common.UserInfo user_info = 1;
 }
 
+message SetUserStatusReq {
+	optional string uid = 1;
+	optional int32 dev_type = 2;
+	optional string session = 3;
+	optional int32 status = 4;
+	optional string login_info = 5;
+}
+
+message SetUserStatusResp {
+	optional antalk.common.ResultType result = 1;
+}
+
 service GetUserInfoService {
       rpc GetUserInfo(GetUserInfoReq) returns (GetUserInfoRes);
+      rpc SetUserStatus(SetUserStatusReq) returns (SetUserStatusResp);
 };

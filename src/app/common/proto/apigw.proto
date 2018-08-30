@@ -4,6 +4,7 @@ import "common.proto";
 option java_package = "com.antalk.pb";
 option cc_generic_services = true;
 
+//登录请求
 message LoginReq {
 	required string username = 1;
 	required string password = 2;
@@ -12,7 +13,7 @@ message LoginReq {
 	optional string client_version = 5;
 }
 
-message LoginRes {
+message LoginResp {
 	required uint32 server_time = 1;
 	required antalk.common.ResultType result_code = 2;
 	optional string result_string = 3;
@@ -20,7 +21,38 @@ message LoginRes {
 	optional antalk.common.UserInfo user_info = 5;
 }
 
+//登出请求
+message LogoutReq {
+	optional string uid = 1;
+	optional int64 time_stamp = 2;	
+}
+
+message LogoutResp {
+}
+
+//长轮询请求，用于server push
+//register notify callback
+message RegisterNoityReq {
+	optional string uid = 1;
+}
+
+message Notify {
+	optional string body = 1;
+}
+
+//Server表示由其他服务发送至网关
+//踢人通知
+message ServerKickoutNotifyReq {
+	optional string uid = 1;
+	optional antalk.common.KickoutReason reason = 2;
+}
+
+message ServerKickoutNotifyResp {
+}
 
 service LoginService {
-      rpc Login(LoginReq) returns (LoginRes);
+	rpc Login(LoginReq) returns (LoginResp);
+	rpc Logout(LogoutReq) returns (LogoutResp);
+	rpc RegisterNoity(RegisterNoityReq) returns (Notify);
+	rpc ServerKickoutNotify(ServerKickoutNotifyReq) returns (ServerKickoutNotifyResp);
 };

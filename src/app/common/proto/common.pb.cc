@@ -51,7 +51,7 @@ void InitDefaultsUserInfo() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[1];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[3];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[4];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::common::UserInfo, _has_bits_),
@@ -136,10 +136,11 @@ void AddDescriptorsImpl() {
       "TYPE_IOS\020\021\022\027\n\023CLIENT_TYPE_ANDROID\020\022*V\n\014U"
       "serStatType\022\026\n\022USER_STATUS_ONLINE\020\001\022\027\n\023U"
       "SER_STATUS_OFFLINE\020\002\022\025\n\021USER_STATUS_LEAV"
-      "E\020\003B\017\n\rcom.antalk.pb"
+      "E\020\003*\037\n\rKickoutReason\022\016\n\nOtherLogin\020\001B\017\n\r"
+      "com.antalk.pb"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 820);
+      descriptor, 853);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "common.proto", &protobuf_RegisterTypes);
 }
@@ -203,6 +204,19 @@ bool UserStatType_IsValid(int value) {
     case 1:
     case 2:
     case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* KickoutReason_descriptor() {
+  protobuf_common_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_common_2eproto::file_level_enum_descriptors[3];
+}
+bool KickoutReason_IsValid(int value) {
+  switch (value) {
+    case 1:
       return true;
     default:
       return false;

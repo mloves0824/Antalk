@@ -2,12 +2,12 @@ PROTOC = protoc
 PROTOC_EXTRA_ARGS = 
 
 .PHONY:all
-all: common.pb.cc  user.pb.cc data.pb.cc apigw.pb.cc 
+all: common.pb.cc  auth.pb.cc data.pb.cc apigw.pb.cc 
 
 .PHONY:clean
 clean:
 	@echo "Cleaning"
-	@rm -rf data.pb.cc data.pb.h apigw.pb.h apigw.pb.cc user.pb.h user.pb.cc common.pb.h common.pb.cc
+	@rm -rf data.pb.cc data.pb.h apigw.pb.h apigw.pb.cc auth.pb.h auth.pb.cc common.pb.h common.pb.cc
 
 
 

@@ -38,7 +38,7 @@ namespace protobuf_data_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[2];
+  static const ::google::protobuf::internal::ParseTable schema[4];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -48,9 +48,15 @@ void InitDefaultsGetUserInfoReqImpl();
 void InitDefaultsGetUserInfoReq();
 void InitDefaultsGetUserInfoResImpl();
 void InitDefaultsGetUserInfoRes();
+void InitDefaultsSetUserStatusReqImpl();
+void InitDefaultsSetUserStatusReq();
+void InitDefaultsSetUserStatusRespImpl();
+void InitDefaultsSetUserStatusResp();
 inline void InitDefaults() {
   InitDefaultsGetUserInfoReq();
   InitDefaultsGetUserInfoRes();
+  InitDefaultsSetUserStatusReq();
+  InitDefaultsSetUserStatusResp();
 }
 }  // namespace protobuf_data_2eproto
 namespace antalk {
@@ -61,6 +67,12 @@ extern GetUserInfoReqDefaultTypeInternal _GetUserInfoReq_default_instance_;
 class GetUserInfoRes;
 class GetUserInfoResDefaultTypeInternal;
 extern GetUserInfoResDefaultTypeInternal _GetUserInfoRes_default_instance_;
+class SetUserStatusReq;
+class SetUserStatusReqDefaultTypeInternal;
+extern SetUserStatusReqDefaultTypeInternal _SetUserStatusReq_default_instance_;
+class SetUserStatusResp;
+class SetUserStatusRespDefaultTypeInternal;
+extern SetUserStatusRespDefaultTypeInternal _SetUserStatusResp_default_instance_;
 }  // namespace data
 }  // namespace antalk
 namespace antalk {
@@ -301,6 +313,290 @@ class GetUserInfoRes : public ::google::protobuf::Message /* @@protoc_insertion_
   friend struct ::protobuf_data_2eproto::TableStruct;
   friend void ::protobuf_data_2eproto::InitDefaultsGetUserInfoResImpl();
 };
+// -------------------------------------------------------------------
+
+class SetUserStatusReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.data.SetUserStatusReq) */ {
+ public:
+  SetUserStatusReq();
+  virtual ~SetUserStatusReq();
+
+  SetUserStatusReq(const SetUserStatusReq& from);
+
+  inline SetUserStatusReq& operator=(const SetUserStatusReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SetUserStatusReq(SetUserStatusReq&& from) noexcept
+    : SetUserStatusReq() {
+    *this = ::std::move(from);
+  }
+
+  inline SetUserStatusReq& operator=(SetUserStatusReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SetUserStatusReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SetUserStatusReq* internal_default_instance() {
+    return reinterpret_cast<const SetUserStatusReq*>(
+               &_SetUserStatusReq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    2;
+
+  void Swap(SetUserStatusReq* other);
+  friend void swap(SetUserStatusReq& a, SetUserStatusReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SetUserStatusReq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  SetUserStatusReq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SetUserStatusReq& from);
+  void MergeFrom(const SetUserStatusReq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SetUserStatusReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string uid = 1;
+  bool has_uid() const;
+  void clear_uid();
+  static const int kUidFieldNumber = 1;
+  const ::std::string& uid() const;
+  void set_uid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_uid(::std::string&& value);
+  #endif
+  void set_uid(const char* value);
+  void set_uid(const char* value, size_t size);
+  ::std::string* mutable_uid();
+  ::std::string* release_uid();
+  void set_allocated_uid(::std::string* uid);
+
+  // optional string session = 3;
+  bool has_session() const;
+  void clear_session();
+  static const int kSessionFieldNumber = 3;
+  const ::std::string& session() const;
+  void set_session(const ::std::string& value);
+  #if LANG_CXX11
+  void set_session(::std::string&& value);
+  #endif
+  void set_session(const char* value);
+  void set_session(const char* value, size_t size);
+  ::std::string* mutable_session();
+  ::std::string* release_session();
+  void set_allocated_session(::std::string* session);
+
+  // optional string login_info = 5;
+  bool has_login_info() const;
+  void clear_login_info();
+  static const int kLoginInfoFieldNumber = 5;
+  const ::std::string& login_info() const;
+  void set_login_info(const ::std::string& value);
+  #if LANG_CXX11
+  void set_login_info(::std::string&& value);
+  #endif
+  void set_login_info(const char* value);
+  void set_login_info(const char* value, size_t size);
+  ::std::string* mutable_login_info();
+  ::std::string* release_login_info();
+  void set_allocated_login_info(::std::string* login_info);
+
+  // optional int32 dev_type = 2;
+  bool has_dev_type() const;
+  void clear_dev_type();
+  static const int kDevTypeFieldNumber = 2;
+  ::google::protobuf::int32 dev_type() const;
+  void set_dev_type(::google::protobuf::int32 value);
+
+  // optional int32 status = 4;
+  bool has_status() const;
+  void clear_status();
+  static const int kStatusFieldNumber = 4;
+  ::google::protobuf::int32 status() const;
+  void set_status(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:antalk.data.SetUserStatusReq)
+ private:
+  void set_has_uid();
+  void clear_has_uid();
+  void set_has_dev_type();
+  void clear_has_dev_type();
+  void set_has_session();
+  void clear_has_session();
+  void set_has_status();
+  void clear_has_status();
+  void set_has_login_info();
+  void clear_has_login_info();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr uid_;
+  ::google::protobuf::internal::ArenaStringPtr session_;
+  ::google::protobuf::internal::ArenaStringPtr login_info_;
+  ::google::protobuf::int32 dev_type_;
+  ::google::protobuf::int32 status_;
+  friend struct ::protobuf_data_2eproto::TableStruct;
+  friend void ::protobuf_data_2eproto::InitDefaultsSetUserStatusReqImpl();
+};
+// -------------------------------------------------------------------
+
+class SetUserStatusResp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.data.SetUserStatusResp) */ {
+ public:
+  SetUserStatusResp();
+  virtual ~SetUserStatusResp();
+
+  SetUserStatusResp(const SetUserStatusResp& from);
+
+  inline SetUserStatusResp& operator=(const SetUserStatusResp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SetUserStatusResp(SetUserStatusResp&& from) noexcept
+    : SetUserStatusResp() {
+    *this = ::std::move(from);
+  }
+
+  inline SetUserStatusResp& operator=(SetUserStatusResp&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SetUserStatusResp& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SetUserStatusResp* internal_default_instance() {
+    return reinterpret_cast<const SetUserStatusResp*>(
+               &_SetUserStatusResp_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    3;
+
+  void Swap(SetUserStatusResp* other);
+  friend void swap(SetUserStatusResp& a, SetUserStatusResp& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SetUserStatusResp* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  SetUserStatusResp* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SetUserStatusResp& from);
+  void MergeFrom(const SetUserStatusResp& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SetUserStatusResp* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .antalk.common.ResultType result = 1;
+  bool has_result() const;
+  void clear_result();
+  static const int kResultFieldNumber = 1;
+  ::antalk::common::ResultType result() const;
+  void set_result(::antalk::common::ResultType value);
+
+  // @@protoc_insertion_point(class_scope:antalk.data.SetUserStatusResp)
+ private:
+  void set_has_result();
+  void clear_has_result();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  int result_;
+  friend struct ::protobuf_data_2eproto::TableStruct;
+  friend void ::protobuf_data_2eproto::InitDefaultsSetUserStatusRespImpl();
+};
 // ===================================================================
 
 class GetUserInfoService_Stub;
@@ -319,6 +615,10 @@ class GetUserInfoService : public ::google::protobuf::Service {
   virtual void GetUserInfo(::google::protobuf::RpcController* controller,
                        const ::antalk::data::GetUserInfoReq* request,
                        ::antalk::data::GetUserInfoRes* response,
+                       ::google::protobuf::Closure* done);
+  virtual void SetUserStatus(::google::protobuf::RpcController* controller,
+                       const ::antalk::data::SetUserStatusReq* request,
+                       ::antalk::data::SetUserStatusResp* response,
                        ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
@@ -352,6 +652,10 @@ class GetUserInfoService_Stub : public GetUserInfoService {
   void GetUserInfo(::google::protobuf::RpcController* controller,
                        const ::antalk::data::GetUserInfoReq* request,
                        ::antalk::data::GetUserInfoRes* response,
+                       ::google::protobuf::Closure* done);
+  void SetUserStatus(::google::protobuf::RpcController* controller,
+                       const ::antalk::data::SetUserStatusReq* request,
+                       ::antalk::data::SetUserStatusResp* response,
                        ::google::protobuf::Closure* done);
  private:
   ::google::protobuf::RpcChannel* channel_;
@@ -473,9 +777,283 @@ inline void GetUserInfoRes::set_allocated_user_info(::antalk::common::UserInfo* 
   // @@protoc_insertion_point(field_set_allocated:antalk.data.GetUserInfoRes.user_info)
 }
 
+// -------------------------------------------------------------------
+
+// SetUserStatusReq
+
+// optional string uid = 1;
+inline bool SetUserStatusReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SetUserStatusReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SetUserStatusReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SetUserStatusReq::clear_uid() {
+  uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_uid();
+}
+inline const ::std::string& SetUserStatusReq::uid() const {
+  // @@protoc_insertion_point(field_get:antalk.data.SetUserStatusReq.uid)
+  return uid_.GetNoArena();
+}
+inline void SetUserStatusReq::set_uid(const ::std::string& value) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.data.SetUserStatusReq.uid)
+}
+#if LANG_CXX11
+inline void SetUserStatusReq::set_uid(::std::string&& value) {
+  set_has_uid();
+  uid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.data.SetUserStatusReq.uid)
+}
+#endif
+inline void SetUserStatusReq::set_uid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.data.SetUserStatusReq.uid)
+}
+inline void SetUserStatusReq::set_uid(const char* value, size_t size) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.data.SetUserStatusReq.uid)
+}
+inline ::std::string* SetUserStatusReq::mutable_uid() {
+  set_has_uid();
+  // @@protoc_insertion_point(field_mutable:antalk.data.SetUserStatusReq.uid)
+  return uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SetUserStatusReq::release_uid() {
+  // @@protoc_insertion_point(field_release:antalk.data.SetUserStatusReq.uid)
+  clear_has_uid();
+  return uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SetUserStatusReq::set_allocated_uid(::std::string* uid) {
+  if (uid != NULL) {
+    set_has_uid();
+  } else {
+    clear_has_uid();
+  }
+  uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uid);
+  // @@protoc_insertion_point(field_set_allocated:antalk.data.SetUserStatusReq.uid)
+}
+
+// optional int32 dev_type = 2;
+inline bool SetUserStatusReq::has_dev_type() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SetUserStatusReq::set_has_dev_type() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SetUserStatusReq::clear_has_dev_type() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SetUserStatusReq::clear_dev_type() {
+  dev_type_ = 0;
+  clear_has_dev_type();
+}
+inline ::google::protobuf::int32 SetUserStatusReq::dev_type() const {
+  // @@protoc_insertion_point(field_get:antalk.data.SetUserStatusReq.dev_type)
+  return dev_type_;
+}
+inline void SetUserStatusReq::set_dev_type(::google::protobuf::int32 value) {
+  set_has_dev_type();
+  dev_type_ = value;
+  // @@protoc_insertion_point(field_set:antalk.data.SetUserStatusReq.dev_type)
+}
+
+// optional string session = 3;
+inline bool SetUserStatusReq::has_session() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SetUserStatusReq::set_has_session() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SetUserStatusReq::clear_has_session() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SetUserStatusReq::clear_session() {
+  session_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_session();
+}
+inline const ::std::string& SetUserStatusReq::session() const {
+  // @@protoc_insertion_point(field_get:antalk.data.SetUserStatusReq.session)
+  return session_.GetNoArena();
+}
+inline void SetUserStatusReq::set_session(const ::std::string& value) {
+  set_has_session();
+  session_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.data.SetUserStatusReq.session)
+}
+#if LANG_CXX11
+inline void SetUserStatusReq::set_session(::std::string&& value) {
+  set_has_session();
+  session_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.data.SetUserStatusReq.session)
+}
+#endif
+inline void SetUserStatusReq::set_session(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_session();
+  session_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.data.SetUserStatusReq.session)
+}
+inline void SetUserStatusReq::set_session(const char* value, size_t size) {
+  set_has_session();
+  session_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.data.SetUserStatusReq.session)
+}
+inline ::std::string* SetUserStatusReq::mutable_session() {
+  set_has_session();
+  // @@protoc_insertion_point(field_mutable:antalk.data.SetUserStatusReq.session)
+  return session_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SetUserStatusReq::release_session() {
+  // @@protoc_insertion_point(field_release:antalk.data.SetUserStatusReq.session)
+  clear_has_session();
+  return session_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SetUserStatusReq::set_allocated_session(::std::string* session) {
+  if (session != NULL) {
+    set_has_session();
+  } else {
+    clear_has_session();
+  }
+  session_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), session);
+  // @@protoc_insertion_point(field_set_allocated:antalk.data.SetUserStatusReq.session)
+}
+
+// optional int32 status = 4;
+inline bool SetUserStatusReq::has_status() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void SetUserStatusReq::set_has_status() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void SetUserStatusReq::clear_has_status() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void SetUserStatusReq::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+inline ::google::protobuf::int32 SetUserStatusReq::status() const {
+  // @@protoc_insertion_point(field_get:antalk.data.SetUserStatusReq.status)
+  return status_;
+}
+inline void SetUserStatusReq::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+  // @@protoc_insertion_point(field_set:antalk.data.SetUserStatusReq.status)
+}
+
+// optional string login_info = 5;
+inline bool SetUserStatusReq::has_login_info() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SetUserStatusReq::set_has_login_info() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SetUserStatusReq::clear_has_login_info() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SetUserStatusReq::clear_login_info() {
+  login_info_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_login_info();
+}
+inline const ::std::string& SetUserStatusReq::login_info() const {
+  // @@protoc_insertion_point(field_get:antalk.data.SetUserStatusReq.login_info)
+  return login_info_.GetNoArena();
+}
+inline void SetUserStatusReq::set_login_info(const ::std::string& value) {
+  set_has_login_info();
+  login_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.data.SetUserStatusReq.login_info)
+}
+#if LANG_CXX11
+inline void SetUserStatusReq::set_login_info(::std::string&& value) {
+  set_has_login_info();
+  login_info_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.data.SetUserStatusReq.login_info)
+}
+#endif
+inline void SetUserStatusReq::set_login_info(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_login_info();
+  login_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.data.SetUserStatusReq.login_info)
+}
+inline void SetUserStatusReq::set_login_info(const char* value, size_t size) {
+  set_has_login_info();
+  login_info_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.data.SetUserStatusReq.login_info)
+}
+inline ::std::string* SetUserStatusReq::mutable_login_info() {
+  set_has_login_info();
+  // @@protoc_insertion_point(field_mutable:antalk.data.SetUserStatusReq.login_info)
+  return login_info_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SetUserStatusReq::release_login_info() {
+  // @@protoc_insertion_point(field_release:antalk.data.SetUserStatusReq.login_info)
+  clear_has_login_info();
+  return login_info_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SetUserStatusReq::set_allocated_login_info(::std::string* login_info) {
+  if (login_info != NULL) {
+    set_has_login_info();
+  } else {
+    clear_has_login_info();
+  }
+  login_info_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), login_info);
+  // @@protoc_insertion_point(field_set_allocated:antalk.data.SetUserStatusReq.login_info)
+}
+
+// -------------------------------------------------------------------
+
+// SetUserStatusResp
+
+// optional .antalk.common.ResultType result = 1;
+inline bool SetUserStatusResp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SetUserStatusResp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SetUserStatusResp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SetUserStatusResp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::antalk::common::ResultType SetUserStatusResp::result() const {
+  // @@protoc_insertion_point(field_get:antalk.data.SetUserStatusResp.result)
+  return static_cast< ::antalk::common::ResultType >(result_);
+}
+inline void SetUserStatusResp::set_result(::antalk::common::ResultType value) {
+  assert(::antalk::common::ResultType_IsValid(value));
+  set_has_result();
+  result_ = value;
+  // @@protoc_insertion_point(field_set:antalk.data.SetUserStatusResp.result)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

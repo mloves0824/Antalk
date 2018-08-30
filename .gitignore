@@ -22,7 +22,6 @@ _testmain.go
 *.exe
 *.test
 *.prof
-brpc
 
 *.sdf
 *.sln
@@ -39,4 +38,3 @@ tags
 *.pb.*
 *.pb.h
 nohup.out
-third/proto3

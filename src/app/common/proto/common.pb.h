@@ -126,6 +126,24 @@ inline bool UserStatType_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<UserStatType>(
     UserStatType_descriptor(), name, value);
 }
+enum KickoutReason {
+  OtherLogin = 1
+};
+bool KickoutReason_IsValid(int value);
+const KickoutReason KickoutReason_MIN = OtherLogin;
+const KickoutReason KickoutReason_MAX = OtherLogin;
+const int KickoutReason_ARRAYSIZE = KickoutReason_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* KickoutReason_descriptor();
+inline const ::std::string& KickoutReason_Name(KickoutReason value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    KickoutReason_descriptor(), value);
+}
+inline bool KickoutReason_Parse(
+    const ::std::string& name, KickoutReason* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<KickoutReason>(
+    KickoutReason_descriptor(), name, value);
+}
 // ===================================================================
 
 class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.common.UserInfo) */ {
@@ -1084,6 +1102,11 @@ template <> struct is_proto_enum< ::antalk::common::UserStatType> : ::google::pr
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::antalk::common::UserStatType>() {
   return ::antalk::common::UserStatType_descriptor();
+}
+template <> struct is_proto_enum< ::antalk::common::KickoutReason> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::antalk::common::KickoutReason>() {
+  return ::antalk::common::KickoutReason_descriptor();
 }
 
 }  // namespace protobuf

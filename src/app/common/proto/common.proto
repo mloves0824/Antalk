@@ -46,3 +46,7 @@ enum UserStatType{
 	USER_STATUS_LEAVE	= 3;
 
 }
+
+enum KickoutReason {
+	OtherLogin = 1; 	//其他地方登录
+}
