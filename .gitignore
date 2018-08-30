@@ -35,6 +35,4 @@ lib/*
 bin/*
 
 tags
-*.pb.*
-*.pb.h
 nohup.out
