@@ -25,7 +25,7 @@ message SetUserStatusResp {
 	optional antalk.common.ResultType result = 1;
 }
 
-service GetUserInfoService {
+service UserStatusService {
       rpc GetUserInfo(GetUserInfoReq) returns (GetUserInfoRes);
       rpc SetUserStatus(SetUserStatusReq) returns (SetUserStatusResp);
 };

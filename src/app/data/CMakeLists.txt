@@ -10,10 +10,9 @@ ELSE(WIN32)
 		SET(PROJECT_LIB_DIR ${PROJECT_SOURCE_DIR}/../../../pkg/output/debug/debug_linux_x64/dep)
 		SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../../../pkg/output/debug/debug_linux_x64/app)
 		SET(PROJECT_LIBS_PLATFORM
-			#protobuf
-			/usr/lib/libprotobuf.so
-			${PROJECT_SOURCE_DIR}/../../../../brpc/build/output/lib/libbrpc.so
-			${PROJECT_SOURCE_DIR}/../../../third/leveldb/lib/libleveldb.so
+			protobuf
+			brpc
+			leveldb
 			proto
 			gflags
 			pthread
@@ -44,9 +43,6 @@ ELSE(WIN32)
 	INCLUDE_DIRECTORIES(
 		${PROJECT_SOURCE_DIR}/
 		${PROJECT_SOURCE_DIR}/../common/proto
-		${PROJECT_SOURCE_DIR}/../../../third/gflags/include
-#		${PROJECT_SOURCE_DIR}/../../../third/proto3/include
-		${PROJECT_SOURCE_DIR}/../../../../brpc/build/output/include
 	)
 
 	LINK_DIRECTORIES(${PROJECT_LIB_DIR})

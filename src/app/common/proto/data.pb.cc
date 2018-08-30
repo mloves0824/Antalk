@@ -216,14 +216,14 @@ void AddDescriptorsImpl() {
       " \001(\005\022\017\n\007session\030\003 \001(\t\022\016\n\006status\030\004 \001(\005\022\022\n"
       "\nlogin_info\030\005 \001(\t\">\n\021SetUserStatusResp\022)"
       "\n\006result\030\001 \001(\0162\031.antalk.common.ResultTyp"
-      "e2\255\001\n\022GetUserInfoService\022G\n\013GetUserInfo\022"
-      "\033.antalk.data.GetUserInfoReq\032\033.antalk.da"
-      "ta.GetUserInfoRes\022N\n\rSetUserStatus\022\035.ant"
-      "alk.data.SetUserStatusReq\032\036.antalk.data."
-      "SetUserStatusRespB\022\n\rcom.antalk.pb\200\001\001"
+      "e2\254\001\n\021UserStatusService\022G\n\013GetUserInfo\022\033"
+      ".antalk.data.GetUserInfoReq\032\033.antalk.dat"
+      "a.GetUserInfoRes\022N\n\rSetUserStatus\022\035.anta"
+      "lk.data.SetUserStatusReq\032\036.antalk.data.S"
+      "etUserStatusRespB\022\n\rcom.antalk.pb\200\001\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 517);
+      descriptor, 516);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "data.proto", &protobuf_RegisterTypes);
   ::protobuf_common_2eproto::AddDescriptors();
@@ -1546,18 +1546,18 @@ void SetUserStatusResp::InternalSwap(SetUserStatusResp* other) {
 
 // ===================================================================
 
-GetUserInfoService::~GetUserInfoService() {}
+UserStatusService::~UserStatusService() {}
 
-const ::google::protobuf::ServiceDescriptor* GetUserInfoService::descriptor() {
+const ::google::protobuf::ServiceDescriptor* UserStatusService::descriptor() {
   protobuf_data_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_data_2eproto::file_level_service_descriptors[0];
 }
 
-const ::google::protobuf::ServiceDescriptor* GetUserInfoService::GetDescriptor() {
+const ::google::protobuf::ServiceDescriptor* UserStatusService::GetDescriptor() {
   return descriptor();
 }
 
-void GetUserInfoService::GetUserInfo(::google::protobuf::RpcController* controller,
+void UserStatusService::GetUserInfo(::google::protobuf::RpcController* controller,
                          const ::antalk::data::GetUserInfoReq*,
                          ::antalk::data::GetUserInfoRes*,
                          ::google::protobuf::Closure* done) {
@@ -1565,7 +1565,7 @@ void GetUserInfoService::GetUserInfo(::google::protobuf::RpcController* controll
   done->Run();
 }
 
-void GetUserInfoService::SetUserStatus(::google::protobuf::RpcController* controller,
+void UserStatusService::SetUserStatus(::google::protobuf::RpcController* controller,
                          const ::antalk::data::SetUserStatusReq*,
                          ::antalk::data::SetUserStatusResp*,
                          ::google::protobuf::Closure* done) {
@@ -1573,7 +1573,7 @@ void GetUserInfoService::SetUserStatus(::google::protobuf::RpcController* contro
   done->Run();
 }
 
-void GetUserInfoService::CallMethod(const ::google::protobuf::MethodDescriptor* method,
+void UserStatusService::CallMethod(const ::google::protobuf::MethodDescriptor* method,
                              ::google::protobuf::RpcController* controller,
                              const ::google::protobuf::Message* request,
                              ::google::protobuf::Message* response,
@@ -1598,7 +1598,7 @@ void GetUserInfoService::CallMethod(const ::google::protobuf::MethodDescriptor* 
   }
 }
 
-const ::google::protobuf::Message& GetUserInfoService::GetRequestPrototype(
+const ::google::protobuf::Message& UserStatusService::GetRequestPrototype(
     const ::google::protobuf::MethodDescriptor* method) const {
   GOOGLE_DCHECK_EQ(method->service(), descriptor());
   switch(method->index()) {
@@ -1613,7 +1613,7 @@ const ::google::protobuf::Message& GetUserInfoService::GetRequestPrototype(
   }
 }
 
-const ::google::protobuf::Message& GetUserInfoService::GetResponsePrototype(
+const ::google::protobuf::Message& UserStatusService::GetResponsePrototype(
     const ::google::protobuf::MethodDescriptor* method) const {
   GOOGLE_DCHECK_EQ(method->service(), descriptor());
   switch(method->index()) {
@@ -1628,25 +1628,25 @@ const ::google::protobuf::Message& GetUserInfoService::GetResponsePrototype(
   }
 }
 
-GetUserInfoService_Stub::GetUserInfoService_Stub(::google::protobuf::RpcChannel* channel)
+UserStatusService_Stub::UserStatusService_Stub(::google::protobuf::RpcChannel* channel)
   : channel_(channel), owns_channel_(false) {}
-GetUserInfoService_Stub::GetUserInfoService_Stub(
+UserStatusService_Stub::UserStatusService_Stub(
     ::google::protobuf::RpcChannel* channel,
     ::google::protobuf::Service::ChannelOwnership ownership)
   : channel_(channel),
     owns_channel_(ownership == ::google::protobuf::Service::STUB_OWNS_CHANNEL) {}
-GetUserInfoService_Stub::~GetUserInfoService_Stub() {
+UserStatusService_Stub::~UserStatusService_Stub() {
   if (owns_channel_) delete channel_;
 }
 
-void GetUserInfoService_Stub::GetUserInfo(::google::protobuf::RpcController* controller,
+void UserStatusService_Stub::GetUserInfo(::google::protobuf::RpcController* controller,
                               const ::antalk::data::GetUserInfoReq* request,
                               ::antalk::data::GetUserInfoRes* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(0),
                        controller, request, response, done);
 }
-void GetUserInfoService_Stub::SetUserStatus(::google::protobuf::RpcController* controller,
+void UserStatusService_Stub::SetUserStatus(::google::protobuf::RpcController* controller,
                               const ::antalk::data::SetUserStatusReq* request,
                               ::antalk::data::SetUserStatusResp* response,
                               ::google::protobuf::Closure* done) {

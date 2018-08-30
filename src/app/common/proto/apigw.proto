@@ -56,3 +56,7 @@ service LoginService {
 	rpc RegisterNoity(RegisterNoityReq) returns (Notify);
 	rpc ServerKickoutNotify(ServerKickoutNotifyReq) returns (ServerKickoutNotifyResp);
 };
+
+service MsgService {
+
+}

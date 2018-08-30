@@ -31,10 +31,10 @@
 namespace antalk {
 namespace data {
 	
-class GetUserInfoServiceImpl : public GetUserInfoService {
+class UserStatusServiceImpl : public UserStatusService {
 public:
-	GetUserInfoServiceImpl() {};
-	virtual ~GetUserInfoServiceImpl() {};
+	UserStatusServiceImpl() {};
+	virtual ~UserStatusServiceImpl() {};
 	virtual void GetUserInfo(google::protobuf::RpcController* cntl_base,
 		const GetUserInfoReq* request,
 		GetUserInfoRes* response,

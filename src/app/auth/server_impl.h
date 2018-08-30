@@ -20,7 +20,7 @@
 
 #include <gflags/gflags.h>
 #include <brpc/server.h>
-#include "user.login.pb.h"
+#include "auth.pb.h"
 
 
 
@@ -28,15 +28,15 @@
 // Notice that implementing brpc::Describable grants the ability to put
 // additional information in /status.
 namespace antalk {
-namespace user {
+namespace auth {
 
-class LoginServiceImpl : public LoginService {
+class AuthServiceImpl : public AuthService {
 public:
-	LoginServiceImpl() {};
-	virtual ~LoginServiceImpl() {};
+	AuthServiceImpl() {};
+	virtual ~AuthServiceImpl() {};
 	virtual void Login(google::protobuf::RpcController* cntl_base,
 		               const LoginReq* request,
-		               LoginRes* response,
+		               LoginResp* response,
 		               google::protobuf::Closure* done);
 };
 

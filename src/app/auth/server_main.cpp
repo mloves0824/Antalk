@@ -19,7 +19,7 @@
 #include <gflags/gflags.h>
 #include <butil/logging.h>
 #include <brpc/server.h>
-#include "server_impl.h"
+//#include "server_impl.h"
 #include "stub_manager.h"
 
 
@@ -35,16 +35,16 @@ int main(int argc, char* argv[]) {
 	// Parse gflags. We recommend you to use gflags as well.
 	google::ParseCommandLineFlags(&argc, &argv, true);
 
-	if (!antalk::user::StubManager::Instance().Init()) {
-        LOG(ERROR) << "Fail to initialize StubManager";
-        return false;
-	}
+//	if (!antalk::user::StubManager::Instance().Init()) {
+//        LOG(ERROR) << "Fail to initialize StubManager";
+//        return false;
+//	}
 
 	// Generally you only need one Server.
 	brpc::Server server;
 
 	// Instance of your service.
-	antalk::user::LoginServiceImpl login_service_impl;
+	antalk::auth::LoginServiceImpl login_service_impl;
 
 	// Add the service into server. Notice the second parameter, because the
 	// service is put on stack, we don't want server to delete it, otherwise

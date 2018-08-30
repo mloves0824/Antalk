@@ -16,7 +16,7 @@
 // Date: $time$
 
 #include <gflags/gflags.h>
-#include "im.login.pb.h"
+#include "apigw.pb.h"
 #include <brpc/server.h>
 
 
@@ -26,42 +26,42 @@
 namespace antalk {
 namespace apigw {
 
-class IMLoginServiceImpl : public im::login::IMLoginService {
+class LoginServiceImpl : public LoginService {
 public:
-	IMLoginServiceImpl() {};
-	virtual ~IMLoginServiceImpl() {};
-	virtual void IMLogin(google::protobuf::RpcController* cntl_base,
-		const im::login::IMLoginReq* request,
-		im::login::IMLoginRes* response,
+	LoginServiceImpl() {};
+	virtual ~LoginServiceImpl() {};
+	virtual void Login(google::protobuf::RpcController* cntl_base,
+		const LoginReq* request,
+		LoginResp* response,
 		google::protobuf::Closure* done) {
 		// This object helps you to call done->Run() in RAII style. If you need
 		// to process the request asynchronously, pass done_guard.release().
-		brpc::ClosureGuard done_guard(done);
-
-		brpc::Controller* cntl =
-			static_cast<brpc::Controller*>(cntl_base);
-
-		// The purpose of following logs is to help you to understand
-		// how clients interact with servers more intuitively. You should 
-		// remove these logs in performance-sensitive servers.
-		LOG(INFO) << "Received request[log_id=" << cntl->log_id()
-			<< "] from " << cntl->remote_side()
-			<< " to " << cntl->local_side()
-			//<< ": " << request->message()
-			<< " (attached=" << cntl->request_attachment() << ")";
-
-		// Fill response.
-		response->set_result_code(im::base::REFUSE_REASON_NONE);
-
-		// You can compress the response by setting Controller, but be aware
-		// that compression may be costly, evaluate before turning on.
-		// cntl->set_response_compress_type(brpc::COMPRESS_TYPE_GZIP);
-
-		//if (FLAGS_echo_attachment) {
-			// Set attachment which is wired to network directly instead of
-			// being serialized into protobuf messages.
-			//cntl->response_attachment().append(cntl->request_attachment());
-		//}
+//		brpc::ClosureGuard done_guard(done);
+//
+//		brpc::Controller* cntl =
+//			static_cast<brpc::Controller*>(cntl_base);
+//
+//		// The purpose of following logs is to help you to understand
+//		// how clients interact with servers more intuitively. You should 
+//		// remove these logs in performance-sensitive servers.
+//		LOG(INFO) << "Received request[log_id=" << cntl->log_id()
+//			<< "] from " << cntl->remote_side()
+//			<< " to " << cntl->local_side()
+//			//<< ": " << request->message()
+//			<< " (attached=" << cntl->request_attachment() << ")";
+//
+//		// Fill response.
+//		response->set_result_code(im::base::REFUSE_REASON_NONE);
+//
+//		// You can compress the response by setting Controller, but be aware
+//		// that compression may be costly, evaluate before turning on.
+//		// cntl->set_response_compress_type(brpc::COMPRESS_TYPE_GZIP);
+//
+//		//if (FLAGS_echo_attachment) {
+//			// Set attachment which is wired to network directly instead of
+//			// being serialized into protobuf messages.
+//			//cntl->response_attachment().append(cntl->request_attachment());
+//		//}
 	}
 };
 

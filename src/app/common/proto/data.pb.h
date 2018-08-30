@@ -599,16 +599,16 @@ class SetUserStatusResp : public ::google::protobuf::Message /* @@protoc_inserti
 };
 // ===================================================================
 
-class GetUserInfoService_Stub;
+class UserStatusService_Stub;
 
-class GetUserInfoService : public ::google::protobuf::Service {
+class UserStatusService : public ::google::protobuf::Service {
  protected:
   // This class should be treated as an abstract interface.
-  inline GetUserInfoService() {};
+  inline UserStatusService() {};
  public:
-  virtual ~GetUserInfoService();
+  virtual ~UserStatusService();
 
-  typedef GetUserInfoService_Stub Stub;
+  typedef UserStatusService_Stub Stub;
 
   static const ::google::protobuf::ServiceDescriptor* descriptor();
 
@@ -635,19 +635,19 @@ class GetUserInfoService : public ::google::protobuf::Service {
     const ::google::protobuf::MethodDescriptor* method) const;
 
  private:
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(GetUserInfoService);
+  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(UserStatusService);
 };
 
-class GetUserInfoService_Stub : public GetUserInfoService {
+class UserStatusService_Stub : public UserStatusService {
  public:
-  GetUserInfoService_Stub(::google::protobuf::RpcChannel* channel);
-  GetUserInfoService_Stub(::google::protobuf::RpcChannel* channel,
+  UserStatusService_Stub(::google::protobuf::RpcChannel* channel);
+  UserStatusService_Stub(::google::protobuf::RpcChannel* channel,
                    ::google::protobuf::Service::ChannelOwnership ownership);
-  ~GetUserInfoService_Stub();
+  ~UserStatusService_Stub();
 
   inline ::google::protobuf::RpcChannel* channel() { return channel_; }
 
-  // implements GetUserInfoService ------------------------------------------
+  // implements UserStatusService ------------------------------------------
 
   void GetUserInfo(::google::protobuf::RpcController* controller,
                        const ::antalk::data::GetUserInfoReq* request,
@@ -660,7 +660,7 @@ class GetUserInfoService_Stub : public GetUserInfoService {
  private:
   ::google::protobuf::RpcChannel* channel_;
   bool owns_channel_;
-  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(GetUserInfoService_Stub);
+  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(UserStatusService_Stub);
 };
 
 

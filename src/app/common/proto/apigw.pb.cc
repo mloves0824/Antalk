@@ -234,7 +234,7 @@ void InitDefaultsServerKickoutNotifyResp() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[8];
-const ::google::protobuf::ServiceDescriptor* file_level_service_descriptors[1];
+const ::google::protobuf::ServiceDescriptor* file_level_service_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::apigw::LoginReq, _has_bits_),
@@ -377,11 +377,11 @@ void AddDescriptorsImpl() {
       ".antalk.apigw.RegisterNoityReq\032\024.antalk."
       "apigw.Notify\022b\n\023ServerKickoutNotify\022$.an"
       "talk.apigw.ServerKickoutNotifyReq\032%.anta"
-      "lk.apigw.ServerKickoutNotifyRespB\022\n\rcom."
-      "antalk.pb\200\001\001"
+      "lk.apigw.ServerKickoutNotifyResp2\014\n\nMsgS"
+      "erviceB\022\n\rcom.antalk.pb\200\001\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 972);
+      descriptor, 986);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "apigw.proto", &protobuf_RegisterTypes);
   ::protobuf_common_2eproto::AddDescriptors();
@@ -3110,6 +3110,65 @@ void LoginService_Stub::ServerKickoutNotify(::google::protobuf::RpcController* c
   channel_->CallMethod(descriptor()->method(3),
                        controller, request, response, done);
 }
+// ===================================================================
+
+MsgService::~MsgService() {}
+
+const ::google::protobuf::ServiceDescriptor* MsgService::descriptor() {
+  protobuf_apigw_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_apigw_2eproto::file_level_service_descriptors[1];
+}
+
+const ::google::protobuf::ServiceDescriptor* MsgService::GetDescriptor() {
+  return descriptor();
+}
+
+void MsgService::CallMethod(const ::google::protobuf::MethodDescriptor* method,
+                             ::google::protobuf::RpcController* controller,
+                             const ::google::protobuf::Message* request,
+                             ::google::protobuf::Message* response,
+                             ::google::protobuf::Closure* done) {
+  GOOGLE_DCHECK_EQ(method->service(), protobuf_apigw_2eproto::file_level_service_descriptors[1]);
+  switch(method->index()) {
+    default:
+      GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
+      break;
+  }
+}
+
+const ::google::protobuf::Message& MsgService::GetRequestPrototype(
+    const ::google::protobuf::MethodDescriptor* method) const {
+  GOOGLE_DCHECK_EQ(method->service(), descriptor());
+  switch(method->index()) {
+    default:
+      GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
+      return *::google::protobuf::MessageFactory::generated_factory()
+          ->GetPrototype(method->input_type());
+  }
+}
+
+const ::google::protobuf::Message& MsgService::GetResponsePrototype(
+    const ::google::protobuf::MethodDescriptor* method) const {
+  GOOGLE_DCHECK_EQ(method->service(), descriptor());
+  switch(method->index()) {
+    default:
+      GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
+      return *::google::protobuf::MessageFactory::generated_factory()
+          ->GetPrototype(method->output_type());
+  }
+}
+
+MsgService_Stub::MsgService_Stub(::google::protobuf::RpcChannel* channel)
+  : channel_(channel), owns_channel_(false) {}
+MsgService_Stub::MsgService_Stub(
+    ::google::protobuf::RpcChannel* channel,
+    ::google::protobuf::Service::ChannelOwnership ownership)
+  : channel_(channel),
+    owns_channel_(ownership == ::google::protobuf::Service::STUB_OWNS_CHANNEL) {}
+MsgService_Stub::~MsgService_Stub() {
+  if (owns_channel_) delete channel_;
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace apigw

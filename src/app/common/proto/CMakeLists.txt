@@ -12,9 +12,8 @@ ELSE(WIN32)
 		SET(PROJECT_LIB_DIR ${PROJECT_SOURCE_DIR}/../../../../ops/output/debug/debug_linux_x64/dep)
 		SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../../../../ops/output/debug/debug_linux_x64/dep)
 		SET(PROJECT_LIBS_PLATFORM
-			#protobuf
-			/usr/lib/libprotobuf.so
-			#${PROJECT_SOURCE_DIR}/../../../../third/mbrpc/lib/libbrpc.so
+			protobuf
+			brpc
 			gflags
 			pthread
 			dl
@@ -45,8 +44,6 @@ ELSE(WIN32)
 		${PROJECT_SOURCE_DIR}/
 		${PROJECT_SOURCE_DIR}/../common/proto
 		/usr/include
-		#${PROJECT_SOURCE_DIR}/../../../../third/mbrpc/include
-		#${PROJECT_SOURCE_DIR}/../../../../third/proto3/include
 	)
 
 	LINK_DIRECTORIES(${PROJECT_LIB_DIR})

@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
 	brpc::Server server;
 
 	// Instance of your service.
-	antalk::apigw::IMLoginServiceImpl login_service_impl;
+	antalk::apigw::LoginServiceImpl login_service_impl;
 
 	// Add the service into server. Notice the second parameter, because the
 	// service is put on stack, we don't want server to delete it, otherwise

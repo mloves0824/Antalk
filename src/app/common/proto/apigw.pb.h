@@ -1217,6 +1217,57 @@ class LoginService_Stub : public LoginService {
 };
 
 
+// -------------------------------------------------------------------
+
+class MsgService_Stub;
+
+class MsgService : public ::google::protobuf::Service {
+ protected:
+  // This class should be treated as an abstract interface.
+  inline MsgService() {};
+ public:
+  virtual ~MsgService();
+
+  typedef MsgService_Stub Stub;
+
+  static const ::google::protobuf::ServiceDescriptor* descriptor();
+
+
+  // implements Service ----------------------------------------------
+
+  const ::google::protobuf::ServiceDescriptor* GetDescriptor();
+  void CallMethod(const ::google::protobuf::MethodDescriptor* method,
+                  ::google::protobuf::RpcController* controller,
+                  const ::google::protobuf::Message* request,
+                  ::google::protobuf::Message* response,
+                  ::google::protobuf::Closure* done);
+  const ::google::protobuf::Message& GetRequestPrototype(
+    const ::google::protobuf::MethodDescriptor* method) const;
+  const ::google::protobuf::Message& GetResponsePrototype(
+    const ::google::protobuf::MethodDescriptor* method) const;
+
+ private:
+  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MsgService);
+};
+
+class MsgService_Stub : public MsgService {
+ public:
+  MsgService_Stub(::google::protobuf::RpcChannel* channel);
+  MsgService_Stub(::google::protobuf::RpcChannel* channel,
+                   ::google::protobuf::Service::ChannelOwnership ownership);
+  ~MsgService_Stub();
+
+  inline ::google::protobuf::RpcChannel* channel() { return channel_; }
+
+  // implements MsgService ------------------------------------------
+
+ private:
+  ::google::protobuf::RpcChannel* channel_;
+  bool owns_channel_;
+  GOOGLE_DISALLOW_EVIL_CONSTRUCTORS(MsgService_Stub);
+};
+
+
 // ===================================================================
 
 

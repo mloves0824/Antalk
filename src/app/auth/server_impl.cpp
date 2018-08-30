@@ -15,7 +15,7 @@
 // Author: chenbang (chenbang@antalk.com)
 // Date: $time$
 #include "server_impl.h"
-#include "stub_manager.h"
+//#include "stub_manager.h"
 #include "data.user.pb.h"
 
 namespace antalk {
