@@ -35,7 +35,7 @@ public:
         google::protobuf::Closure* done);
 
 private:
-    antalk::common::ResultType CheckAuth();
+    antalk::common::ResultType CheckAuth(const LoginReq &req);
 };
 
 }  // namespace example

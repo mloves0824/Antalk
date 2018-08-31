@@ -54,5 +54,12 @@ void LoginServiceImpl::Login(google::protobuf::RpcController* cntl_base,
     //}
 }
 
+antalk::common::ResultType LoginServiceImpl::CheckParam(const LoginReq &req) {
+}
+
+
+antalk::common::ResultType LoginServiceImpl::CheckAuth(const LoginReq &req) {
+}
+
 }
 }
