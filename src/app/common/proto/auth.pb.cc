@@ -155,16 +155,18 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::auth::LoginResp, uid_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::auth::LoginResp, server_time_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::auth::LoginResp, result_code_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::auth::LoginResp, result_string_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::auth::LoginResp, online_status_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::auth::LoginResp, user_info_),
-  2,
-  3,
   0,
+  3,
   4,
   1,
+  5,
+  2,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::auth::LogoutReq, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::auth::LogoutReq, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -182,9 +184,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 11, sizeof(::antalk::auth::LoginReq)},
-  { 17, 27, sizeof(::antalk::auth::LoginResp)},
-  { 32, 39, sizeof(::antalk::auth::LogoutReq)},
-  { 41, 46, sizeof(::antalk::auth::LogoutResp)},
+  { 17, 28, sizeof(::antalk::auth::LoginResp)},
+  { 34, 41, sizeof(::antalk::auth::LogoutReq)},
+  { 43, 48, sizeof(::antalk::auth::LogoutResp)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -221,20 +223,21 @@ void AddDescriptorsImpl() {
       " \001(\t\022\020\n\010password\030\003 \001(\t\0222\n\ronline_status\030"
       "\004 \001(\0162\033.antalk.common.UserStatType\022.\n\013cl"
       "ient_type\030\005 \001(\0162\031.antalk.common.ClientTy"
-      "pe\022\026\n\016client_version\030\006 \001(\t\"\307\001\n\tLoginResp"
-      "\022\023\n\013server_time\030\001 \001(\r\022.\n\013result_code\030\002 \001"
-      "(\0162\031.antalk.common.ResultType\022\025\n\rresult_"
-      "string\030\003 \001(\t\0222\n\ronline_status\030\004 \001(\0162\033.an"
-      "talk.common.UserStatType\022*\n\tuser_info\030\005 "
-      "\001(\0132\027.antalk.common.UserInfo\",\n\tLogoutRe"
-      "q\022\013\n\003uid\030\001 \001(\t\022\022\n\ntime_stamp\030\002 \001(\003\"\014\n\nLo"
-      "goutResp2\201\001\n\014LoginService\0226\n\005Login\022\025.ant"
-      "alk.auth.LoginReq\032\026.antalk.auth.LoginRes"
-      "p\0229\n\006Logout\022\026.antalk.auth.LogoutReq\032\027.an"
-      "talk.auth.LogoutRespB\022\n\rcom.antalk.pb\200\001\001"
+      "pe\022\026\n\016client_version\030\006 \001(\t\"\324\001\n\tLoginResp"
+      "\022\013\n\003uid\030\001 \001(\t\022\023\n\013server_time\030\002 \001(\r\022.\n\013re"
+      "sult_code\030\003 \001(\0162\031.antalk.common.ResultTy"
+      "pe\022\025\n\rresult_string\030\004 \001(\t\0222\n\ronline_stat"
+      "us\030\005 \001(\0162\033.antalk.common.UserStatType\022*\n"
+      "\tuser_info\030\006 \001(\0132\027.antalk.common.UserInf"
+      "o\",\n\tLogoutReq\022\013\n\003uid\030\001 \001(\t\022\022\n\ntime_stam"
+      "p\030\002 \001(\003\"\014\n\nLogoutResp2\201\001\n\014LoginService\0226"
+      "\n\005Login\022\025.antalk.auth.LoginReq\032\026.antalk."
+      "auth.LoginResp\0229\n\006Logout\022\026.antalk.auth.L"
+      "ogoutReq\032\027.antalk.auth.LogoutRespB\022\n\rcom"
+      ".antalk.pb\200\001\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 640);
+      descriptor, 653);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "auth.proto", &protobuf_RegisterTypes);
   ::protobuf_common_2eproto::AddDescriptors();
@@ -811,6 +814,7 @@ void LoginResp::clear_user_info() {
   clear_has_user_info();
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int LoginResp::kUidFieldNumber;
 const int LoginResp::kServerTimeFieldNumber;
 const int LoginResp::kResultCodeFieldNumber;
 const int LoginResp::kResultStringFieldNumber;
@@ -832,6 +836,10 @@ LoginResp::LoginResp(const LoginResp& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  uid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_uid()) {
+    uid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.uid_);
+  }
   result_string_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.has_result_string()) {
     result_string_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.result_string_);
@@ -849,6 +857,7 @@ LoginResp::LoginResp(const LoginResp& from)
 
 void LoginResp::SharedCtor() {
   _cached_size_ = 0;
+  uid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   result_string_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&user_info_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&result_code_) -
@@ -862,6 +871,7 @@ LoginResp::~LoginResp() {
 }
 
 void LoginResp::SharedDtor() {
+  uid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   result_string_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete user_info_;
 }
@@ -896,17 +906,21 @@ void LoginResp::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 3u) {
+  if (cached_has_bits & 7u) {
     if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(!uid_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*uid_.UnsafeRawStringPointer())->clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
       GOOGLE_DCHECK(!result_string_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
       (*result_string_.UnsafeRawStringPointer())->clear();
     }
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000004u) {
       GOOGLE_DCHECK(user_info_ != NULL);
       user_info_->Clear();
     }
   }
-  if (cached_has_bits & 28u) {
+  if (cached_has_bits & 56u) {
     ::memset(&server_time_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&result_code_) -
         reinterpret_cast<char*>(&server_time_)) + sizeof(result_code_));
@@ -926,10 +940,26 @@ bool LoginResp::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 server_time = 1;
+      // optional string uid = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_uid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->uid().data(), static_cast<int>(this->uid().length()),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "antalk.auth.LoginResp.uid");
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional uint32 server_time = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
           set_has_server_time();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -940,10 +970,10 @@ bool LoginResp::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .antalk.common.ResultType result_code = 2;
-      case 2: {
+      // optional .antalk.common.ResultType result_code = 3;
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -952,7 +982,7 @@ bool LoginResp::MergePartialFromCodedStream(
             set_result_code(static_cast< ::antalk::common::ResultType >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
-                2, static_cast< ::google::protobuf::uint64>(value));
+                3, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -960,10 +990,10 @@ bool LoginResp::MergePartialFromCodedStream(
         break;
       }
 
-      // optional string result_string = 3;
-      case 3: {
+      // optional string result_string = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_result_string()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -976,10 +1006,10 @@ bool LoginResp::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .antalk.common.UserStatType online_status = 4;
-      case 4: {
+      // optional .antalk.common.UserStatType online_status = 5;
+      case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -988,7 +1018,7 @@ bool LoginResp::MergePartialFromCodedStream(
             set_online_status(static_cast< ::antalk::common::UserStatType >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
-                4, static_cast< ::google::protobuf::uint64>(value));
+                5, static_cast< ::google::protobuf::uint64>(value));
           }
         } else {
           goto handle_unusual;
@@ -996,10 +1026,10 @@ bool LoginResp::MergePartialFromCodedStream(
         break;
       }
 
-      // optional .antalk.common.UserInfo user_info = 5;
-      case 5: {
+      // optional .antalk.common.UserInfo user_info = 6;
+      case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_user_info()));
         } else {
@@ -1035,37 +1065,47 @@ void LoginResp::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 server_time = 1;
-  if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->server_time(), output);
-  }
-
-  // optional .antalk.common.ResultType result_code = 2;
-  if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      2, this->result_code(), output);
-  }
-
-  // optional string result_string = 3;
+  // optional string uid = 1;
   if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->uid().data(), static_cast<int>(this->uid().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.auth.LoginResp.uid");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->uid(), output);
+  }
+
+  // optional uint32 server_time = 2;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->server_time(), output);
+  }
+
+  // optional .antalk.common.ResultType result_code = 3;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->result_code(), output);
+  }
+
+  // optional string result_string = 4;
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->result_string().data(), static_cast<int>(this->result_string().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "antalk.auth.LoginResp.result_string");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->result_string(), output);
+      4, this->result_string(), output);
   }
 
-  // optional .antalk.common.UserStatType online_status = 4;
-  if (cached_has_bits & 0x00000010u) {
+  // optional .antalk.common.UserStatType online_status = 5;
+  if (cached_has_bits & 0x00000020u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->online_status(), output);
+      5, this->online_status(), output);
   }
 
-  // optional .antalk.common.UserInfo user_info = 5;
-  if (cached_has_bits & 0x00000002u) {
+  // optional .antalk.common.UserInfo user_info = 6;
+  if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, *this->user_info_, output);
+      6, *this->user_info_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1083,39 +1123,50 @@ void LoginResp::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 server_time = 1;
-  if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->server_time(), target);
-  }
-
-  // optional .antalk.common.ResultType result_code = 2;
-  if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      2, this->result_code(), target);
-  }
-
-  // optional string result_string = 3;
+  // optional string uid = 1;
   if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->uid().data(), static_cast<int>(this->uid().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.auth.LoginResp.uid");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->uid(), target);
+  }
+
+  // optional uint32 server_time = 2;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->server_time(), target);
+  }
+
+  // optional .antalk.common.ResultType result_code = 3;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->result_code(), target);
+  }
+
+  // optional string result_string = 4;
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->result_string().data(), static_cast<int>(this->result_string().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
       "antalk.auth.LoginResp.result_string");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->result_string(), target);
+        4, this->result_string(), target);
   }
 
-  // optional .antalk.common.UserStatType online_status = 4;
-  if (cached_has_bits & 0x00000010u) {
+  // optional .antalk.common.UserStatType online_status = 5;
+  if (cached_has_bits & 0x00000020u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->online_status(), target);
+      5, this->online_status(), target);
   }
 
-  // optional .antalk.common.UserInfo user_info = 5;
-  if (cached_has_bits & 0x00000002u) {
+  // optional .antalk.common.UserInfo user_info = 6;
+  if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        5, *this->user_info_, deterministic, target);
+        6, *this->user_info_, deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1135,35 +1186,42 @@ size_t LoginResp::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (_has_bits_[0 / 32] & 31u) {
-    // optional string result_string = 3;
+  if (_has_bits_[0 / 32] & 63u) {
+    // optional string uid = 1;
+    if (has_uid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->uid());
+    }
+
+    // optional string result_string = 4;
     if (has_result_string()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->result_string());
     }
 
-    // optional .antalk.common.UserInfo user_info = 5;
+    // optional .antalk.common.UserInfo user_info = 6;
     if (has_user_info()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
           *this->user_info_);
     }
 
-    // optional uint32 server_time = 1;
+    // optional uint32 server_time = 2;
     if (has_server_time()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->server_time());
     }
 
-    // optional .antalk.common.ResultType result_code = 2;
+    // optional .antalk.common.ResultType result_code = 3;
     if (has_result_code()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->result_code());
     }
 
-    // optional .antalk.common.UserStatType online_status = 4;
+    // optional .antalk.common.UserStatType online_status = 5;
     if (has_online_status()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::EnumSize(this->online_status());
@@ -1200,21 +1258,25 @@ void LoginResp::MergeFrom(const LoginResp& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 31u) {
+  if (cached_has_bits & 63u) {
     if (cached_has_bits & 0x00000001u) {
+      set_has_uid();
+      uid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.uid_);
+    }
+    if (cached_has_bits & 0x00000002u) {
       set_has_result_string();
       result_string_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.result_string_);
     }
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000004u) {
       mutable_user_info()->::antalk::common::UserInfo::MergeFrom(from.user_info());
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000008u) {
       server_time_ = from.server_time_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000010u) {
       result_code_ = from.result_code_;
     }
-    if (cached_has_bits & 0x00000010u) {
+    if (cached_has_bits & 0x00000020u) {
       online_status_ = from.online_status_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -1248,6 +1310,7 @@ void LoginResp::Swap(LoginResp* other) {
 }
 void LoginResp::InternalSwap(LoginResp* other) {
   using std::swap;
+  uid_.Swap(&other->uid_);
   result_string_.Swap(&other->result_string_);
   swap(user_info_, other->user_info_);
   swap(server_time_, other->server_time_);
