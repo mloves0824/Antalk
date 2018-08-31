@@ -7,16 +7,17 @@ option java_package = "com.antalk.pb";
 option cc_generic_services = true;
 
 message LoginReq {
-	required string username = 1;
-	required string password = 2;
-	required antalk.common.UserStatType online_status = 3;
-	required antalk.common.ClientType client_type = 4;
-	optional string client_version = 5;
+    optional string uid = 1;
+	optional string user_name = 2;
+	optional string password = 3;
+	optional antalk.common.UserStatType online_status = 4;
+	optional antalk.common.ClientType client_type = 5;
+	optional string client_version = 6;
 }
 
 message LoginResp {
-	required uint32 server_time = 1;
-	required antalk.common.ResultType result_code = 2;
+	optional uint32 server_time = 1;
+	optional antalk.common.ResultType result_code = 2;
 	optional string result_string = 3;
 	optional antalk.common.UserStatType online_status = 4;
 	optional antalk.common.UserInfo user_info = 5;
