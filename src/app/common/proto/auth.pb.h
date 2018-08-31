@@ -169,25 +169,40 @@ class LoginReq : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // required string username = 1;
-  bool has_username() const;
-  void clear_username();
-  static const int kUsernameFieldNumber = 1;
-  const ::std::string& username() const;
-  void set_username(const ::std::string& value);
+  // optional string uid = 1;
+  bool has_uid() const;
+  void clear_uid();
+  static const int kUidFieldNumber = 1;
+  const ::std::string& uid() const;
+  void set_uid(const ::std::string& value);
   #if LANG_CXX11
-  void set_username(::std::string&& value);
+  void set_uid(::std::string&& value);
   #endif
-  void set_username(const char* value);
-  void set_username(const char* value, size_t size);
-  ::std::string* mutable_username();
-  ::std::string* release_username();
-  void set_allocated_username(::std::string* username);
+  void set_uid(const char* value);
+  void set_uid(const char* value, size_t size);
+  ::std::string* mutable_uid();
+  ::std::string* release_uid();
+  void set_allocated_uid(::std::string* uid);
 
-  // required string password = 2;
+  // optional string user_name = 2;
+  bool has_user_name() const;
+  void clear_user_name();
+  static const int kUserNameFieldNumber = 2;
+  const ::std::string& user_name() const;
+  void set_user_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_user_name(::std::string&& value);
+  #endif
+  void set_user_name(const char* value);
+  void set_user_name(const char* value, size_t size);
+  ::std::string* mutable_user_name();
+  ::std::string* release_user_name();
+  void set_allocated_user_name(::std::string* user_name);
+
+  // optional string password = 3;
   bool has_password() const;
   void clear_password();
-  static const int kPasswordFieldNumber = 2;
+  static const int kPasswordFieldNumber = 3;
   const ::std::string& password() const;
   void set_password(const ::std::string& value);
   #if LANG_CXX11
@@ -199,10 +214,10 @@ class LoginReq : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_password();
   void set_allocated_password(::std::string* password);
 
-  // optional string client_version = 5;
+  // optional string client_version = 6;
   bool has_client_version() const;
   void clear_client_version();
-  static const int kClientVersionFieldNumber = 5;
+  static const int kClientVersionFieldNumber = 6;
   const ::std::string& client_version() const;
   void set_client_version(const ::std::string& value);
   #if LANG_CXX11
@@ -214,24 +229,26 @@ class LoginReq : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_client_version();
   void set_allocated_client_version(::std::string* client_version);
 
-  // required .antalk.common.UserStatType online_status = 3;
+  // optional .antalk.common.UserStatType online_status = 4;
   bool has_online_status() const;
   void clear_online_status();
-  static const int kOnlineStatusFieldNumber = 3;
+  static const int kOnlineStatusFieldNumber = 4;
   ::antalk::common::UserStatType online_status() const;
   void set_online_status(::antalk::common::UserStatType value);
 
-  // required .antalk.common.ClientType client_type = 4;
+  // optional .antalk.common.ClientType client_type = 5;
   bool has_client_type() const;
   void clear_client_type();
-  static const int kClientTypeFieldNumber = 4;
+  static const int kClientTypeFieldNumber = 5;
   ::antalk::common::ClientType client_type() const;
   void set_client_type(::antalk::common::ClientType value);
 
   // @@protoc_insertion_point(class_scope:antalk.auth.LoginReq)
  private:
-  void set_has_username();
-  void clear_has_username();
+  void set_has_uid();
+  void clear_has_uid();
+  void set_has_user_name();
+  void clear_has_user_name();
   void set_has_password();
   void clear_has_password();
   void set_has_online_status();
@@ -241,13 +258,11 @@ class LoginReq : public ::google::protobuf::Message /* @@protoc_insertion_point(
   void set_has_client_version();
   void clear_has_client_version();
 
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr username_;
+  ::google::protobuf::internal::ArenaStringPtr uid_;
+  ::google::protobuf::internal::ArenaStringPtr user_name_;
   ::google::protobuf::internal::ArenaStringPtr password_;
   ::google::protobuf::internal::ArenaStringPtr client_version_;
   int online_status_;
@@ -370,14 +385,14 @@ class LoginResp : public ::google::protobuf::Message /* @@protoc_insertion_point
   ::antalk::common::UserInfo* mutable_user_info();
   void set_allocated_user_info(::antalk::common::UserInfo* user_info);
 
-  // required uint32 server_time = 1;
+  // optional uint32 server_time = 1;
   bool has_server_time() const;
   void clear_server_time();
   static const int kServerTimeFieldNumber = 1;
   ::google::protobuf::uint32 server_time() const;
   void set_server_time(::google::protobuf::uint32 value);
 
-  // required .antalk.common.ResultType result_code = 2;
+  // optional .antalk.common.ResultType result_code = 2;
   bool has_result_code() const;
   void clear_result_code();
   static const int kResultCodeFieldNumber = 2;
@@ -403,9 +418,6 @@ class LoginResp : public ::google::protobuf::Message /* @@protoc_insertion_point
   void clear_has_online_status();
   void set_has_user_info();
   void clear_has_user_info();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
@@ -724,78 +736,141 @@ class LoginService_Stub : public LoginService {
 #endif  // __GNUC__
 // LoginReq
 
-// required string username = 1;
-inline bool LoginReq::has_username() const {
+// optional string uid = 1;
+inline bool LoginReq::has_uid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LoginReq::set_has_username() {
+inline void LoginReq::set_has_uid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LoginReq::clear_has_username() {
+inline void LoginReq::clear_has_uid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LoginReq::clear_username() {
-  username_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_username();
+inline void LoginReq::clear_uid() {
+  uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_uid();
 }
-inline const ::std::string& LoginReq::username() const {
-  // @@protoc_insertion_point(field_get:antalk.auth.LoginReq.username)
-  return username_.GetNoArena();
+inline const ::std::string& LoginReq::uid() const {
+  // @@protoc_insertion_point(field_get:antalk.auth.LoginReq.uid)
+  return uid_.GetNoArena();
 }
-inline void LoginReq::set_username(const ::std::string& value) {
-  set_has_username();
-  username_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:antalk.auth.LoginReq.username)
+inline void LoginReq::set_uid(const ::std::string& value) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.auth.LoginReq.uid)
 }
 #if LANG_CXX11
-inline void LoginReq::set_username(::std::string&& value) {
-  set_has_username();
-  username_.SetNoArena(
+inline void LoginReq::set_uid(::std::string&& value) {
+  set_has_uid();
+  uid_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:antalk.auth.LoginReq.username)
+  // @@protoc_insertion_point(field_set_rvalue:antalk.auth.LoginReq.uid)
 }
 #endif
-inline void LoginReq::set_username(const char* value) {
+inline void LoginReq::set_uid(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_username();
-  username_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:antalk.auth.LoginReq.username)
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.auth.LoginReq.uid)
 }
-inline void LoginReq::set_username(const char* value, size_t size) {
-  set_has_username();
-  username_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void LoginReq::set_uid(const char* value, size_t size) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:antalk.auth.LoginReq.username)
+  // @@protoc_insertion_point(field_set_pointer:antalk.auth.LoginReq.uid)
 }
-inline ::std::string* LoginReq::mutable_username() {
-  set_has_username();
-  // @@protoc_insertion_point(field_mutable:antalk.auth.LoginReq.username)
-  return username_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* LoginReq::mutable_uid() {
+  set_has_uid();
+  // @@protoc_insertion_point(field_mutable:antalk.auth.LoginReq.uid)
+  return uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* LoginReq::release_username() {
-  // @@protoc_insertion_point(field_release:antalk.auth.LoginReq.username)
-  clear_has_username();
-  return username_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* LoginReq::release_uid() {
+  // @@protoc_insertion_point(field_release:antalk.auth.LoginReq.uid)
+  clear_has_uid();
+  return uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void LoginReq::set_allocated_username(::std::string* username) {
-  if (username != NULL) {
-    set_has_username();
+inline void LoginReq::set_allocated_uid(::std::string* uid) {
+  if (uid != NULL) {
+    set_has_uid();
   } else {
-    clear_has_username();
+    clear_has_uid();
   }
-  username_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), username);
-  // @@protoc_insertion_point(field_set_allocated:antalk.auth.LoginReq.username)
+  uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uid);
+  // @@protoc_insertion_point(field_set_allocated:antalk.auth.LoginReq.uid)
 }
 
-// required string password = 2;
-inline bool LoginReq::has_password() const {
+// optional string user_name = 2;
+inline bool LoginReq::has_user_name() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LoginReq::set_has_password() {
+inline void LoginReq::set_has_user_name() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void LoginReq::clear_has_password() {
+inline void LoginReq::clear_has_user_name() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void LoginReq::clear_user_name() {
+  user_name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_user_name();
+}
+inline const ::std::string& LoginReq::user_name() const {
+  // @@protoc_insertion_point(field_get:antalk.auth.LoginReq.user_name)
+  return user_name_.GetNoArena();
+}
+inline void LoginReq::set_user_name(const ::std::string& value) {
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.auth.LoginReq.user_name)
+}
+#if LANG_CXX11
+inline void LoginReq::set_user_name(::std::string&& value) {
+  set_has_user_name();
+  user_name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.auth.LoginReq.user_name)
+}
+#endif
+inline void LoginReq::set_user_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.auth.LoginReq.user_name)
+}
+inline void LoginReq::set_user_name(const char* value, size_t size) {
+  set_has_user_name();
+  user_name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.auth.LoginReq.user_name)
+}
+inline ::std::string* LoginReq::mutable_user_name() {
+  set_has_user_name();
+  // @@protoc_insertion_point(field_mutable:antalk.auth.LoginReq.user_name)
+  return user_name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* LoginReq::release_user_name() {
+  // @@protoc_insertion_point(field_release:antalk.auth.LoginReq.user_name)
+  clear_has_user_name();
+  return user_name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void LoginReq::set_allocated_user_name(::std::string* user_name) {
+  if (user_name != NULL) {
+    set_has_user_name();
+  } else {
+    clear_has_user_name();
+  }
+  user_name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), user_name);
+  // @@protoc_insertion_point(field_set_allocated:antalk.auth.LoginReq.user_name)
+}
+
+// optional string password = 3;
+inline bool LoginReq::has_password() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LoginReq::set_has_password() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LoginReq::clear_has_password() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void LoginReq::clear_password() {
   password_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -850,15 +925,15 @@ inline void LoginReq::set_allocated_password(::std::string* password) {
   // @@protoc_insertion_point(field_set_allocated:antalk.auth.LoginReq.password)
 }
 
-// required .antalk.common.UserStatType online_status = 3;
+// optional .antalk.common.UserStatType online_status = 4;
 inline bool LoginReq::has_online_status() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void LoginReq::set_has_online_status() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void LoginReq::clear_has_online_status() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void LoginReq::clear_online_status() {
   online_status_ = 1;
@@ -875,15 +950,15 @@ inline void LoginReq::set_online_status(::antalk::common::UserStatType value) {
   // @@protoc_insertion_point(field_set:antalk.auth.LoginReq.online_status)
 }
 
-// required .antalk.common.ClientType client_type = 4;
+// optional .antalk.common.ClientType client_type = 5;
 inline bool LoginReq::has_client_type() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void LoginReq::set_has_client_type() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void LoginReq::clear_has_client_type() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void LoginReq::clear_client_type() {
   client_type_ = 1;
@@ -900,15 +975,15 @@ inline void LoginReq::set_client_type(::antalk::common::ClientType value) {
   // @@protoc_insertion_point(field_set:antalk.auth.LoginReq.client_type)
 }
 
-// optional string client_version = 5;
+// optional string client_version = 6;
 inline bool LoginReq::has_client_version() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void LoginReq::set_has_client_version() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void LoginReq::clear_has_client_version() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void LoginReq::clear_client_version() {
   client_version_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -967,7 +1042,7 @@ inline void LoginReq::set_allocated_client_version(::std::string* client_version
 
 // LoginResp
 
-// required uint32 server_time = 1;
+// optional uint32 server_time = 1;
 inline bool LoginResp::has_server_time() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -991,7 +1066,7 @@ inline void LoginResp::set_server_time(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:antalk.auth.LoginResp.server_time)
 }
 
-// required .antalk.common.ResultType result_code = 2;
+// optional .antalk.common.ResultType result_code = 2;
 inline bool LoginResp::has_result_code() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
