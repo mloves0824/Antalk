@@ -35,44 +35,10 @@ class UserStatusServiceImpl : public UserStatusService {
 public:
 	UserStatusServiceImpl() {};
 	virtual ~UserStatusServiceImpl() {};
-	virtual void GetUserInfo(google::protobuf::RpcController* cntl_base,
-		const GetUserInfoReq* request,
-		GetUserInfoRes* response,
-		google::protobuf::Closure* done) {
-		// This object helps you to call done->Run() in RAII style. If you need
-		// to process the request asynchronously, pass done_guard.release().
-		brpc::ClosureGuard done_guard(done);
-		
-
-		brpc::Controller* cntl =
-			static_cast<brpc::Controller*>(cntl_base);
-
-		// The purpose of following logs is to help you to understand
-		// how clients interact with servers more intuitively. You should 
-		// remove these logs in performance-sensitive servers.
-		LOG(INFO) << "Received request[log_id=" << cntl->log_id()
-			<< "] from " << cntl->remote_side()
-			<< " to " << cntl->local_side()
-			<< ": " << request->uid()
-			<< " (attached=" << cntl->request_attachment() << ")";
-
-		antalk::common::UserInfo user_info;
-		//DataManager::Instance().GetUserInfo(request->saas_id(), request->user_id(), user_info);
-		//response->set_allocated_user_info();
-
-		// Fill response.
-		//response->set_result_code(im::base::REFUSE_REASON_NONE);
-
-		// You can compress the response by setting Controller, but be aware
-		// that compression may be costly, evaluate before turning on.
-		// cntl->set_response_compress_type(brpc::COMPRESS_TYPE_GZIP);
-
-		//if (FLAGS_echo_attachment) {
-			// Set attachment which is wired to network directly instead of
-			// being serialized into protobuf messages.
-			//cntl->response_attachment().append(cntl->request_attachment());
-		//}
-	}
+    virtual void GetUserInfo(google::protobuf::RpcController* cntl_base,
+        const GetUserInfoReq* request,
+        GetUserInfoRes* response,
+        google::protobuf::Closure* done);
 };
 
 }  // namespace example
