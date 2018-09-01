@@ -53,7 +53,7 @@ public:
 		LOG(INFO) << "Received request[log_id=" << cntl->log_id()
 			<< "] from " << cntl->remote_side()
 			<< " to " << cntl->local_side()
-			<< ": " << request->user_id()
+			<< ": " << request->uid()
 			<< " (attached=" << cntl->request_attachment() << ")";
 
 		antalk::common::UserInfo user_info;

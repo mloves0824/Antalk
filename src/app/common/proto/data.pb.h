@@ -169,6 +169,21 @@ class GetUserInfoReq : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
+  // required string uid = 2;
+  bool has_uid() const;
+  void clear_uid();
+  static const int kUidFieldNumber = 2;
+  const ::std::string& uid() const;
+  void set_uid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_uid(::std::string&& value);
+  #endif
+  void set_uid(const char* value);
+  void set_uid(const char* value, size_t size);
+  ::std::string* mutable_uid();
+  ::std::string* release_uid();
+  void set_allocated_uid(::std::string* uid);
+
   // required uint32 saas_id = 1;
   bool has_saas_id() const;
   void clear_saas_id();
@@ -176,19 +191,12 @@ class GetUserInfoReq : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::uint32 saas_id() const;
   void set_saas_id(::google::protobuf::uint32 value);
 
-  // required uint32 user_id = 2;
-  bool has_user_id() const;
-  void clear_user_id();
-  static const int kUserIdFieldNumber = 2;
-  ::google::protobuf::uint32 user_id() const;
-  void set_user_id(::google::protobuf::uint32 value);
-
   // @@protoc_insertion_point(class_scope:antalk.data.GetUserInfoReq)
  private:
   void set_has_saas_id();
   void clear_has_saas_id();
-  void set_has_user_id();
-  void clear_has_user_id();
+  void set_has_uid();
+  void clear_has_uid();
 
   // helper for ByteSizeLong()
   size_t RequiredFieldsByteSizeFallback() const;
@@ -196,8 +204,8 @@ class GetUserInfoReq : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr uid_;
   ::google::protobuf::uint32 saas_id_;
-  ::google::protobuf::uint32 user_id_;
   friend struct ::protobuf_data_2eproto::TableStruct;
   friend void ::protobuf_data_2eproto::InitDefaultsGetUserInfoReqImpl();
 };
@@ -677,13 +685,13 @@ class UserStatusService_Stub : public UserStatusService {
 
 // required uint32 saas_id = 1;
 inline bool GetUserInfoReq::has_saas_id() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void GetUserInfoReq::set_has_saas_id() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void GetUserInfoReq::clear_has_saas_id() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void GetUserInfoReq::clear_saas_id() {
   saas_id_ = 0u;
@@ -699,28 +707,67 @@ inline void GetUserInfoReq::set_saas_id(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:antalk.data.GetUserInfoReq.saas_id)
 }
 
-// required uint32 user_id = 2;
-inline bool GetUserInfoReq::has_user_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+// required string uid = 2;
+inline bool GetUserInfoReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void GetUserInfoReq::set_has_user_id() {
-  _has_bits_[0] |= 0x00000002u;
+inline void GetUserInfoReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
 }
-inline void GetUserInfoReq::clear_has_user_id() {
-  _has_bits_[0] &= ~0x00000002u;
+inline void GetUserInfoReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
 }
-inline void GetUserInfoReq::clear_user_id() {
-  user_id_ = 0u;
-  clear_has_user_id();
+inline void GetUserInfoReq::clear_uid() {
+  uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_uid();
 }
-inline ::google::protobuf::uint32 GetUserInfoReq::user_id() const {
-  // @@protoc_insertion_point(field_get:antalk.data.GetUserInfoReq.user_id)
-  return user_id_;
+inline const ::std::string& GetUserInfoReq::uid() const {
+  // @@protoc_insertion_point(field_get:antalk.data.GetUserInfoReq.uid)
+  return uid_.GetNoArena();
 }
-inline void GetUserInfoReq::set_user_id(::google::protobuf::uint32 value) {
-  set_has_user_id();
-  user_id_ = value;
-  // @@protoc_insertion_point(field_set:antalk.data.GetUserInfoReq.user_id)
+inline void GetUserInfoReq::set_uid(const ::std::string& value) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.data.GetUserInfoReq.uid)
+}
+#if LANG_CXX11
+inline void GetUserInfoReq::set_uid(::std::string&& value) {
+  set_has_uid();
+  uid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.data.GetUserInfoReq.uid)
+}
+#endif
+inline void GetUserInfoReq::set_uid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.data.GetUserInfoReq.uid)
+}
+inline void GetUserInfoReq::set_uid(const char* value, size_t size) {
+  set_has_uid();
+  uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.data.GetUserInfoReq.uid)
+}
+inline ::std::string* GetUserInfoReq::mutable_uid() {
+  set_has_uid();
+  // @@protoc_insertion_point(field_mutable:antalk.data.GetUserInfoReq.uid)
+  return uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* GetUserInfoReq::release_uid() {
+  // @@protoc_insertion_point(field_release:antalk.data.GetUserInfoReq.uid)
+  clear_has_uid();
+  return uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void GetUserInfoReq::set_allocated_uid(::std::string* uid) {
+  if (uid != NULL) {
+    set_has_uid();
+  } else {
+    clear_has_uid();
+  }
+  uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), uid);
+  // @@protoc_insertion_point(field_set_allocated:antalk.data.GetUserInfoReq.uid)
 }
 
 // -------------------------------------------------------------------

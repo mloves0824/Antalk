@@ -70,7 +70,7 @@ antalk::common::ResultType LoginServiceImpl::CheckAuthFromDataSvr(const LoginReq
     //2. build request
     antalk::data::GetUserInfoReq data_getuserinfo_req;
     antalk::data::GetUserInfoRes data_getuserinfo_resp;
-    data_getuserinfo_req.set_user_id(req.uid());
+    data_getuserinfo_req.set_uid(req.uid());
 
 
     //3. send request

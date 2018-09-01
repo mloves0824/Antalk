@@ -6,7 +6,7 @@ option cc_generic_services = true;
 
 message GetUserInfoReq {
 	required uint32 saas_id = 1;
-	required uint32 user_id = 2;
+	required string uid = 2;
 }
 
 message GetUserInfoRes {

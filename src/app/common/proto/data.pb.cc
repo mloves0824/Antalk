@@ -139,9 +139,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::data::GetUserInfoReq, saas_id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::data::GetUserInfoReq, user_id_),
-  0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::data::GetUserInfoReq, uid_),
   1,
+  0,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::data::GetUserInfoRes, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::data::GetUserInfoRes, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -209,21 +209,21 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\ndata.proto\022\013antalk.data\032\014common.proto\""
-      "2\n\016GetUserInfoReq\022\017\n\007saas_id\030\001 \002(\r\022\017\n\007us"
-      "er_id\030\002 \002(\r\"<\n\016GetUserInfoRes\022*\n\tuser_in"
-      "fo\030\001 \002(\0132\027.antalk.common.UserInfo\"f\n\020Set"
-      "UserStatusReq\022\013\n\003uid\030\001 \001(\t\022\020\n\010dev_type\030\002"
-      " \001(\005\022\017\n\007session\030\003 \001(\t\022\016\n\006status\030\004 \001(\005\022\022\n"
-      "\nlogin_info\030\005 \001(\t\">\n\021SetUserStatusResp\022)"
-      "\n\006result\030\001 \001(\0162\031.antalk.common.ResultTyp"
-      "e2\254\001\n\021UserStatusService\022G\n\013GetUserInfo\022\033"
-      ".antalk.data.GetUserInfoReq\032\033.antalk.dat"
-      "a.GetUserInfoRes\022N\n\rSetUserStatus\022\035.anta"
-      "lk.data.SetUserStatusReq\032\036.antalk.data.S"
-      "etUserStatusRespB\022\n\rcom.antalk.pb\200\001\001"
+      ".\n\016GetUserInfoReq\022\017\n\007saas_id\030\001 \002(\r\022\013\n\003ui"
+      "d\030\002 \002(\t\"<\n\016GetUserInfoRes\022*\n\tuser_info\030\001"
+      " \002(\0132\027.antalk.common.UserInfo\"f\n\020SetUser"
+      "StatusReq\022\013\n\003uid\030\001 \001(\t\022\020\n\010dev_type\030\002 \001(\005"
+      "\022\017\n\007session\030\003 \001(\t\022\016\n\006status\030\004 \001(\005\022\022\n\nlog"
+      "in_info\030\005 \001(\t\">\n\021SetUserStatusResp\022)\n\006re"
+      "sult\030\001 \001(\0162\031.antalk.common.ResultType2\254\001"
+      "\n\021UserStatusService\022G\n\013GetUserInfo\022\033.ant"
+      "alk.data.GetUserInfoReq\032\033.antalk.data.Ge"
+      "tUserInfoRes\022N\n\rSetUserStatus\022\035.antalk.d"
+      "ata.SetUserStatusReq\032\036.antalk.data.SetUs"
+      "erStatusRespB\022\n\rcom.antalk.pb\200\001\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 516);
+      descriptor, 512);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "data.proto", &protobuf_RegisterTypes);
   ::protobuf_common_2eproto::AddDescriptors();
@@ -249,7 +249,7 @@ void GetUserInfoReq::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int GetUserInfoReq::kSaasIdFieldNumber;
-const int GetUserInfoReq::kUserIdFieldNumber;
+const int GetUserInfoReq::kUidFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 GetUserInfoReq::GetUserInfoReq()
@@ -266,17 +266,18 @@ GetUserInfoReq::GetUserInfoReq(const GetUserInfoReq& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&saas_id_, &from.saas_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&user_id_) -
-    reinterpret_cast<char*>(&saas_id_)) + sizeof(user_id_));
+  uid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_uid()) {
+    uid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.uid_);
+  }
+  saas_id_ = from.saas_id_;
   // @@protoc_insertion_point(copy_constructor:antalk.data.GetUserInfoReq)
 }
 
 void GetUserInfoReq::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&saas_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&user_id_) -
-      reinterpret_cast<char*>(&saas_id_)) + sizeof(user_id_));
+  uid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  saas_id_ = 0u;
 }
 
 GetUserInfoReq::~GetUserInfoReq() {
@@ -285,6 +286,7 @@ GetUserInfoReq::~GetUserInfoReq() {
 }
 
 void GetUserInfoReq::SharedDtor() {
+  uid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void GetUserInfoReq::SetCachedSize(int size) const {
@@ -317,11 +319,11 @@ void GetUserInfoReq::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 3u) {
-    ::memset(&saas_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&user_id_) -
-        reinterpret_cast<char*>(&saas_id_)) + sizeof(user_id_));
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(!uid_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*uid_.UnsafeRawStringPointer())->clear();
   }
+  saas_id_ = 0u;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -350,14 +352,16 @@ bool GetUserInfoReq::MergePartialFromCodedStream(
         break;
       }
 
-      // required uint32 user_id = 2;
+      // required string uid = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-          set_has_user_id();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &user_id_)));
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_uid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->uid().data(), static_cast<int>(this->uid().length()),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "antalk.data.GetUserInfoReq.uid");
         } else {
           goto handle_unusual;
         }
@@ -392,13 +396,18 @@ void GetUserInfoReq::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 saas_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->saas_id(), output);
   }
 
-  // required uint32 user_id = 2;
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->user_id(), output);
+  // required string uid = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->uid().data(), static_cast<int>(this->uid().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.data.GetUserInfoReq.uid");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->uid(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -417,13 +426,19 @@ void GetUserInfoReq::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // required uint32 saas_id = 1;
-  if (cached_has_bits & 0x00000001u) {
+  if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->saas_id(), target);
   }
 
-  // required uint32 user_id = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->user_id(), target);
+  // required string uid = 2;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->uid().data(), static_cast<int>(this->uid().length()),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "antalk.data.GetUserInfoReq.uid");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->uid(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -438,18 +453,18 @@ size_t GetUserInfoReq::RequiredFieldsByteSizeFallback() const {
 // @@protoc_insertion_point(required_fields_byte_size_fallback_start:antalk.data.GetUserInfoReq)
   size_t total_size = 0;
 
+  if (has_uid()) {
+    // required string uid = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->uid());
+  }
+
   if (has_saas_id()) {
     // required uint32 saas_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->saas_id());
-  }
-
-  if (has_user_id()) {
-    // required uint32 user_id = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->user_id());
   }
 
   return total_size;
@@ -464,15 +479,15 @@ size_t GetUserInfoReq::ByteSizeLong() const {
         _internal_metadata_.unknown_fields());
   }
   if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
+    // required string uid = 2;
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->uid());
+
     // required uint32 saas_id = 1;
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::UInt32Size(
         this->saas_id());
-
-    // required uint32 user_id = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->user_id());
 
   } else {
     total_size += RequiredFieldsByteSizeFallback();
@@ -509,10 +524,11 @@ void GetUserInfoReq::MergeFrom(const GetUserInfoReq& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 3u) {
     if (cached_has_bits & 0x00000001u) {
-      saas_id_ = from.saas_id_;
+      set_has_uid();
+      uid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.uid_);
     }
     if (cached_has_bits & 0x00000002u) {
-      user_id_ = from.user_id_;
+      saas_id_ = from.saas_id_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -543,8 +559,8 @@ void GetUserInfoReq::Swap(GetUserInfoReq* other) {
 }
 void GetUserInfoReq::InternalSwap(GetUserInfoReq* other) {
   using std::swap;
+  uid_.Swap(&other->uid_);
   swap(saas_id_, other->saas_id_);
-  swap(user_id_, other->user_id_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
