@@ -52,46 +52,32 @@ int main(int argc, char* argv[]) {
 
 	// Normally, you should not call a Channel directly, but instead construct
 	// a stub Service wrapping it. stub can be shared by all threads as well.
-	im::login::IMLoginService_Stub stub(&channel);
+    antalk::apigw::LoginService_Stub stub(&channel);
 
-	// Send a request and wait for the response every 1 second.
-	int log_id = 0;
-	while (!brpc::IsAskedToQuit()) {
-		// We will receive response synchronously, safe to put variables
-		// on stack.
-		im::login::IMLoginReq request;
-		im::login::IMLoginRes response;
-		brpc::Controller cntl;
+    // We will receive response synchronously, safe to put variables
+    // on stack.
+    antalk::apigw::LoginReq request;
+    antalk::apigw::LoginResp response;
 
-		//request.set_message("hello world");
-		
+    brpc::Controller cntl;
 
+    request.set_uid("test");
+    request.set_password("123456");
 
-		cntl.set_log_id(log_id++);  // set by user
-		if (FLAGS_protocol != "http" && FLAGS_protocol != "h2c")  {
-			// Set attachment which is wired to network directly instead of 
-			// being serialized into protobuf messages.
-			cntl.request_attachment().append(FLAGS_attachment);
-		}
-		else {
-			cntl.http_request().set_content_type(FLAGS_http_content_type);
-		}
-
-		// Because `done'(last parameter) is NULL, this function waits until
-		// the response comes back or error occurs(including timedout).
-		stub.IMLogin(&cntl, &request, &response, NULL);
-		if (!cntl.Failed()) {
-			LOG(INFO) << "Received response from " << cntl.remote_side()
-				<< " to " << cntl.local_side()
-			//	<< ": " << response.message() << " (attached="
-				<< cntl.response_attachment() << ")"
-				<< " latency=" << cntl.latency_us() << "us";
-		}
-		else {
-			LOG(WARNING) << cntl.ErrorText();
-		}
-		usleep(FLAGS_interval_ms * 1000L);
-	}
+    // Because `done'(last parameter) is NULL, this function waits until
+    // the response comes back or error occurs(including timedout).
+    stub.Login(&cntl, &request, &response, NULL);
+    if (!cntl.Failed()) {
+        LOG(INFO) << "Received response from " << cntl.remote_side()
+            << " to " << cntl.local_side()
+            //	<< ": " << response.message() << " (attached="
+            << cntl.response_attachment() << ")"
+            << " latency=" << cntl.latency_us() << "us";
+    }
+    else {
+        LOG(WARNING) << cntl.ErrorText();
+    }
+    usleep(FLAGS_interval_ms * 1000L);
 
 	LOG(INFO) << "EchoClient is going to quit";
 	return 0;
