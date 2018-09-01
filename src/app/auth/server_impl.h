@@ -20,9 +20,8 @@
 
 #include <gflags/gflags.h>
 #include <brpc/server.h>
+#include <brpc/channel.h>
 #include "auth.pb.h"
-
-
 
 // Your implementation of im::login::IMLoginService
 // Notice that implementing brpc::Describable grants the ability to put
@@ -30,14 +29,18 @@
 namespace antalk {
 namespace auth {
 
-class AuthServiceImpl : public AuthService {
+class LoginServiceImpl : public LoginService {
 public:
-	AuthServiceImpl() {};
-	virtual ~AuthServiceImpl() {};
+    LoginServiceImpl() {};
+    virtual ~LoginServiceImpl() {};
 	virtual void Login(google::protobuf::RpcController* cntl_base,
 		               const LoginReq* request,
 		               LoginResp* response,
 		               google::protobuf::Closure* done);
+
+private:
+    antalk::common::ResultType CheckParam(const LoginReq& req);
+    antalk::common::ResultType CheckAuthFromDataSvr(const LoginReq& req);
 };
 
 }  // namespace example

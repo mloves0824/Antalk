@@ -15,16 +15,16 @@
 // Author: chenbang (chenbang@antalk.com)
 // Date: $time$
 #include "server_impl.h"
-//#include "stub_manager.h"
-#include "data.user.pb.h"
+#include "auth.pb.h"
+#include "data.pb.h"
 
 namespace antalk {
-namespace user {
+namespace auth {
 
 
 void LoginServiceImpl::Login(google::protobuf::RpcController* cntl_base,
 				             const LoginReq* request,
-				             LoginRes* response,
+				             LoginResp* response,
 				             google::protobuf::Closure* done) {
 	// This object helps you to call done->Run() in RAII style. If you need
 	// to process the request asynchronously, pass done_guard.release().
@@ -39,33 +39,59 @@ void LoginServiceImpl::Login(google::protobuf::RpcController* cntl_base,
 	LOG(INFO) << "Received request[log_id=" << cntl->log_id()
 		<< "] from " << cntl->remote_side()
 		<< " to " << cntl->local_side()
-		<< ": " << request->username()
+		<< ": " << request->uid()
 		<< " (attached=" << cntl->request_attachment() << ")";
 
-	//get user_info from data_svr
-	brpc::Controller datasvr_cntl;
-	data::user::GetUserInfoReq getuserinfo_req;
-	data::user::GetUserInfoRes getuserinfo_resp;
-	StubManager::Instance().GetStub()->GetUserInfo(&datasvr_cntl, &getuserinfo_req, &getuserinfo_resp, NULL);
-	if (datasvr_cntl.Failed()) {
-		response->set_result_code(im::base::REFUSE_REASON_NO_DB_SERVER);
-	} else 	if (getuserinfo_resp.user_info().passwd() != request->password()) {
-		response->set_result_code(im::base::REFUSE_REASON_INVALID_PASSWD);
-	} else {
-		// Fill response.
-		response->set_result_code(im::base::REFUSE_REASON_NONE);
-	}
+    if (CheckAuthFromDataSvr(*request) == antalk::common::REFUSE_REASON_NONE) {
+        response->set_result_code(antalk::common::REFUSE_REASON_NONE);
+    } else
+        response->set_result_code(antalk::common::REFUSE_REASON_INVALID_PASSWD);
+}
 
 
-	// You can compress the response by setting Controller, but be aware
-	// that compression may be costly, evaluate before turning on.
-	// cntl->set_response_compress_type(brpc::COMPRESS_TYPE_GZIP);
+antalk::common::ResultType LoginServiceImpl::CheckParam(const LoginReq& req) {}
 
-	//if (FLAGS_echo_attachment) {
-		// Set attachment which is wired to network directly instead of
-		// being serialized into protobuf messages.
-		//cntl->response_attachment().append(cntl->request_attachment());
-	//}
+antalk::common::ResultType LoginServiceImpl::CheckAuthFromDataSvr(const LoginReq& req) {
+    //1. create channel
+    // A Channel represents a communication line to a Server. Notice that
+    // Channel is thread-safe and can be shared by all threads in your program.
+    brpc::Channel channel;
+    // Initialize the channel, NULL means using default options.
+    brpc::ChannelOptions options;
+    options.protocol = brpc::PROTOCOL_BAIDU_STD;
+    options.connection_type = brpc::CONNECTION_TYPE_SHORT;
+    options.timeout_ms = 100/*milliseconds*/;
+    options.max_retry = 3;
+    if (channel.Init("127.0.0.1:18003", &options) != 0) {
+        LOG(ERROR) << "Fail to initialize channel";
+        return antalk::common::ERROR_CONNECT_TO_AUTH;
+    }
+
+    //2. build request
+    antalk::data::GetUserInfoReq data_getuserinfo_req;
+    antalk::data::GetUserInfoRes data_getuserinfo_resp;
+    data_getuserinfo_req.set_user_id(req.uid());
+
+
+    //3. send request
+    // Normally, you should not call a Channel directly, but instead construct
+    // a stub Service wrapping it. stub can be shared by all threads as well.
+    antalk::data::UserStatusService_Stub stub(&channel);
+    brpc::Controller cntl;
+    stub.GetUserInfo(&cntl, &data_getuserinfo_req, &data_getuserinfo_resp, NULL);
+    if (cntl.Failed()) {
+        // RPC失败了. response里的值是未定义的，勿用。
+        LOG(ERROR) << "Fail to send rpc request";
+        return antalk::common::ERROR_RPC_TO_AUTH;
+    }
+    else {
+        // RPC成功了，response里有我们想要的回复数据。
+        if (data_getuserinfo_resp.user_info().passwd() == req.password()) {
+            return antalk::common::REFUSE_REASON_NONE;
+        }
+        else 
+            return antalk::common::REFUSE_REASON_INVALID_PASSWD;
+    }
 }
 
 }}

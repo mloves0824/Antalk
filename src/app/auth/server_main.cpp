@@ -19,12 +19,11 @@
 #include <gflags/gflags.h>
 #include <butil/logging.h>
 #include <brpc/server.h>
-//#include "server_impl.h"
-#include "stub_manager.h"
+#include "server_impl.h"
 
 
 DEFINE_bool(echo_attachment, true, "Echo attachment as well");
-DEFINE_int32(port, 8000, "TCP Port of this server");
+DEFINE_int32(port, 18001, "TCP Port of this server");
 DEFINE_int32(idle_timeout_s, -1, "Connection will be closed if there is no "
 	"read/write operations during the last `idle_timeout_s'");
 DEFINE_int32(logoff_ms, 2000, "Maximum duration of server's LOGOFF state "
@@ -34,11 +33,6 @@ DEFINE_int32(logoff_ms, 2000, "Maximum duration of server's LOGOFF state "
 int main(int argc, char* argv[]) {
 	// Parse gflags. We recommend you to use gflags as well.
 	google::ParseCommandLineFlags(&argc, &argv, true);
-
-//	if (!antalk::user::StubManager::Instance().Init()) {
-//        LOG(ERROR) << "Fail to initialize StubManager";
-//        return false;
-//	}
 
 	// Generally you only need one Server.
 	brpc::Server server;

@@ -59,7 +59,6 @@ void LoginServiceImpl::Login(google::protobuf::RpcController* cntl_base,
 
 
 antalk::common::ResultType LoginServiceImpl::CheckAuth(const LoginReq &req) {
-
 	//1. create channel
     // A Channel represents a communication line to a Server. Notice that
     // Channel is thread-safe and can be shared by all threads in your program.
@@ -70,7 +69,7 @@ antalk::common::ResultType LoginServiceImpl::CheckAuth(const LoginReq &req) {
     options.connection_type = brpc::CONNECTION_TYPE_SHORT;
     options.timeout_ms = 100/*milliseconds*/;
     options.max_retry = 3;
-    if (channel.Init("127.0.0.1:8002", &options) != 0) {
+    if (channel.Init("127.0.0.1:18002", &options) != 0) {
         LOG(ERROR) << "Fail to initialize channel";
         return antalk::common::ERROR_CONNECT_TO_AUTH;
     }
