@@ -209,9 +209,9 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
       "\n\ndata.proto\022\013antalk.data\032\014common.proto\""
-      ".\n\016GetUserInfoReq\022\017\n\007saas_id\030\001 \002(\r\022\013\n\003ui"
-      "d\030\002 \002(\t\"<\n\016GetUserInfoRes\022*\n\tuser_info\030\001"
-      " \002(\0132\027.antalk.common.UserInfo\"f\n\020SetUser"
+      ".\n\016GetUserInfoReq\022\017\n\007saas_id\030\001 \001(\r\022\013\n\003ui"
+      "d\030\002 \001(\t\"<\n\016GetUserInfoRes\022*\n\tuser_info\030\001"
+      " \001(\0132\027.antalk.common.UserInfo\"f\n\020SetUser"
       "StatusReq\022\013\n\003uid\030\001 \001(\t\022\020\n\010dev_type\030\002 \001(\005"
       "\022\017\n\007session\030\003 \001(\t\022\016\n\006status\030\004 \001(\005\022\022\n\nlog"
       "in_info\030\005 \001(\t\">\n\021SetUserStatusResp\022)\n\006re"
@@ -338,7 +338,7 @@ bool GetUserInfoReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 saas_id = 1;
+      // optional uint32 saas_id = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
@@ -352,7 +352,7 @@ bool GetUserInfoReq::MergePartialFromCodedStream(
         break;
       }
 
-      // required string uid = 2;
+      // optional string uid = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
@@ -395,12 +395,12 @@ void GetUserInfoReq::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required uint32 saas_id = 1;
+  // optional uint32 saas_id = 1;
   if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->saas_id(), output);
   }
 
-  // required string uid = 2;
+  // optional string uid = 2;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->uid().data(), static_cast<int>(this->uid().length()),
@@ -425,12 +425,12 @@ void GetUserInfoReq::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required uint32 saas_id = 1;
+  // optional uint32 saas_id = 1;
   if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->saas_id(), target);
   }
 
-  // required string uid = 2;
+  // optional string uid = 2;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->uid().data(), static_cast<int>(this->uid().length()),
@@ -449,26 +449,6 @@ void GetUserInfoReq::SerializeWithCachedSizes(
   return target;
 }
 
-size_t GetUserInfoReq::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:antalk.data.GetUserInfoReq)
-  size_t total_size = 0;
-
-  if (has_uid()) {
-    // required string uid = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->uid());
-  }
-
-  if (has_saas_id()) {
-    // required uint32 saas_id = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->saas_id());
-  }
-
-  return total_size;
-}
 size_t GetUserInfoReq::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:antalk.data.GetUserInfoReq)
   size_t total_size = 0;
@@ -478,19 +458,21 @@ size_t GetUserInfoReq::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (((_has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required string uid = 2;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->uid());
+  if (_has_bits_[0 / 32] & 3u) {
+    // optional string uid = 2;
+    if (has_uid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->uid());
+    }
 
-    // required uint32 saas_id = 1;
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::UInt32Size(
-        this->saas_id());
+    // optional uint32 saas_id = 1;
+    if (has_saas_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->saas_id());
+    }
 
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -549,7 +531,6 @@ void GetUserInfoReq::CopyFrom(const GetUserInfoReq& from) {
 }
 
 bool GetUserInfoReq::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
   return true;
 }
 
@@ -670,7 +651,7 @@ bool GetUserInfoRes::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .antalk.common.UserInfo user_info = 1;
+      // optional .antalk.common.UserInfo user_info = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
@@ -709,7 +690,7 @@ void GetUserInfoRes::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .antalk.common.UserInfo user_info = 1;
+  // optional .antalk.common.UserInfo user_info = 1;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, *this->user_info_, output);
@@ -730,7 +711,7 @@ void GetUserInfoRes::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // required .antalk.common.UserInfo user_info = 1;
+  // optional .antalk.common.UserInfo user_info = 1;
   if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
@@ -754,12 +735,13 @@ size_t GetUserInfoRes::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  // required .antalk.common.UserInfo user_info = 1;
+  // optional .antalk.common.UserInfo user_info = 1;
   if (has_user_info()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *this->user_info_);
   }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -809,10 +791,6 @@ void GetUserInfoRes::CopyFrom(const GetUserInfoRes& from) {
 }
 
 bool GetUserInfoRes::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
-  if (has_user_info()) {
-    if (!this->user_info_->IsInitialized()) return false;
-  }
   return true;
 }
 

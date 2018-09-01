@@ -1298,9 +1298,6 @@ void LoginResp::CopyFrom(const LoginResp& from) {
 }
 
 bool LoginResp::IsInitialized() const {
-  if (has_user_info()) {
-    if (!this->user_info_->IsInitialized()) return false;
-  }
   return true;
 }
 

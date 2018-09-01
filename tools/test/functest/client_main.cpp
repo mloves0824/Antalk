@@ -73,6 +73,11 @@ int main(int argc, char* argv[]) {
             //	<< ": " << response.message() << " (attached="
             << cntl.response_attachment() << ")"
             << " latency=" << cntl.latency_us() << "us";
+		if (antalk::common::REFUSE_REASON_NONE == response.result_code()) {
+			LOG(INFO) << "Login success!";
+		} else {
+			LOG(INFO) << "Login failed!";
+		}
     }
     else {
         LOG(WARNING) << cntl.ErrorText();

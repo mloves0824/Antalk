@@ -237,7 +237,7 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // required string user_nick_name = 3;
+  // optional string user_nick_name = 3;
   bool has_user_nick_name() const;
   void clear_user_nick_name();
   static const int kUserNickNameFieldNumber = 3;
@@ -252,7 +252,7 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_user_nick_name();
   void set_allocated_user_nick_name(::std::string* user_nick_name);
 
-  // required string avatar_url = 4;
+  // optional string avatar_url = 4;
   bool has_avatar_url() const;
   void clear_avatar_url();
   static const int kAvatarUrlFieldNumber = 4;
@@ -267,7 +267,7 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_avatar_url();
   void set_allocated_avatar_url(::std::string* avatar_url);
 
-  // required string email = 6;
+  // optional string email = 6;
   bool has_email() const;
   void clear_email();
   static const int kEmailFieldNumber = 6;
@@ -282,7 +282,7 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_email();
   void set_allocated_email(::std::string* email);
 
-  // required string user_real_name = 7;
+  // optional string user_real_name = 7;
   bool has_user_real_name() const;
   void clear_user_real_name();
   static const int kUserRealNameFieldNumber = 7;
@@ -297,7 +297,7 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_user_real_name();
   void set_allocated_user_real_name(::std::string* user_real_name);
 
-  // required string user_tel = 8;
+  // optional string user_tel = 8;
   bool has_user_tel() const;
   void clear_user_tel();
   static const int kUserTelFieldNumber = 8;
@@ -312,7 +312,7 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_user_tel();
   void set_allocated_user_tel(::std::string* user_tel);
 
-  // required string user_domain = 9;
+  // optional string user_domain = 9;
   bool has_user_domain() const;
   void clear_user_domain();
   static const int kUserDomainFieldNumber = 9;
@@ -342,7 +342,7 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_sign_info();
   void set_allocated_sign_info(::std::string* sign_info);
 
-  // required string passwd = 12;
+  // optional string passwd = 12;
   bool has_passwd() const;
   void clear_passwd();
   static const int kPasswdFieldNumber = 12;
@@ -357,28 +357,28 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_passwd();
   void set_allocated_passwd(::std::string* passwd);
 
-  // required uint32 user_id = 1;
+  // optional uint32 user_id = 1;
   bool has_user_id() const;
   void clear_user_id();
   static const int kUserIdFieldNumber = 1;
   ::google::protobuf::uint32 user_id() const;
   void set_user_id(::google::protobuf::uint32 value);
 
-  // required uint32 user_gender = 2;
+  // optional uint32 user_gender = 2;
   bool has_user_gender() const;
   void clear_user_gender();
   static const int kUserGenderFieldNumber = 2;
   ::google::protobuf::uint32 user_gender() const;
   void set_user_gender(::google::protobuf::uint32 value);
 
-  // required uint32 department_id = 5;
+  // optional uint32 department_id = 5;
   bool has_department_id() const;
   void clear_department_id();
   static const int kDepartmentIdFieldNumber = 5;
   ::google::protobuf::uint32 department_id() const;
   void set_department_id(::google::protobuf::uint32 value);
 
-  // required uint32 status = 10;
+  // optional uint32 status = 10;
   bool has_status() const;
   void clear_status();
   static const int kStatusFieldNumber = 10;
@@ -421,9 +421,6 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   void set_has_en_type();
   void clear_has_en_type();
 
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
-
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
@@ -454,7 +451,7 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
 #endif  // __GNUC__
 // UserInfo
 
-// required uint32 user_id = 1;
+// optional uint32 user_id = 1;
 inline bool UserInfo::has_user_id() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -478,7 +475,7 @@ inline void UserInfo::set_user_id(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:antalk.common.UserInfo.user_id)
 }
 
-// required uint32 user_gender = 2;
+// optional uint32 user_gender = 2;
 inline bool UserInfo::has_user_gender() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -502,7 +499,7 @@ inline void UserInfo::set_user_gender(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:antalk.common.UserInfo.user_gender)
 }
 
-// required string user_nick_name = 3;
+// optional string user_nick_name = 3;
 inline bool UserInfo::has_user_nick_name() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -565,7 +562,7 @@ inline void UserInfo::set_allocated_user_nick_name(::std::string* user_nick_name
   // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.user_nick_name)
 }
 
-// required string avatar_url = 4;
+// optional string avatar_url = 4;
 inline bool UserInfo::has_avatar_url() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -628,7 +625,7 @@ inline void UserInfo::set_allocated_avatar_url(::std::string* avatar_url) {
   // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.avatar_url)
 }
 
-// required uint32 department_id = 5;
+// optional uint32 department_id = 5;
 inline bool UserInfo::has_department_id() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -652,7 +649,7 @@ inline void UserInfo::set_department_id(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:antalk.common.UserInfo.department_id)
 }
 
-// required string email = 6;
+// optional string email = 6;
 inline bool UserInfo::has_email() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -715,7 +712,7 @@ inline void UserInfo::set_allocated_email(::std::string* email) {
   // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.email)
 }
 
-// required string user_real_name = 7;
+// optional string user_real_name = 7;
 inline bool UserInfo::has_user_real_name() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -778,7 +775,7 @@ inline void UserInfo::set_allocated_user_real_name(::std::string* user_real_name
   // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.user_real_name)
 }
 
-// required string user_tel = 8;
+// optional string user_tel = 8;
 inline bool UserInfo::has_user_tel() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -841,7 +838,7 @@ inline void UserInfo::set_allocated_user_tel(::std::string* user_tel) {
   // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.user_tel)
 }
 
-// required string user_domain = 9;
+// optional string user_domain = 9;
 inline bool UserInfo::has_user_domain() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -904,7 +901,7 @@ inline void UserInfo::set_allocated_user_domain(::std::string* user_domain) {
   // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.user_domain)
 }
 
-// required uint32 status = 10;
+// optional uint32 status = 10;
 inline bool UserInfo::has_status() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -991,7 +988,7 @@ inline void UserInfo::set_allocated_sign_info(::std::string* sign_info) {
   // @@protoc_insertion_point(field_set_allocated:antalk.common.UserInfo.sign_info)
 }
 
-// required string passwd = 12;
+// optional string passwd = 12;
 inline bool UserInfo::has_passwd() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }

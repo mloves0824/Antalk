@@ -169,7 +169,7 @@ class GetUserInfoReq : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // required string uid = 2;
+  // optional string uid = 2;
   bool has_uid() const;
   void clear_uid();
   static const int kUidFieldNumber = 2;
@@ -184,7 +184,7 @@ class GetUserInfoReq : public ::google::protobuf::Message /* @@protoc_insertion_
   ::std::string* release_uid();
   void set_allocated_uid(::std::string* uid);
 
-  // required uint32 saas_id = 1;
+  // optional uint32 saas_id = 1;
   bool has_saas_id() const;
   void clear_saas_id();
   static const int kSaasIdFieldNumber = 1;
@@ -197,9 +197,6 @@ class GetUserInfoReq : public ::google::protobuf::Message /* @@protoc_insertion_
   void clear_has_saas_id();
   void set_has_uid();
   void clear_has_uid();
-
-  // helper for ByteSizeLong()
-  size_t RequiredFieldsByteSizeFallback() const;
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
@@ -300,7 +297,7 @@ class GetUserInfoRes : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // required .antalk.common.UserInfo user_info = 1;
+  // optional .antalk.common.UserInfo user_info = 1;
   bool has_user_info() const;
   void clear_user_info();
   static const int kUserInfoFieldNumber = 1;
@@ -683,7 +680,7 @@ class UserStatusService_Stub : public UserStatusService {
 #endif  // __GNUC__
 // GetUserInfoReq
 
-// required uint32 saas_id = 1;
+// optional uint32 saas_id = 1;
 inline bool GetUserInfoReq::has_saas_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -707,7 +704,7 @@ inline void GetUserInfoReq::set_saas_id(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:antalk.data.GetUserInfoReq.saas_id)
 }
 
-// required string uid = 2;
+// optional string uid = 2;
 inline bool GetUserInfoReq::has_uid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -774,7 +771,7 @@ inline void GetUserInfoReq::set_allocated_uid(::std::string* uid) {
 
 // GetUserInfoRes
 
-// required .antalk.common.UserInfo user_info = 1;
+// optional .antalk.common.UserInfo user_info = 1;
 inline bool GetUserInfoRes::has_user_info() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }

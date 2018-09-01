@@ -5,12 +5,12 @@ option java_package = "com.antalk.pb";
 option cc_generic_services = true;
 
 message GetUserInfoReq {
-	required uint32 saas_id = 1;
-	required string uid = 2;
+	optional uint32 saas_id = 1;
+	optional string uid = 2;
 }
 
 message GetUserInfoRes {
-	required antalk.common.UserInfo user_info = 1;
+	optional antalk.common.UserInfo user_info = 1;
 }
 
 message SetUserStatusReq {

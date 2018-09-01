@@ -62,7 +62,7 @@ antalk::common::ResultType LoginServiceImpl::CheckAuthFromDataSvr(const LoginReq
     options.connection_type = brpc::CONNECTION_TYPE_SHORT;
     options.timeout_ms = 100/*milliseconds*/;
     options.max_retry = 3;
-    if (channel.Init("127.0.0.1:18003", &options) != 0) {
+    if (channel.Init("127.0.0.1:18002", &options) != 0) {
         LOG(ERROR) << "Fail to initialize channel";
         return antalk::common::ERROR_CONNECT_TO_AUTH;
     }
@@ -81,7 +81,7 @@ antalk::common::ResultType LoginServiceImpl::CheckAuthFromDataSvr(const LoginReq
     stub.GetUserInfo(&cntl, &data_getuserinfo_req, &data_getuserinfo_resp, NULL);
     if (cntl.Failed()) {
         // RPC失败了. response里的值是未定义的，勿用。
-        LOG(ERROR) << "Fail to send rpc request";
+        LOG(ERROR) << "Fail to send rpc request:" << cntl.ErrorText();
         return antalk::common::ERROR_RPC_TO_AUTH;
     }
     else {

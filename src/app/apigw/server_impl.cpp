@@ -41,7 +41,7 @@ void LoginServiceImpl::Login(google::protobuf::RpcController* cntl_base,
         << " (attached=" << cntl->request_attachment() << ")";
 
     // Fill response.
-    response->set_result_code(antalk::common::REFUSE_REASON_NONE);
+    response->set_result_code(CheckAuth(*request));
 
     // You can compress the response by setting Controller, but be aware
     // that compression may be costly, evaluate before turning on.
@@ -69,7 +69,7 @@ antalk::common::ResultType LoginServiceImpl::CheckAuth(const LoginReq &req) {
     options.connection_type = brpc::CONNECTION_TYPE_SHORT;
     options.timeout_ms = 100/*milliseconds*/;
     options.max_retry = 3;
-    if (channel.Init("127.0.0.1:18002", &options) != 0) {
+    if (channel.Init("127.0.0.1:18001", &options) != 0) {
         LOG(ERROR) << "Fail to initialize channel";
         return antalk::common::ERROR_CONNECT_TO_AUTH;
     }
