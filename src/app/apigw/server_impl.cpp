@@ -54,11 +54,48 @@ void LoginServiceImpl::Login(google::protobuf::RpcController* cntl_base,
     //}
 }
 
-antalk::common::ResultType LoginServiceImpl::CheckParam(const LoginReq &req) {
-}
+//antalk::common::ResultType LoginServiceImpl::CheckParam(const LoginReq &req) {
+//}
 
 
 antalk::common::ResultType LoginServiceImpl::CheckAuth(const LoginReq &req) {
+
+	//1. create channel
+    // A Channel represents a communication line to a Server. Notice that
+    // Channel is thread-safe and can be shared by all threads in your program.
+    brpc::Channel channel;
+    // Initialize the channel, NULL means using default options.
+    brpc::ChannelOptions options;
+    options.protocol = brpc::PROTOCOL_BAIDU_STD;
+    options.connection_type = brpc::CONNECTION_TYPE_SHORT;
+    options.timeout_ms = 100/*milliseconds*/;
+    options.max_retry = 3;
+    if (channel.Init("127.0.0.1:8002", &options) != 0) {
+        LOG(ERROR) << "Fail to initialize channel";
+        return antalk::common::ERROR_CONNECT_TO_AUTH;
+    }
+
+    //2. build request
+    antalk::auth::LoginReq auth_login_req;
+    auth_login_req.set_uid(req.uid());
+    auth_login_req.set_password(req.password());
+    antalk::auth::LoginResp auth_login_resp;
+
+    //3. send request
+    // Normally, you should not call a Channel directly, but instead construct
+    // a stub Service wrapping it. stub can be shared by all threads as well.
+    antalk::auth::LoginService_Stub stub(&channel);
+    brpc::Controller cntl;
+    stub.Login(&cntl, &auth_login_req, &auth_login_resp, NULL);
+    if (cntl.Failed()) {
+        // RPC失败了. response里的值是未定义的，勿用。
+        LOG(ERROR) << "Fail to send rpc request";
+        return antalk::common::ERROR_RPC_TO_AUTH;
+    } else {
+        // RPC成功了，response里有我们想要的回复数据。
+    }
+
+    return antalk::common::REFUSE_REASON_NONE;
 }
 
 }

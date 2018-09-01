@@ -19,7 +19,7 @@
 #include <butil/logging.h>
 #include <butil/time.h>
 #include <brpc/channel.h>
-#include "im.login.pb.h"
+#include "apigw.pb.h"
 
 DEFINE_string(attachment, "foo", "Carry this along with requests");
 DEFINE_string(protocol, "baidu_std", "Protocol type. Defined in src/brpc/options.proto");

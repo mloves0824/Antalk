@@ -14,7 +14,8 @@ enum ResultType {
 	REFUSE_REASON_DB_VALIDATE_FAILED   = 6;
 	REFUSE_REASON_VERSION_TOO_OLD	   = 7;
 	REFUSE_REASON_INVALID_PASSWD       = 8;
-
+	ERROR_CONNECT_TO_AUTH              = 9;
+	ERROR_RPC_TO_AUTH                  = 10;
 }
 
 enum ClientType {

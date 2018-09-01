@@ -17,7 +17,9 @@
 
 #include <gflags/gflags.h>
 #include <brpc/server.h>
+#include <brpc/channel.h>
 #include "apigw.pb.h"
+#include "auth.pb.h"
 
 // Your implementation of im::login::IMLoginService
 // Notice that implementing brpc::Describable grants the ability to put
