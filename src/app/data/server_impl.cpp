@@ -45,7 +45,7 @@ void UserStatusServiceImpl::GetUserInfo(google::protobuf::RpcController* cntl_ba
     antalk::common::UserInfo user_info;
     user_info.set_passwd("123456");
     //DataManager::Instance().GetUserInfo(request->saas_id(), request->user_id(), user_info);
-    response->set_allocated_user_info(&user_info);
+    response->mutable_user_info()->CopyFrom(user_info);
 
     // Fill response.
     //response->set_result_code(im::base::REFUSE_REASON_NONE);
