@@ -37,7 +37,7 @@ namespace protobuf_common_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[1];
+  static const ::google::protobuf::internal::ParseTable schema[2];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -45,12 +45,18 @@ struct TableStruct {
 void AddDescriptors();
 void InitDefaultsUserInfoImpl();
 void InitDefaultsUserInfo();
+void InitDefaultsMsgInfoImpl();
+void InitDefaultsMsgInfo();
 inline void InitDefaults() {
   InitDefaultsUserInfo();
+  InitDefaultsMsgInfo();
 }
 }  // namespace protobuf_common_2eproto
 namespace antalk {
 namespace common {
+class MsgInfo;
+class MsgInfoDefaultTypeInternal;
+extern MsgInfoDefaultTypeInternal _MsgInfo_default_instance_;
 class UserInfo;
 class UserInfoDefaultTypeInternal;
 extern UserInfoDefaultTypeInternal _UserInfo_default_instance_;
@@ -439,6 +445,206 @@ class UserInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::google::protobuf::uint32 en_type_;
   friend struct ::protobuf_common_2eproto::TableStruct;
   friend void ::protobuf_common_2eproto::InitDefaultsUserInfoImpl();
+};
+// -------------------------------------------------------------------
+
+class MsgInfo : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.common.MsgInfo) */ {
+ public:
+  MsgInfo();
+  virtual ~MsgInfo();
+
+  MsgInfo(const MsgInfo& from);
+
+  inline MsgInfo& operator=(const MsgInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  MsgInfo(MsgInfo&& from) noexcept
+    : MsgInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline MsgInfo& operator=(MsgInfo&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MsgInfo& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MsgInfo* internal_default_instance() {
+    return reinterpret_cast<const MsgInfo*>(
+               &_MsgInfo_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    1;
+
+  void Swap(MsgInfo* other);
+  friend void swap(MsgInfo& a, MsgInfo& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MsgInfo* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  MsgInfo* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const MsgInfo& from);
+  void MergeFrom(const MsgInfo& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(MsgInfo* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string send_uid = 1;
+  bool has_send_uid() const;
+  void clear_send_uid();
+  static const int kSendUidFieldNumber = 1;
+  const ::std::string& send_uid() const;
+  void set_send_uid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_send_uid(::std::string&& value);
+  #endif
+  void set_send_uid(const char* value);
+  void set_send_uid(const char* value, size_t size);
+  ::std::string* mutable_send_uid();
+  ::std::string* release_send_uid();
+  void set_allocated_send_uid(::std::string* send_uid);
+
+  // optional string recv_uid = 2;
+  bool has_recv_uid() const;
+  void clear_recv_uid();
+  static const int kRecvUidFieldNumber = 2;
+  const ::std::string& recv_uid() const;
+  void set_recv_uid(const ::std::string& value);
+  #if LANG_CXX11
+  void set_recv_uid(::std::string&& value);
+  #endif
+  void set_recv_uid(const char* value);
+  void set_recv_uid(const char* value, size_t size);
+  ::std::string* mutable_recv_uid();
+  ::std::string* release_recv_uid();
+  void set_allocated_recv_uid(::std::string* recv_uid);
+
+  // optional string msg_type = 4;
+  bool has_msg_type() const;
+  void clear_msg_type();
+  static const int kMsgTypeFieldNumber = 4;
+  const ::std::string& msg_type() const;
+  void set_msg_type(const ::std::string& value);
+  #if LANG_CXX11
+  void set_msg_type(::std::string&& value);
+  #endif
+  void set_msg_type(const char* value);
+  void set_msg_type(const char* value, size_t size);
+  ::std::string* mutable_msg_type();
+  ::std::string* release_msg_type();
+  void set_allocated_msg_type(::std::string* msg_type);
+
+  // optional string msg_body = 5;
+  bool has_msg_body() const;
+  void clear_msg_body();
+  static const int kMsgBodyFieldNumber = 5;
+  const ::std::string& msg_body() const;
+  void set_msg_body(const ::std::string& value);
+  #if LANG_CXX11
+  void set_msg_body(::std::string&& value);
+  #endif
+  void set_msg_body(const char* value);
+  void set_msg_body(const char* value, size_t size);
+  ::std::string* mutable_msg_body();
+  ::std::string* release_msg_body();
+  void set_allocated_msg_body(::std::string* msg_body);
+
+  // optional string attachment = 6;
+  bool has_attachment() const;
+  void clear_attachment();
+  static const int kAttachmentFieldNumber = 6;
+  const ::std::string& attachment() const;
+  void set_attachment(const ::std::string& value);
+  #if LANG_CXX11
+  void set_attachment(::std::string&& value);
+  #endif
+  void set_attachment(const char* value);
+  void set_attachment(const char* value, size_t size);
+  ::std::string* mutable_attachment();
+  ::std::string* release_attachment();
+  void set_allocated_attachment(::std::string* attachment);
+
+  // optional int64 msg_id = 3;
+  bool has_msg_id() const;
+  void clear_msg_id();
+  static const int kMsgIdFieldNumber = 3;
+  ::google::protobuf::int64 msg_id() const;
+  void set_msg_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:antalk.common.MsgInfo)
+ private:
+  void set_has_send_uid();
+  void clear_has_send_uid();
+  void set_has_recv_uid();
+  void clear_has_recv_uid();
+  void set_has_msg_id();
+  void clear_has_msg_id();
+  void set_has_msg_type();
+  void clear_has_msg_type();
+  void set_has_msg_body();
+  void clear_has_msg_body();
+  void set_has_attachment();
+  void clear_has_attachment();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr send_uid_;
+  ::google::protobuf::internal::ArenaStringPtr recv_uid_;
+  ::google::protobuf::internal::ArenaStringPtr msg_type_;
+  ::google::protobuf::internal::ArenaStringPtr msg_body_;
+  ::google::protobuf::internal::ArenaStringPtr attachment_;
+  ::google::protobuf::int64 msg_id_;
+  friend struct ::protobuf_common_2eproto::TableStruct;
+  friend void ::protobuf_common_2eproto::InitDefaultsMsgInfoImpl();
 };
 // ===================================================================
 
@@ -1075,9 +1281,354 @@ inline void UserInfo::set_en_type(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:antalk.common.UserInfo.en_type)
 }
 
+// -------------------------------------------------------------------
+
+// MsgInfo
+
+// optional string send_uid = 1;
+inline bool MsgInfo::has_send_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MsgInfo::set_has_send_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MsgInfo::clear_has_send_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MsgInfo::clear_send_uid() {
+  send_uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_send_uid();
+}
+inline const ::std::string& MsgInfo::send_uid() const {
+  // @@protoc_insertion_point(field_get:antalk.common.MsgInfo.send_uid)
+  return send_uid_.GetNoArena();
+}
+inline void MsgInfo::set_send_uid(const ::std::string& value) {
+  set_has_send_uid();
+  send_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.MsgInfo.send_uid)
+}
+#if LANG_CXX11
+inline void MsgInfo::set_send_uid(::std::string&& value) {
+  set_has_send_uid();
+  send_uid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.common.MsgInfo.send_uid)
+}
+#endif
+inline void MsgInfo::set_send_uid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_send_uid();
+  send_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.MsgInfo.send_uid)
+}
+inline void MsgInfo::set_send_uid(const char* value, size_t size) {
+  set_has_send_uid();
+  send_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.MsgInfo.send_uid)
+}
+inline ::std::string* MsgInfo::mutable_send_uid() {
+  set_has_send_uid();
+  // @@protoc_insertion_point(field_mutable:antalk.common.MsgInfo.send_uid)
+  return send_uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgInfo::release_send_uid() {
+  // @@protoc_insertion_point(field_release:antalk.common.MsgInfo.send_uid)
+  clear_has_send_uid();
+  return send_uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgInfo::set_allocated_send_uid(::std::string* send_uid) {
+  if (send_uid != NULL) {
+    set_has_send_uid();
+  } else {
+    clear_has_send_uid();
+  }
+  send_uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), send_uid);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.MsgInfo.send_uid)
+}
+
+// optional string recv_uid = 2;
+inline bool MsgInfo::has_recv_uid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MsgInfo::set_has_recv_uid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MsgInfo::clear_has_recv_uid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MsgInfo::clear_recv_uid() {
+  recv_uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_recv_uid();
+}
+inline const ::std::string& MsgInfo::recv_uid() const {
+  // @@protoc_insertion_point(field_get:antalk.common.MsgInfo.recv_uid)
+  return recv_uid_.GetNoArena();
+}
+inline void MsgInfo::set_recv_uid(const ::std::string& value) {
+  set_has_recv_uid();
+  recv_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.MsgInfo.recv_uid)
+}
+#if LANG_CXX11
+inline void MsgInfo::set_recv_uid(::std::string&& value) {
+  set_has_recv_uid();
+  recv_uid_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.common.MsgInfo.recv_uid)
+}
+#endif
+inline void MsgInfo::set_recv_uid(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_recv_uid();
+  recv_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.MsgInfo.recv_uid)
+}
+inline void MsgInfo::set_recv_uid(const char* value, size_t size) {
+  set_has_recv_uid();
+  recv_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.MsgInfo.recv_uid)
+}
+inline ::std::string* MsgInfo::mutable_recv_uid() {
+  set_has_recv_uid();
+  // @@protoc_insertion_point(field_mutable:antalk.common.MsgInfo.recv_uid)
+  return recv_uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgInfo::release_recv_uid() {
+  // @@protoc_insertion_point(field_release:antalk.common.MsgInfo.recv_uid)
+  clear_has_recv_uid();
+  return recv_uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgInfo::set_allocated_recv_uid(::std::string* recv_uid) {
+  if (recv_uid != NULL) {
+    set_has_recv_uid();
+  } else {
+    clear_has_recv_uid();
+  }
+  recv_uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), recv_uid);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.MsgInfo.recv_uid)
+}
+
+// optional int64 msg_id = 3;
+inline bool MsgInfo::has_msg_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MsgInfo::set_has_msg_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MsgInfo::clear_has_msg_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MsgInfo::clear_msg_id() {
+  msg_id_ = GOOGLE_LONGLONG(0);
+  clear_has_msg_id();
+}
+inline ::google::protobuf::int64 MsgInfo::msg_id() const {
+  // @@protoc_insertion_point(field_get:antalk.common.MsgInfo.msg_id)
+  return msg_id_;
+}
+inline void MsgInfo::set_msg_id(::google::protobuf::int64 value) {
+  set_has_msg_id();
+  msg_id_ = value;
+  // @@protoc_insertion_point(field_set:antalk.common.MsgInfo.msg_id)
+}
+
+// optional string msg_type = 4;
+inline bool MsgInfo::has_msg_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MsgInfo::set_has_msg_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MsgInfo::clear_has_msg_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MsgInfo::clear_msg_type() {
+  msg_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_msg_type();
+}
+inline const ::std::string& MsgInfo::msg_type() const {
+  // @@protoc_insertion_point(field_get:antalk.common.MsgInfo.msg_type)
+  return msg_type_.GetNoArena();
+}
+inline void MsgInfo::set_msg_type(const ::std::string& value) {
+  set_has_msg_type();
+  msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.MsgInfo.msg_type)
+}
+#if LANG_CXX11
+inline void MsgInfo::set_msg_type(::std::string&& value) {
+  set_has_msg_type();
+  msg_type_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.common.MsgInfo.msg_type)
+}
+#endif
+inline void MsgInfo::set_msg_type(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_msg_type();
+  msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.MsgInfo.msg_type)
+}
+inline void MsgInfo::set_msg_type(const char* value, size_t size) {
+  set_has_msg_type();
+  msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.MsgInfo.msg_type)
+}
+inline ::std::string* MsgInfo::mutable_msg_type() {
+  set_has_msg_type();
+  // @@protoc_insertion_point(field_mutable:antalk.common.MsgInfo.msg_type)
+  return msg_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgInfo::release_msg_type() {
+  // @@protoc_insertion_point(field_release:antalk.common.MsgInfo.msg_type)
+  clear_has_msg_type();
+  return msg_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgInfo::set_allocated_msg_type(::std::string* msg_type) {
+  if (msg_type != NULL) {
+    set_has_msg_type();
+  } else {
+    clear_has_msg_type();
+  }
+  msg_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), msg_type);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.MsgInfo.msg_type)
+}
+
+// optional string msg_body = 5;
+inline bool MsgInfo::has_msg_body() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MsgInfo::set_has_msg_body() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MsgInfo::clear_has_msg_body() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MsgInfo::clear_msg_body() {
+  msg_body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_msg_body();
+}
+inline const ::std::string& MsgInfo::msg_body() const {
+  // @@protoc_insertion_point(field_get:antalk.common.MsgInfo.msg_body)
+  return msg_body_.GetNoArena();
+}
+inline void MsgInfo::set_msg_body(const ::std::string& value) {
+  set_has_msg_body();
+  msg_body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.MsgInfo.msg_body)
+}
+#if LANG_CXX11
+inline void MsgInfo::set_msg_body(::std::string&& value) {
+  set_has_msg_body();
+  msg_body_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.common.MsgInfo.msg_body)
+}
+#endif
+inline void MsgInfo::set_msg_body(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_msg_body();
+  msg_body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.MsgInfo.msg_body)
+}
+inline void MsgInfo::set_msg_body(const char* value, size_t size) {
+  set_has_msg_body();
+  msg_body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.MsgInfo.msg_body)
+}
+inline ::std::string* MsgInfo::mutable_msg_body() {
+  set_has_msg_body();
+  // @@protoc_insertion_point(field_mutable:antalk.common.MsgInfo.msg_body)
+  return msg_body_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgInfo::release_msg_body() {
+  // @@protoc_insertion_point(field_release:antalk.common.MsgInfo.msg_body)
+  clear_has_msg_body();
+  return msg_body_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgInfo::set_allocated_msg_body(::std::string* msg_body) {
+  if (msg_body != NULL) {
+    set_has_msg_body();
+  } else {
+    clear_has_msg_body();
+  }
+  msg_body_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), msg_body);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.MsgInfo.msg_body)
+}
+
+// optional string attachment = 6;
+inline bool MsgInfo::has_attachment() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MsgInfo::set_has_attachment() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MsgInfo::clear_has_attachment() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MsgInfo::clear_attachment() {
+  attachment_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_attachment();
+}
+inline const ::std::string& MsgInfo::attachment() const {
+  // @@protoc_insertion_point(field_get:antalk.common.MsgInfo.attachment)
+  return attachment_.GetNoArena();
+}
+inline void MsgInfo::set_attachment(const ::std::string& value) {
+  set_has_attachment();
+  attachment_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:antalk.common.MsgInfo.attachment)
+}
+#if LANG_CXX11
+inline void MsgInfo::set_attachment(::std::string&& value) {
+  set_has_attachment();
+  attachment_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:antalk.common.MsgInfo.attachment)
+}
+#endif
+inline void MsgInfo::set_attachment(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_attachment();
+  attachment_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:antalk.common.MsgInfo.attachment)
+}
+inline void MsgInfo::set_attachment(const char* value, size_t size) {
+  set_has_attachment();
+  attachment_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:antalk.common.MsgInfo.attachment)
+}
+inline ::std::string* MsgInfo::mutable_attachment() {
+  set_has_attachment();
+  // @@protoc_insertion_point(field_mutable:antalk.common.MsgInfo.attachment)
+  return attachment_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* MsgInfo::release_attachment() {
+  // @@protoc_insertion_point(field_release:antalk.common.MsgInfo.attachment)
+  clear_has_attachment();
+  return attachment_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void MsgInfo::set_allocated_attachment(::std::string* attachment) {
+  if (attachment != NULL) {
+    set_has_attachment();
+  } else {
+    clear_has_attachment();
+  }
+  attachment_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), attachment);
+  // @@protoc_insertion_point(field_set_allocated:antalk.common.MsgInfo.attachment)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 

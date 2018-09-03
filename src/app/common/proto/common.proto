@@ -51,3 +51,12 @@ enum UserStatType{
 enum KickoutReason {
 	OtherLogin = 1; 	//其他地方登录
 }
+
+message MsgInfo {
+	optional string send_uid = 1;
+	optional string recv_uid = 2;
+	optional int64  msg_id   = 3;
+	optional string msg_type = 4;
+	optional string msg_body = 5;
+	optional string attachment = 6;
+}

@@ -52,6 +52,23 @@ message ServerKickoutNotifyReq {
 message ServerKickoutNotifyResp {
 }
 
+message SendMsgReq {
+	optional antalk.common.MsgInfo msg_info = 1;
+}
+
+message SendMsgResp {
+	optional int64 msg_id = 1;
+	optional antalk.common.ResultType result_code = 2;
+}
+
+message NotifyMsgReq {
+	optional antalk.common.MsgInfo msg_info = 1;	
+}
+
+message NotifyMsgResp {
+
+}
+
 service LoginService {
 	rpc Login(LoginReq) returns (LoginResp);
 	rpc Logout(LogoutReq) returns (LogoutResp);
@@ -60,5 +77,6 @@ service LoginService {
 };
 
 service MsgService {
-
+	rpc SendMsg(SendMsgReq) returns (SendMsgResp);
+	rpc NotifyMsg(NotifyMsgReq) returns (NotifyMsgResp);
 }

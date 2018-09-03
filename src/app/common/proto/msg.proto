@@ -5,12 +5,7 @@ option java_package = "com.antalk.pb";
 option cc_generic_services = true;
 
 message SendMsgReq {
-	optional string send_uid = 1;
-	optional string recv_uid = 2;
-	optional int64  msg_id   = 3;
-	optional string msg_type = 4;
-	optional string msg_body = 5;
-	optional string attachment = 6;
+	optional antalk.common.MsgInfo msg_info = 1;
 }
 
 message SendMsgResp {

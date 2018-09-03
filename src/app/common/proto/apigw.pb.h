@@ -38,7 +38,7 @@ namespace protobuf_apigw_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[8];
+  static const ::google::protobuf::internal::ParseTable schema[12];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -60,6 +60,14 @@ void InitDefaultsServerKickoutNotifyReqImpl();
 void InitDefaultsServerKickoutNotifyReq();
 void InitDefaultsServerKickoutNotifyRespImpl();
 void InitDefaultsServerKickoutNotifyResp();
+void InitDefaultsSendMsgReqImpl();
+void InitDefaultsSendMsgReq();
+void InitDefaultsSendMsgRespImpl();
+void InitDefaultsSendMsgResp();
+void InitDefaultsNotifyMsgReqImpl();
+void InitDefaultsNotifyMsgReq();
+void InitDefaultsNotifyMsgRespImpl();
+void InitDefaultsNotifyMsgResp();
 inline void InitDefaults() {
   InitDefaultsLoginReq();
   InitDefaultsLoginResp();
@@ -69,6 +77,10 @@ inline void InitDefaults() {
   InitDefaultsNotify();
   InitDefaultsServerKickoutNotifyReq();
   InitDefaultsServerKickoutNotifyResp();
+  InitDefaultsSendMsgReq();
+  InitDefaultsSendMsgResp();
+  InitDefaultsNotifyMsgReq();
+  InitDefaultsNotifyMsgResp();
 }
 }  // namespace protobuf_apigw_2eproto
 namespace antalk {
@@ -88,9 +100,21 @@ extern LogoutRespDefaultTypeInternal _LogoutResp_default_instance_;
 class Notify;
 class NotifyDefaultTypeInternal;
 extern NotifyDefaultTypeInternal _Notify_default_instance_;
+class NotifyMsgReq;
+class NotifyMsgReqDefaultTypeInternal;
+extern NotifyMsgReqDefaultTypeInternal _NotifyMsgReq_default_instance_;
+class NotifyMsgResp;
+class NotifyMsgRespDefaultTypeInternal;
+extern NotifyMsgRespDefaultTypeInternal _NotifyMsgResp_default_instance_;
 class RegisterNoityReq;
 class RegisterNoityReqDefaultTypeInternal;
 extern RegisterNoityReqDefaultTypeInternal _RegisterNoityReq_default_instance_;
+class SendMsgReq;
+class SendMsgReqDefaultTypeInternal;
+extern SendMsgReqDefaultTypeInternal _SendMsgReq_default_instance_;
+class SendMsgResp;
+class SendMsgRespDefaultTypeInternal;
+extern SendMsgRespDefaultTypeInternal _SendMsgResp_default_instance_;
 class ServerKickoutNotifyReq;
 class ServerKickoutNotifyReqDefaultTypeInternal;
 extern ServerKickoutNotifyReqDefaultTypeInternal _ServerKickoutNotifyReq_default_instance_;
@@ -1164,6 +1188,450 @@ class ServerKickoutNotifyResp : public ::google::protobuf::Message /* @@protoc_i
   friend struct ::protobuf_apigw_2eproto::TableStruct;
   friend void ::protobuf_apigw_2eproto::InitDefaultsServerKickoutNotifyRespImpl();
 };
+// -------------------------------------------------------------------
+
+class SendMsgReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.SendMsgReq) */ {
+ public:
+  SendMsgReq();
+  virtual ~SendMsgReq();
+
+  SendMsgReq(const SendMsgReq& from);
+
+  inline SendMsgReq& operator=(const SendMsgReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SendMsgReq(SendMsgReq&& from) noexcept
+    : SendMsgReq() {
+    *this = ::std::move(from);
+  }
+
+  inline SendMsgReq& operator=(SendMsgReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SendMsgReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SendMsgReq* internal_default_instance() {
+    return reinterpret_cast<const SendMsgReq*>(
+               &_SendMsgReq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    8;
+
+  void Swap(SendMsgReq* other);
+  friend void swap(SendMsgReq& a, SendMsgReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SendMsgReq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  SendMsgReq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SendMsgReq& from);
+  void MergeFrom(const SendMsgReq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SendMsgReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .antalk.common.MsgInfo msg_info = 1;
+  bool has_msg_info() const;
+  void clear_msg_info();
+  static const int kMsgInfoFieldNumber = 1;
+  const ::antalk::common::MsgInfo& msg_info() const;
+  ::antalk::common::MsgInfo* release_msg_info();
+  ::antalk::common::MsgInfo* mutable_msg_info();
+  void set_allocated_msg_info(::antalk::common::MsgInfo* msg_info);
+
+  // @@protoc_insertion_point(class_scope:antalk.apigw.SendMsgReq)
+ private:
+  void set_has_msg_info();
+  void clear_has_msg_info();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::antalk::common::MsgInfo* msg_info_;
+  friend struct ::protobuf_apigw_2eproto::TableStruct;
+  friend void ::protobuf_apigw_2eproto::InitDefaultsSendMsgReqImpl();
+};
+// -------------------------------------------------------------------
+
+class SendMsgResp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.SendMsgResp) */ {
+ public:
+  SendMsgResp();
+  virtual ~SendMsgResp();
+
+  SendMsgResp(const SendMsgResp& from);
+
+  inline SendMsgResp& operator=(const SendMsgResp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  SendMsgResp(SendMsgResp&& from) noexcept
+    : SendMsgResp() {
+    *this = ::std::move(from);
+  }
+
+  inline SendMsgResp& operator=(SendMsgResp&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SendMsgResp& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const SendMsgResp* internal_default_instance() {
+    return reinterpret_cast<const SendMsgResp*>(
+               &_SendMsgResp_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    9;
+
+  void Swap(SendMsgResp* other);
+  friend void swap(SendMsgResp& a, SendMsgResp& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline SendMsgResp* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  SendMsgResp* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const SendMsgResp& from);
+  void MergeFrom(const SendMsgResp& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(SendMsgResp* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 msg_id = 1;
+  bool has_msg_id() const;
+  void clear_msg_id();
+  static const int kMsgIdFieldNumber = 1;
+  ::google::protobuf::int64 msg_id() const;
+  void set_msg_id(::google::protobuf::int64 value);
+
+  // optional .antalk.common.ResultType result_code = 2;
+  bool has_result_code() const;
+  void clear_result_code();
+  static const int kResultCodeFieldNumber = 2;
+  ::antalk::common::ResultType result_code() const;
+  void set_result_code(::antalk::common::ResultType value);
+
+  // @@protoc_insertion_point(class_scope:antalk.apigw.SendMsgResp)
+ private:
+  void set_has_msg_id();
+  void clear_has_msg_id();
+  void set_has_result_code();
+  void clear_has_result_code();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::int64 msg_id_;
+  int result_code_;
+  friend struct ::protobuf_apigw_2eproto::TableStruct;
+  friend void ::protobuf_apigw_2eproto::InitDefaultsSendMsgRespImpl();
+};
+// -------------------------------------------------------------------
+
+class NotifyMsgReq : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.NotifyMsgReq) */ {
+ public:
+  NotifyMsgReq();
+  virtual ~NotifyMsgReq();
+
+  NotifyMsgReq(const NotifyMsgReq& from);
+
+  inline NotifyMsgReq& operator=(const NotifyMsgReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  NotifyMsgReq(NotifyMsgReq&& from) noexcept
+    : NotifyMsgReq() {
+    *this = ::std::move(from);
+  }
+
+  inline NotifyMsgReq& operator=(NotifyMsgReq&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyMsgReq& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const NotifyMsgReq* internal_default_instance() {
+    return reinterpret_cast<const NotifyMsgReq*>(
+               &_NotifyMsgReq_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    10;
+
+  void Swap(NotifyMsgReq* other);
+  friend void swap(NotifyMsgReq& a, NotifyMsgReq& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NotifyMsgReq* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  NotifyMsgReq* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const NotifyMsgReq& from);
+  void MergeFrom(const NotifyMsgReq& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(NotifyMsgReq* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .antalk.common.MsgInfo msg_info = 1;
+  bool has_msg_info() const;
+  void clear_msg_info();
+  static const int kMsgInfoFieldNumber = 1;
+  const ::antalk::common::MsgInfo& msg_info() const;
+  ::antalk::common::MsgInfo* release_msg_info();
+  ::antalk::common::MsgInfo* mutable_msg_info();
+  void set_allocated_msg_info(::antalk::common::MsgInfo* msg_info);
+
+  // @@protoc_insertion_point(class_scope:antalk.apigw.NotifyMsgReq)
+ private:
+  void set_has_msg_info();
+  void clear_has_msg_info();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::antalk::common::MsgInfo* msg_info_;
+  friend struct ::protobuf_apigw_2eproto::TableStruct;
+  friend void ::protobuf_apigw_2eproto::InitDefaultsNotifyMsgReqImpl();
+};
+// -------------------------------------------------------------------
+
+class NotifyMsgResp : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:antalk.apigw.NotifyMsgResp) */ {
+ public:
+  NotifyMsgResp();
+  virtual ~NotifyMsgResp();
+
+  NotifyMsgResp(const NotifyMsgResp& from);
+
+  inline NotifyMsgResp& operator=(const NotifyMsgResp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  NotifyMsgResp(NotifyMsgResp&& from) noexcept
+    : NotifyMsgResp() {
+    *this = ::std::move(from);
+  }
+
+  inline NotifyMsgResp& operator=(NotifyMsgResp&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyMsgResp& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const NotifyMsgResp* internal_default_instance() {
+    return reinterpret_cast<const NotifyMsgResp*>(
+               &_NotifyMsgResp_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    11;
+
+  void Swap(NotifyMsgResp* other);
+  friend void swap(NotifyMsgResp& a, NotifyMsgResp& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NotifyMsgResp* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  NotifyMsgResp* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const NotifyMsgResp& from);
+  void MergeFrom(const NotifyMsgResp& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(NotifyMsgResp* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:antalk.apigw.NotifyMsgResp)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_apigw_2eproto::TableStruct;
+  friend void ::protobuf_apigw_2eproto::InitDefaultsNotifyMsgRespImpl();
+};
 // ===================================================================
 
 class LoginService_Stub;
@@ -1262,6 +1730,14 @@ class MsgService : public ::google::protobuf::Service {
 
   static const ::google::protobuf::ServiceDescriptor* descriptor();
 
+  virtual void SendMsg(::google::protobuf::RpcController* controller,
+                       const ::antalk::apigw::SendMsgReq* request,
+                       ::antalk::apigw::SendMsgResp* response,
+                       ::google::protobuf::Closure* done);
+  virtual void NotifyMsg(::google::protobuf::RpcController* controller,
+                       const ::antalk::apigw::NotifyMsgReq* request,
+                       ::antalk::apigw::NotifyMsgResp* response,
+                       ::google::protobuf::Closure* done);
 
   // implements Service ----------------------------------------------
 
@@ -1291,6 +1767,14 @@ class MsgService_Stub : public MsgService {
 
   // implements MsgService ------------------------------------------
 
+  void SendMsg(::google::protobuf::RpcController* controller,
+                       const ::antalk::apigw::SendMsgReq* request,
+                       ::antalk::apigw::SendMsgResp* response,
+                       ::google::protobuf::Closure* done);
+  void NotifyMsg(::google::protobuf::RpcController* controller,
+                       const ::antalk::apigw::NotifyMsgReq* request,
+                       ::antalk::apigw::NotifyMsgResp* response,
+                       ::google::protobuf::Closure* done);
  private:
   ::google::protobuf::RpcChannel* channel_;
   bool owns_channel_;
@@ -2190,9 +2674,182 @@ inline void ServerKickoutNotifyReq::set_reason(::antalk::common::KickoutReason v
 
 // ServerKickoutNotifyResp
 
+// -------------------------------------------------------------------
+
+// SendMsgReq
+
+// optional .antalk.common.MsgInfo msg_info = 1;
+inline bool SendMsgReq::has_msg_info() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SendMsgReq::set_has_msg_info() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SendMsgReq::clear_has_msg_info() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::antalk::common::MsgInfo& SendMsgReq::msg_info() const {
+  const ::antalk::common::MsgInfo* p = msg_info_;
+  // @@protoc_insertion_point(field_get:antalk.apigw.SendMsgReq.msg_info)
+  return p != NULL ? *p : *reinterpret_cast<const ::antalk::common::MsgInfo*>(
+      &::antalk::common::_MsgInfo_default_instance_);
+}
+inline ::antalk::common::MsgInfo* SendMsgReq::release_msg_info() {
+  // @@protoc_insertion_point(field_release:antalk.apigw.SendMsgReq.msg_info)
+  clear_has_msg_info();
+  ::antalk::common::MsgInfo* temp = msg_info_;
+  msg_info_ = NULL;
+  return temp;
+}
+inline ::antalk::common::MsgInfo* SendMsgReq::mutable_msg_info() {
+  set_has_msg_info();
+  if (msg_info_ == NULL) {
+    msg_info_ = new ::antalk::common::MsgInfo;
+  }
+  // @@protoc_insertion_point(field_mutable:antalk.apigw.SendMsgReq.msg_info)
+  return msg_info_;
+}
+inline void SendMsgReq::set_allocated_msg_info(::antalk::common::MsgInfo* msg_info) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(msg_info_);
+  }
+  if (msg_info) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      msg_info = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, msg_info, submessage_arena);
+    }
+    set_has_msg_info();
+  } else {
+    clear_has_msg_info();
+  }
+  msg_info_ = msg_info;
+  // @@protoc_insertion_point(field_set_allocated:antalk.apigw.SendMsgReq.msg_info)
+}
+
+// -------------------------------------------------------------------
+
+// SendMsgResp
+
+// optional int64 msg_id = 1;
+inline bool SendMsgResp::has_msg_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SendMsgResp::set_has_msg_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SendMsgResp::clear_has_msg_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SendMsgResp::clear_msg_id() {
+  msg_id_ = GOOGLE_LONGLONG(0);
+  clear_has_msg_id();
+}
+inline ::google::protobuf::int64 SendMsgResp::msg_id() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.SendMsgResp.msg_id)
+  return msg_id_;
+}
+inline void SendMsgResp::set_msg_id(::google::protobuf::int64 value) {
+  set_has_msg_id();
+  msg_id_ = value;
+  // @@protoc_insertion_point(field_set:antalk.apigw.SendMsgResp.msg_id)
+}
+
+// optional .antalk.common.ResultType result_code = 2;
+inline bool SendMsgResp::has_result_code() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SendMsgResp::set_has_result_code() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SendMsgResp::clear_has_result_code() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SendMsgResp::clear_result_code() {
+  result_code_ = 0;
+  clear_has_result_code();
+}
+inline ::antalk::common::ResultType SendMsgResp::result_code() const {
+  // @@protoc_insertion_point(field_get:antalk.apigw.SendMsgResp.result_code)
+  return static_cast< ::antalk::common::ResultType >(result_code_);
+}
+inline void SendMsgResp::set_result_code(::antalk::common::ResultType value) {
+  assert(::antalk::common::ResultType_IsValid(value));
+  set_has_result_code();
+  result_code_ = value;
+  // @@protoc_insertion_point(field_set:antalk.apigw.SendMsgResp.result_code)
+}
+
+// -------------------------------------------------------------------
+
+// NotifyMsgReq
+
+// optional .antalk.common.MsgInfo msg_info = 1;
+inline bool NotifyMsgReq::has_msg_info() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyMsgReq::set_has_msg_info() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyMsgReq::clear_has_msg_info() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const ::antalk::common::MsgInfo& NotifyMsgReq::msg_info() const {
+  const ::antalk::common::MsgInfo* p = msg_info_;
+  // @@protoc_insertion_point(field_get:antalk.apigw.NotifyMsgReq.msg_info)
+  return p != NULL ? *p : *reinterpret_cast<const ::antalk::common::MsgInfo*>(
+      &::antalk::common::_MsgInfo_default_instance_);
+}
+inline ::antalk::common::MsgInfo* NotifyMsgReq::release_msg_info() {
+  // @@protoc_insertion_point(field_release:antalk.apigw.NotifyMsgReq.msg_info)
+  clear_has_msg_info();
+  ::antalk::common::MsgInfo* temp = msg_info_;
+  msg_info_ = NULL;
+  return temp;
+}
+inline ::antalk::common::MsgInfo* NotifyMsgReq::mutable_msg_info() {
+  set_has_msg_info();
+  if (msg_info_ == NULL) {
+    msg_info_ = new ::antalk::common::MsgInfo;
+  }
+  // @@protoc_insertion_point(field_mutable:antalk.apigw.NotifyMsgReq.msg_info)
+  return msg_info_;
+}
+inline void NotifyMsgReq::set_allocated_msg_info(::antalk::common::MsgInfo* msg_info) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(msg_info_);
+  }
+  if (msg_info) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      msg_info = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, msg_info, submessage_arena);
+    }
+    set_has_msg_info();
+  } else {
+    clear_has_msg_info();
+  }
+  msg_info_ = msg_info;
+  // @@protoc_insertion_point(field_set_allocated:antalk.apigw.NotifyMsgReq.msg_info)
+}
+
+// -------------------------------------------------------------------
+
+// NotifyMsgResp
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

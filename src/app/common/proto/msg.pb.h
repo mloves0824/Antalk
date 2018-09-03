@@ -157,112 +157,24 @@ class SendMsgReq : public ::google::protobuf::Message /* @@protoc_insertion_poin
 
   // accessors -------------------------------------------------------
 
-  // optional string send_uid = 1;
-  bool has_send_uid() const;
-  void clear_send_uid();
-  static const int kSendUidFieldNumber = 1;
-  const ::std::string& send_uid() const;
-  void set_send_uid(const ::std::string& value);
-  #if LANG_CXX11
-  void set_send_uid(::std::string&& value);
-  #endif
-  void set_send_uid(const char* value);
-  void set_send_uid(const char* value, size_t size);
-  ::std::string* mutable_send_uid();
-  ::std::string* release_send_uid();
-  void set_allocated_send_uid(::std::string* send_uid);
-
-  // optional string recv_uid = 2;
-  bool has_recv_uid() const;
-  void clear_recv_uid();
-  static const int kRecvUidFieldNumber = 2;
-  const ::std::string& recv_uid() const;
-  void set_recv_uid(const ::std::string& value);
-  #if LANG_CXX11
-  void set_recv_uid(::std::string&& value);
-  #endif
-  void set_recv_uid(const char* value);
-  void set_recv_uid(const char* value, size_t size);
-  ::std::string* mutable_recv_uid();
-  ::std::string* release_recv_uid();
-  void set_allocated_recv_uid(::std::string* recv_uid);
-
-  // optional string msg_type = 4;
-  bool has_msg_type() const;
-  void clear_msg_type();
-  static const int kMsgTypeFieldNumber = 4;
-  const ::std::string& msg_type() const;
-  void set_msg_type(const ::std::string& value);
-  #if LANG_CXX11
-  void set_msg_type(::std::string&& value);
-  #endif
-  void set_msg_type(const char* value);
-  void set_msg_type(const char* value, size_t size);
-  ::std::string* mutable_msg_type();
-  ::std::string* release_msg_type();
-  void set_allocated_msg_type(::std::string* msg_type);
-
-  // optional string msg_body = 5;
-  bool has_msg_body() const;
-  void clear_msg_body();
-  static const int kMsgBodyFieldNumber = 5;
-  const ::std::string& msg_body() const;
-  void set_msg_body(const ::std::string& value);
-  #if LANG_CXX11
-  void set_msg_body(::std::string&& value);
-  #endif
-  void set_msg_body(const char* value);
-  void set_msg_body(const char* value, size_t size);
-  ::std::string* mutable_msg_body();
-  ::std::string* release_msg_body();
-  void set_allocated_msg_body(::std::string* msg_body);
-
-  // optional string attachment = 6;
-  bool has_attachment() const;
-  void clear_attachment();
-  static const int kAttachmentFieldNumber = 6;
-  const ::std::string& attachment() const;
-  void set_attachment(const ::std::string& value);
-  #if LANG_CXX11
-  void set_attachment(::std::string&& value);
-  #endif
-  void set_attachment(const char* value);
-  void set_attachment(const char* value, size_t size);
-  ::std::string* mutable_attachment();
-  ::std::string* release_attachment();
-  void set_allocated_attachment(::std::string* attachment);
-
-  // optional int64 msg_id = 3;
-  bool has_msg_id() const;
-  void clear_msg_id();
-  static const int kMsgIdFieldNumber = 3;
-  ::google::protobuf::int64 msg_id() const;
-  void set_msg_id(::google::protobuf::int64 value);
+  // optional .antalk.common.MsgInfo msg_info = 1;
+  bool has_msg_info() const;
+  void clear_msg_info();
+  static const int kMsgInfoFieldNumber = 1;
+  const ::antalk::common::MsgInfo& msg_info() const;
+  ::antalk::common::MsgInfo* release_msg_info();
+  ::antalk::common::MsgInfo* mutable_msg_info();
+  void set_allocated_msg_info(::antalk::common::MsgInfo* msg_info);
 
   // @@protoc_insertion_point(class_scope:antalk.msg.SendMsgReq)
  private:
-  void set_has_send_uid();
-  void clear_has_send_uid();
-  void set_has_recv_uid();
-  void clear_has_recv_uid();
-  void set_has_msg_id();
-  void clear_has_msg_id();
-  void set_has_msg_type();
-  void clear_has_msg_type();
-  void set_has_msg_body();
-  void clear_has_msg_body();
-  void set_has_attachment();
-  void clear_has_attachment();
+  void set_has_msg_info();
+  void clear_has_msg_info();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr send_uid_;
-  ::google::protobuf::internal::ArenaStringPtr recv_uid_;
-  ::google::protobuf::internal::ArenaStringPtr msg_type_;
-  ::google::protobuf::internal::ArenaStringPtr msg_body_;
-  ::google::protobuf::internal::ArenaStringPtr attachment_;
-  ::google::protobuf::int64 msg_id_;
+  ::antalk::common::MsgInfo* msg_info_;
   friend struct ::protobuf_msg_2eproto::TableStruct;
   friend void ::protobuf_msg_2eproto::InitDefaultsSendMsgReqImpl();
 };
@@ -456,343 +368,54 @@ class MsgService_Stub : public MsgService {
 #endif  // __GNUC__
 // SendMsgReq
 
-// optional string send_uid = 1;
-inline bool SendMsgReq::has_send_uid() const {
+// optional .antalk.common.MsgInfo msg_info = 1;
+inline bool SendMsgReq::has_msg_info() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void SendMsgReq::set_has_send_uid() {
+inline void SendMsgReq::set_has_msg_info() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void SendMsgReq::clear_has_send_uid() {
+inline void SendMsgReq::clear_has_msg_info() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void SendMsgReq::clear_send_uid() {
-  send_uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_send_uid();
+inline const ::antalk::common::MsgInfo& SendMsgReq::msg_info() const {
+  const ::antalk::common::MsgInfo* p = msg_info_;
+  // @@protoc_insertion_point(field_get:antalk.msg.SendMsgReq.msg_info)
+  return p != NULL ? *p : *reinterpret_cast<const ::antalk::common::MsgInfo*>(
+      &::antalk::common::_MsgInfo_default_instance_);
 }
-inline const ::std::string& SendMsgReq::send_uid() const {
-  // @@protoc_insertion_point(field_get:antalk.msg.SendMsgReq.send_uid)
-  return send_uid_.GetNoArena();
+inline ::antalk::common::MsgInfo* SendMsgReq::release_msg_info() {
+  // @@protoc_insertion_point(field_release:antalk.msg.SendMsgReq.msg_info)
+  clear_has_msg_info();
+  ::antalk::common::MsgInfo* temp = msg_info_;
+  msg_info_ = NULL;
+  return temp;
 }
-inline void SendMsgReq::set_send_uid(const ::std::string& value) {
-  set_has_send_uid();
-  send_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:antalk.msg.SendMsgReq.send_uid)
-}
-#if LANG_CXX11
-inline void SendMsgReq::set_send_uid(::std::string&& value) {
-  set_has_send_uid();
-  send_uid_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:antalk.msg.SendMsgReq.send_uid)
-}
-#endif
-inline void SendMsgReq::set_send_uid(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_send_uid();
-  send_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:antalk.msg.SendMsgReq.send_uid)
-}
-inline void SendMsgReq::set_send_uid(const char* value, size_t size) {
-  set_has_send_uid();
-  send_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:antalk.msg.SendMsgReq.send_uid)
-}
-inline ::std::string* SendMsgReq::mutable_send_uid() {
-  set_has_send_uid();
-  // @@protoc_insertion_point(field_mutable:antalk.msg.SendMsgReq.send_uid)
-  return send_uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SendMsgReq::release_send_uid() {
-  // @@protoc_insertion_point(field_release:antalk.msg.SendMsgReq.send_uid)
-  clear_has_send_uid();
-  return send_uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SendMsgReq::set_allocated_send_uid(::std::string* send_uid) {
-  if (send_uid != NULL) {
-    set_has_send_uid();
-  } else {
-    clear_has_send_uid();
+inline ::antalk::common::MsgInfo* SendMsgReq::mutable_msg_info() {
+  set_has_msg_info();
+  if (msg_info_ == NULL) {
+    msg_info_ = new ::antalk::common::MsgInfo;
   }
-  send_uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), send_uid);
-  // @@protoc_insertion_point(field_set_allocated:antalk.msg.SendMsgReq.send_uid)
+  // @@protoc_insertion_point(field_mutable:antalk.msg.SendMsgReq.msg_info)
+  return msg_info_;
 }
-
-// optional string recv_uid = 2;
-inline bool SendMsgReq::has_recv_uid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void SendMsgReq::set_has_recv_uid() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void SendMsgReq::clear_has_recv_uid() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void SendMsgReq::clear_recv_uid() {
-  recv_uid_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_recv_uid();
-}
-inline const ::std::string& SendMsgReq::recv_uid() const {
-  // @@protoc_insertion_point(field_get:antalk.msg.SendMsgReq.recv_uid)
-  return recv_uid_.GetNoArena();
-}
-inline void SendMsgReq::set_recv_uid(const ::std::string& value) {
-  set_has_recv_uid();
-  recv_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:antalk.msg.SendMsgReq.recv_uid)
-}
-#if LANG_CXX11
-inline void SendMsgReq::set_recv_uid(::std::string&& value) {
-  set_has_recv_uid();
-  recv_uid_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:antalk.msg.SendMsgReq.recv_uid)
-}
-#endif
-inline void SendMsgReq::set_recv_uid(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_recv_uid();
-  recv_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:antalk.msg.SendMsgReq.recv_uid)
-}
-inline void SendMsgReq::set_recv_uid(const char* value, size_t size) {
-  set_has_recv_uid();
-  recv_uid_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:antalk.msg.SendMsgReq.recv_uid)
-}
-inline ::std::string* SendMsgReq::mutable_recv_uid() {
-  set_has_recv_uid();
-  // @@protoc_insertion_point(field_mutable:antalk.msg.SendMsgReq.recv_uid)
-  return recv_uid_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SendMsgReq::release_recv_uid() {
-  // @@protoc_insertion_point(field_release:antalk.msg.SendMsgReq.recv_uid)
-  clear_has_recv_uid();
-  return recv_uid_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SendMsgReq::set_allocated_recv_uid(::std::string* recv_uid) {
-  if (recv_uid != NULL) {
-    set_has_recv_uid();
-  } else {
-    clear_has_recv_uid();
+inline void SendMsgReq::set_allocated_msg_info(::antalk::common::MsgInfo* msg_info) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete reinterpret_cast< ::google::protobuf::MessageLite*>(msg_info_);
   }
-  recv_uid_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), recv_uid);
-  // @@protoc_insertion_point(field_set_allocated:antalk.msg.SendMsgReq.recv_uid)
-}
-
-// optional int64 msg_id = 3;
-inline bool SendMsgReq::has_msg_id() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void SendMsgReq::set_has_msg_id() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void SendMsgReq::clear_has_msg_id() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void SendMsgReq::clear_msg_id() {
-  msg_id_ = GOOGLE_LONGLONG(0);
-  clear_has_msg_id();
-}
-inline ::google::protobuf::int64 SendMsgReq::msg_id() const {
-  // @@protoc_insertion_point(field_get:antalk.msg.SendMsgReq.msg_id)
-  return msg_id_;
-}
-inline void SendMsgReq::set_msg_id(::google::protobuf::int64 value) {
-  set_has_msg_id();
-  msg_id_ = value;
-  // @@protoc_insertion_point(field_set:antalk.msg.SendMsgReq.msg_id)
-}
-
-// optional string msg_type = 4;
-inline bool SendMsgReq::has_msg_type() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void SendMsgReq::set_has_msg_type() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void SendMsgReq::clear_has_msg_type() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void SendMsgReq::clear_msg_type() {
-  msg_type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_msg_type();
-}
-inline const ::std::string& SendMsgReq::msg_type() const {
-  // @@protoc_insertion_point(field_get:antalk.msg.SendMsgReq.msg_type)
-  return msg_type_.GetNoArena();
-}
-inline void SendMsgReq::set_msg_type(const ::std::string& value) {
-  set_has_msg_type();
-  msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:antalk.msg.SendMsgReq.msg_type)
-}
-#if LANG_CXX11
-inline void SendMsgReq::set_msg_type(::std::string&& value) {
-  set_has_msg_type();
-  msg_type_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:antalk.msg.SendMsgReq.msg_type)
-}
-#endif
-inline void SendMsgReq::set_msg_type(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_msg_type();
-  msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:antalk.msg.SendMsgReq.msg_type)
-}
-inline void SendMsgReq::set_msg_type(const char* value, size_t size) {
-  set_has_msg_type();
-  msg_type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:antalk.msg.SendMsgReq.msg_type)
-}
-inline ::std::string* SendMsgReq::mutable_msg_type() {
-  set_has_msg_type();
-  // @@protoc_insertion_point(field_mutable:antalk.msg.SendMsgReq.msg_type)
-  return msg_type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SendMsgReq::release_msg_type() {
-  // @@protoc_insertion_point(field_release:antalk.msg.SendMsgReq.msg_type)
-  clear_has_msg_type();
-  return msg_type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SendMsgReq::set_allocated_msg_type(::std::string* msg_type) {
-  if (msg_type != NULL) {
-    set_has_msg_type();
+  if (msg_info) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      msg_info = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, msg_info, submessage_arena);
+    }
+    set_has_msg_info();
   } else {
-    clear_has_msg_type();
+    clear_has_msg_info();
   }
-  msg_type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), msg_type);
-  // @@protoc_insertion_point(field_set_allocated:antalk.msg.SendMsgReq.msg_type)
-}
-
-// optional string msg_body = 5;
-inline bool SendMsgReq::has_msg_body() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void SendMsgReq::set_has_msg_body() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void SendMsgReq::clear_has_msg_body() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void SendMsgReq::clear_msg_body() {
-  msg_body_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_msg_body();
-}
-inline const ::std::string& SendMsgReq::msg_body() const {
-  // @@protoc_insertion_point(field_get:antalk.msg.SendMsgReq.msg_body)
-  return msg_body_.GetNoArena();
-}
-inline void SendMsgReq::set_msg_body(const ::std::string& value) {
-  set_has_msg_body();
-  msg_body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:antalk.msg.SendMsgReq.msg_body)
-}
-#if LANG_CXX11
-inline void SendMsgReq::set_msg_body(::std::string&& value) {
-  set_has_msg_body();
-  msg_body_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:antalk.msg.SendMsgReq.msg_body)
-}
-#endif
-inline void SendMsgReq::set_msg_body(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_msg_body();
-  msg_body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:antalk.msg.SendMsgReq.msg_body)
-}
-inline void SendMsgReq::set_msg_body(const char* value, size_t size) {
-  set_has_msg_body();
-  msg_body_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:antalk.msg.SendMsgReq.msg_body)
-}
-inline ::std::string* SendMsgReq::mutable_msg_body() {
-  set_has_msg_body();
-  // @@protoc_insertion_point(field_mutable:antalk.msg.SendMsgReq.msg_body)
-  return msg_body_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SendMsgReq::release_msg_body() {
-  // @@protoc_insertion_point(field_release:antalk.msg.SendMsgReq.msg_body)
-  clear_has_msg_body();
-  return msg_body_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SendMsgReq::set_allocated_msg_body(::std::string* msg_body) {
-  if (msg_body != NULL) {
-    set_has_msg_body();
-  } else {
-    clear_has_msg_body();
-  }
-  msg_body_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), msg_body);
-  // @@protoc_insertion_point(field_set_allocated:antalk.msg.SendMsgReq.msg_body)
-}
-
-// optional string attachment = 6;
-inline bool SendMsgReq::has_attachment() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void SendMsgReq::set_has_attachment() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void SendMsgReq::clear_has_attachment() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void SendMsgReq::clear_attachment() {
-  attachment_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_attachment();
-}
-inline const ::std::string& SendMsgReq::attachment() const {
-  // @@protoc_insertion_point(field_get:antalk.msg.SendMsgReq.attachment)
-  return attachment_.GetNoArena();
-}
-inline void SendMsgReq::set_attachment(const ::std::string& value) {
-  set_has_attachment();
-  attachment_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:antalk.msg.SendMsgReq.attachment)
-}
-#if LANG_CXX11
-inline void SendMsgReq::set_attachment(::std::string&& value) {
-  set_has_attachment();
-  attachment_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:antalk.msg.SendMsgReq.attachment)
-}
-#endif
-inline void SendMsgReq::set_attachment(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  set_has_attachment();
-  attachment_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:antalk.msg.SendMsgReq.attachment)
-}
-inline void SendMsgReq::set_attachment(const char* value, size_t size) {
-  set_has_attachment();
-  attachment_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:antalk.msg.SendMsgReq.attachment)
-}
-inline ::std::string* SendMsgReq::mutable_attachment() {
-  set_has_attachment();
-  // @@protoc_insertion_point(field_mutable:antalk.msg.SendMsgReq.attachment)
-  return attachment_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SendMsgReq::release_attachment() {
-  // @@protoc_insertion_point(field_release:antalk.msg.SendMsgReq.attachment)
-  clear_has_attachment();
-  return attachment_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SendMsgReq::set_allocated_attachment(::std::string* attachment) {
-  if (attachment != NULL) {
-    set_has_attachment();
-  } else {
-    clear_has_attachment();
-  }
-  attachment_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), attachment);
-  // @@protoc_insertion_point(field_set_allocated:antalk.msg.SendMsgReq.attachment)
+  msg_info_ = msg_info;
+  // @@protoc_insertion_point(field_set_allocated:antalk.msg.SendMsgReq.msg_info)
 }
 
 // -------------------------------------------------------------------

@@ -42,6 +42,7 @@ void InitDefaultsSendMsgReqImpl() {
 #else
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_common_2eproto::InitDefaultsMsgInfo();
   {
     void* ptr = &::antalk::msg::_SendMsgReq_default_instance_;
     new (ptr) ::antalk::msg::SendMsgReq();
@@ -85,18 +86,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::msg::SendMsgReq, send_uid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::msg::SendMsgReq, recv_uid_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::msg::SendMsgReq, msg_id_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::msg::SendMsgReq, msg_type_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::msg::SendMsgReq, msg_body_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::msg::SendMsgReq, attachment_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::msg::SendMsgReq, msg_info_),
   0,
-  1,
-  5,
-  2,
-  3,
-  4,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::msg::SendMsgResp, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::antalk::msg::SendMsgResp, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -108,8 +99,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   1,
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 11, sizeof(::antalk::msg::SendMsgReq)},
-  { 17, 24, sizeof(::antalk::msg::SendMsgResp)},
+  { 0, 6, sizeof(::antalk::msg::SendMsgReq)},
+  { 7, 14, sizeof(::antalk::msg::SendMsgResp)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -139,18 +130,16 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\tmsg.proto\022\nantalk.msg\032\014common.proto\"x\n"
-      "\nSendMsgReq\022\020\n\010send_uid\030\001 \001(\t\022\020\n\010recv_ui"
-      "d\030\002 \001(\t\022\016\n\006msg_id\030\003 \001(\003\022\020\n\010msg_type\030\004 \001("
-      "\t\022\020\n\010msg_body\030\005 \001(\t\022\022\n\nattachment\030\006 \001(\t\""
-      "M\n\013SendMsgResp\022\016\n\006msg_id\030\001 \001(\003\022.\n\013result"
-      "_code\030\002 \001(\0162\031.antalk.common.ResultType2H"
-      "\n\nMsgService\022:\n\007SendMsg\022\026.antalk.msg.Sen"
-      "dMsgReq\032\027.antalk.msg.SendMsgRespB\022\n\rcom."
-      "antalk.pb\200\001\001"
+      "\n\tmsg.proto\022\nantalk.msg\032\014common.proto\"6\n"
+      "\nSendMsgReq\022(\n\010msg_info\030\001 \001(\0132\026.antalk.c"
+      "ommon.MsgInfo\"M\n\013SendMsgResp\022\016\n\006msg_id\030\001"
+      " \001(\003\022.\n\013result_code\030\002 \001(\0162\031.antalk.commo"
+      "n.ResultType2H\n\nMsgService\022:\n\007SendMsg\022\026."
+      "antalk.msg.SendMsgReq\032\027.antalk.msg.SendM"
+      "sgRespB\022\n\rcom.antalk.pb\200\001\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 332);
+      descriptor, 266);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "msg.proto", &protobuf_RegisterTypes);
   ::protobuf_common_2eproto::AddDescriptors();
@@ -173,14 +162,15 @@ namespace msg {
 // ===================================================================
 
 void SendMsgReq::InitAsDefaultInstance() {
+  ::antalk::msg::_SendMsgReq_default_instance_._instance.get_mutable()->msg_info_ = const_cast< ::antalk::common::MsgInfo*>(
+      ::antalk::common::MsgInfo::internal_default_instance());
+}
+void SendMsgReq::clear_msg_info() {
+  if (msg_info_ != NULL) msg_info_->Clear();
+  clear_has_msg_info();
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int SendMsgReq::kSendUidFieldNumber;
-const int SendMsgReq::kRecvUidFieldNumber;
-const int SendMsgReq::kMsgIdFieldNumber;
-const int SendMsgReq::kMsgTypeFieldNumber;
-const int SendMsgReq::kMsgBodyFieldNumber;
-const int SendMsgReq::kAttachmentFieldNumber;
+const int SendMsgReq::kMsgInfoFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 SendMsgReq::SendMsgReq()
@@ -197,38 +187,17 @@ SendMsgReq::SendMsgReq(const SendMsgReq& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  send_uid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_send_uid()) {
-    send_uid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.send_uid_);
+  if (from.has_msg_info()) {
+    msg_info_ = new ::antalk::common::MsgInfo(*from.msg_info_);
+  } else {
+    msg_info_ = NULL;
   }
-  recv_uid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_recv_uid()) {
-    recv_uid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.recv_uid_);
-  }
-  msg_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_msg_type()) {
-    msg_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.msg_type_);
-  }
-  msg_body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_msg_body()) {
-    msg_body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.msg_body_);
-  }
-  attachment_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_attachment()) {
-    attachment_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.attachment_);
-  }
-  msg_id_ = from.msg_id_;
   // @@protoc_insertion_point(copy_constructor:antalk.msg.SendMsgReq)
 }
 
 void SendMsgReq::SharedCtor() {
   _cached_size_ = 0;
-  send_uid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  recv_uid_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  msg_type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  msg_body_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  attachment_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  msg_id_ = GOOGLE_LONGLONG(0);
+  msg_info_ = NULL;
 }
 
 SendMsgReq::~SendMsgReq() {
@@ -237,11 +206,7 @@ SendMsgReq::~SendMsgReq() {
 }
 
 void SendMsgReq::SharedDtor() {
-  send_uid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  recv_uid_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  msg_type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  msg_body_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  attachment_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete msg_info_;
 }
 
 void SendMsgReq::SetCachedSize(int size) const {
@@ -274,29 +239,10 @@ void SendMsgReq::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 31u) {
-    if (cached_has_bits & 0x00000001u) {
-      GOOGLE_DCHECK(!send_uid_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*send_uid_.UnsafeRawStringPointer())->clear();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      GOOGLE_DCHECK(!recv_uid_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*recv_uid_.UnsafeRawStringPointer())->clear();
-    }
-    if (cached_has_bits & 0x00000004u) {
-      GOOGLE_DCHECK(!msg_type_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*msg_type_.UnsafeRawStringPointer())->clear();
-    }
-    if (cached_has_bits & 0x00000008u) {
-      GOOGLE_DCHECK(!msg_body_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*msg_body_.UnsafeRawStringPointer())->clear();
-    }
-    if (cached_has_bits & 0x00000010u) {
-      GOOGLE_DCHECK(!attachment_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*attachment_.UnsafeRawStringPointer())->clear();
-    }
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(msg_info_ != NULL);
+    msg_info_->Clear();
   }
-  msg_id_ = GOOGLE_LONGLONG(0);
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -311,94 +257,12 @@ bool SendMsgReq::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string send_uid = 1;
+      // optional .antalk.common.MsgInfo msg_info = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_send_uid()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->send_uid().data(), static_cast<int>(this->send_uid().length()),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "antalk.msg.SendMsgReq.send_uid");
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional string recv_uid = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_recv_uid()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->recv_uid().data(), static_cast<int>(this->recv_uid().length()),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "antalk.msg.SendMsgReq.recv_uid");
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional int64 msg_id = 3;
-      case 3: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-          set_has_msg_id();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &msg_id_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional string msg_type = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_msg_type()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->msg_type().data(), static_cast<int>(this->msg_type().length()),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "antalk.msg.SendMsgReq.msg_type");
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional string msg_body = 5;
-      case 5: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_msg_body()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->msg_body().data(), static_cast<int>(this->msg_body().length()),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "antalk.msg.SendMsgReq.msg_body");
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional string attachment = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_attachment()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->attachment().data(), static_cast<int>(this->attachment().length()),
-            ::google::protobuf::internal::WireFormat::PARSE,
-            "antalk.msg.SendMsgReq.attachment");
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_msg_info()));
         } else {
           goto handle_unusual;
         }
@@ -432,59 +296,10 @@ void SendMsgReq::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string send_uid = 1;
+  // optional .antalk.common.MsgInfo msg_info = 1;
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->send_uid().data(), static_cast<int>(this->send_uid().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "antalk.msg.SendMsgReq.send_uid");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->send_uid(), output);
-  }
-
-  // optional string recv_uid = 2;
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->recv_uid().data(), static_cast<int>(this->recv_uid().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "antalk.msg.SendMsgReq.recv_uid");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->recv_uid(), output);
-  }
-
-  // optional int64 msg_id = 3;
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->msg_id(), output);
-  }
-
-  // optional string msg_type = 4;
-  if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->msg_type().data(), static_cast<int>(this->msg_type().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "antalk.msg.SendMsgReq.msg_type");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->msg_type(), output);
-  }
-
-  // optional string msg_body = 5;
-  if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->msg_body().data(), static_cast<int>(this->msg_body().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "antalk.msg.SendMsgReq.msg_body");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->msg_body(), output);
-  }
-
-  // optional string attachment = 6;
-  if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->attachment().data(), static_cast<int>(this->attachment().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "antalk.msg.SendMsgReq.attachment");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      6, this->attachment(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, *this->msg_info_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -502,64 +317,11 @@ void SendMsgReq::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string send_uid = 1;
+  // optional .antalk.common.MsgInfo msg_info = 1;
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->send_uid().data(), static_cast<int>(this->send_uid().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "antalk.msg.SendMsgReq.send_uid");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->send_uid(), target);
-  }
-
-  // optional string recv_uid = 2;
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->recv_uid().data(), static_cast<int>(this->recv_uid().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "antalk.msg.SendMsgReq.recv_uid");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->recv_uid(), target);
-  }
-
-  // optional int64 msg_id = 3;
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->msg_id(), target);
-  }
-
-  // optional string msg_type = 4;
-  if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->msg_type().data(), static_cast<int>(this->msg_type().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "antalk.msg.SendMsgReq.msg_type");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->msg_type(), target);
-  }
-
-  // optional string msg_body = 5;
-  if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->msg_body().data(), static_cast<int>(this->msg_body().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "antalk.msg.SendMsgReq.msg_body");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->msg_body(), target);
-  }
-
-  // optional string attachment = 6;
-  if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->attachment().data(), static_cast<int>(this->attachment().length()),
-      ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "antalk.msg.SendMsgReq.attachment");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->attachment(), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        1, *this->msg_info_, deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -579,50 +341,13 @@ size_t SendMsgReq::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (_has_bits_[0 / 32] & 63u) {
-    // optional string send_uid = 1;
-    if (has_send_uid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->send_uid());
-    }
-
-    // optional string recv_uid = 2;
-    if (has_recv_uid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->recv_uid());
-    }
-
-    // optional string msg_type = 4;
-    if (has_msg_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->msg_type());
-    }
-
-    // optional string msg_body = 5;
-    if (has_msg_body()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->msg_body());
-    }
-
-    // optional string attachment = 6;
-    if (has_attachment()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->attachment());
-    }
-
-    // optional int64 msg_id = 3;
-    if (has_msg_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->msg_id());
-    }
-
+  // optional .antalk.common.MsgInfo msg_info = 1;
+  if (has_msg_info()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSize(
+        *this->msg_info_);
   }
+
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -652,32 +377,8 @@ void SendMsgReq::MergeFrom(const SendMsgReq& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 63u) {
-    if (cached_has_bits & 0x00000001u) {
-      set_has_send_uid();
-      send_uid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.send_uid_);
-    }
-    if (cached_has_bits & 0x00000002u) {
-      set_has_recv_uid();
-      recv_uid_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.recv_uid_);
-    }
-    if (cached_has_bits & 0x00000004u) {
-      set_has_msg_type();
-      msg_type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.msg_type_);
-    }
-    if (cached_has_bits & 0x00000008u) {
-      set_has_msg_body();
-      msg_body_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.msg_body_);
-    }
-    if (cached_has_bits & 0x00000010u) {
-      set_has_attachment();
-      attachment_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.attachment_);
-    }
-    if (cached_has_bits & 0x00000020u) {
-      msg_id_ = from.msg_id_;
-    }
-    _has_bits_[0] |= cached_has_bits;
+  if (from.has_msg_info()) {
+    mutable_msg_info()->::antalk::common::MsgInfo::MergeFrom(from.msg_info());
   }
 }
 
@@ -705,12 +406,7 @@ void SendMsgReq::Swap(SendMsgReq* other) {
 }
 void SendMsgReq::InternalSwap(SendMsgReq* other) {
   using std::swap;
-  send_uid_.Swap(&other->send_uid_);
-  recv_uid_.Swap(&other->recv_uid_);
-  msg_type_.Swap(&other->msg_type_);
-  msg_body_.Swap(&other->msg_body_);
-  attachment_.Swap(&other->attachment_);
-  swap(msg_id_, other->msg_id_);
+  swap(msg_info_, other->msg_info_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
