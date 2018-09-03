@@ -25,7 +25,26 @@ message SetUserStatusResp {
 	optional antalk.common.ResultType result = 1;
 }
 
+
+message SaveMsgReq {
+	optional string send_uid = 1;
+	optional string recv_uid = 2;
+	optional int64  msg_id   = 3;
+	optional string msg_type = 4;
+	optional string msg_body = 5;
+	optional string attachment = 6;
+}
+
+message SaveMsgResp {
+	optional int64 msg_id = 1;
+	optional antalk.common.ResultType result_code = 2;
+}
+
 service UserStatusService {
-      rpc GetUserInfo(GetUserInfoReq) returns (GetUserInfoRes);
-      rpc SetUserStatus(SetUserStatusReq) returns (SetUserStatusResp);
+	rpc GetUserInfo(GetUserInfoReq) returns (GetUserInfoRes);
+    rpc SetUserStatus(SetUserStatusReq) returns (SetUserStatusResp);
 };
+
+service MsgService {
+	rpc SaveMsg(SaveMsgReq) returns (SaveMsgResp);
+}
