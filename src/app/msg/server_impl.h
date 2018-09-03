@@ -19,6 +19,8 @@
 #include <brpc/server.h>
 #include <brpc/channel.h>
 #include "msg.pb.h"
+#include "data.pb.h"
+#include "apigw.pb.h"
 
 // Your implementation of im::login::IMLoginService
 // Notice that implementing brpc::Describable grants the ability to put
@@ -36,6 +38,8 @@ public:
         google::protobuf::Closure* done);
 
 private:
+    antalk::common::ResultType SaveMsg(const antalk::common::MsgInfo& msg_info);
+    antalk::common::ResultType NotifyMsg(const antalk::common::MsgInfo& msg_info);
 };
 
 }  // namespace example

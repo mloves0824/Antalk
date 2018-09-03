@@ -40,5 +40,21 @@ private:
     antalk::common::ResultType CheckAuth(const LoginReq &req);
 };
 
+class MsgServiceImpl : public MsgService {
+public:
+    MsgServiceImpl() {};
+    virtual ~MsgServiceImpl() {};
+    virtual void SendMsg(google::protobuf::RpcController* cntl_base,
+        const SendMsgReq* request,
+        SendMsgResp* response,
+        google::protobuf::Closure* done);
+    virtual void NotifyMsg(google::protobuf::RpcController* cntl_base,
+        const NotifyMsgReq* request,
+        NotifyMsgResp* response,
+        google::protobuf::Closure* done);
+
+private:
+};
+
 }  // namespace example
 }

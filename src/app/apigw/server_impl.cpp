@@ -97,5 +97,17 @@ antalk::common::ResultType LoginServiceImpl::CheckAuth(const LoginReq &req) {
     return antalk::common::REFUSE_REASON_NONE;
 }
 
+void MsgServiceImpl::SendMsg(google::protobuf::RpcController* cntl_base,
+                            const SendMsgReq* request,
+                            SendMsgResp* response,
+                            google::protobuf::Closure* done) {
+}
+
+void MsgServiceImpl::NotifyMsg(google::protobuf::RpcController* cntl_base,
+                            const NotifyMsgReq* request,
+                            NotifyMsgResp* response,
+                            google::protobuf::Closure* done) {
+}
+
 }
 }

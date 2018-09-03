@@ -50,6 +50,18 @@ int main(int argc, char* argv[]) {
 		return -1;
 	}
 
+    // Instance of your service.
+    antalk::apigw::MsgServiceImpl msg_service_impl;
+
+    // Add the service into server. Notice the second parameter, because the
+    // service is put on stack, we don't want server to delete it, otherwise
+    // use brpc::SERVER_OWNS_SERVICE.
+    if (server.AddService(&msg_service_impl,
+        brpc::SERVER_DOESNT_OWN_SERVICE) != 0) {
+        LOG(ERROR) << "Fail to add service";
+        return -1;
+    }
+
 	// Start the server.
 	brpc::ServerOptions options;
 	options.idle_timeout_sec = FLAGS_idle_timeout_s;
