@@ -1,0 +1,24 @@
+syntax = "proto2";
+package antalk.msg;
+import "common.proto";
+option java_package = "com.antalk.pb";
+option cc_generic_services = true;
+
+message SendMsgReq {
+	optional string send_uid = 1;
+	optional string recv_uid = 2;
+	optional int64  msg_id   = 3;
+	optional string msg_type = 4;
+	optional string msg_body = 5;
+	optional string attachment = 6;
+}
+
+message SendMsgResp {
+	optional int64 msg_id = 1;
+	optional antalk.common.ResultType result_code = 2;
+}
+
+
+service MsgService {
+	rpc SendMsg(SendMsgReq) returns (SendMsgResp);
+};
