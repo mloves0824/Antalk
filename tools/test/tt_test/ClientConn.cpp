@@ -12,9 +12,11 @@
 #include "playsound.h"
 #include "Common.h"
 
+static ConnMap_t g_msg_server_conn_map;
 
-ClientConn::ClientConn():
-m_bOpen(false)
+ClientConn::ClientConn(IPacketCallback *callback):
+m_bOpen(false),
+m_pCallback(callback)
 {
     m_pSeqAlloctor = CSeqAlloctor::getInstance();
 }
@@ -26,7 +28,10 @@ ClientConn::~ClientConn()
 
 net_handle_t ClientConn::connect(const string& strIp, uint16_t nPort, const string& strName, const string& strPass)
 {
-	m_handle = netlib_connect(strIp.c_str(), nPort, imconn_callback, NULL);
+	m_handle = netlib_connect(strIp.c_str(), nPort, imconn_callback, (void*)&g_msg_server_conn_map);
+	if (m_handle != NETLIB_INVALID_HANDLE) {
+		g_msg_server_conn_map.insert(make_pair(m_handle, this));
+	}
     return  m_handle;
 }
 
@@ -68,6 +73,7 @@ void ClientConn::OnTimer(uint64_t curr_tick)
 
 uint32_t ClientConn::login(const string &strName, const string &strPass)
 {
+    log("login to msg_server\n");
     CImPdu cPdu;
     IM::Login::IMLoginReq msg;
     msg.set_user_name(strName);
@@ -203,6 +209,7 @@ uint32_t ClientConn::sendMsgAck(uint32_t nUserId, uint32_t nPeerId, IM::BaseDefi
 void ClientConn::Close()
 {
 	if (m_handle != NETLIB_INVALID_HANDLE) {
+		g_msg_server_conn_map.erase(m_handle);
 		netlib_close(m_handle);
 	}
 	ReleaseRef();

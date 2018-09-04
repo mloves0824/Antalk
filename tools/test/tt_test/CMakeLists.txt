@@ -8,7 +8,7 @@ ELSE(WIN32)
 		ADD_DEFINITIONS(-DDEBUG)
 		SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g -fshort-wchar")
 		SET(PROJECT_LIB_DIR ${PROJECT_SOURCE_DIR}/../../../ops/output/debug/debug_linux_x64/dep)
-		SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../../../ops/output/debug/debug_linux_x64/app)
+		SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/../../../ops/output/debug/debug_linux_x64/app/test)
 		SET(PROJECT_LIBS_PLATFORM
 			protobuf
 			brpc

@@ -13,6 +13,7 @@
 #include "Common.h"
 #include "json/json.h"
 #include "ClientConn.h"
+#include <iostream>
 
 
 static ClientConn*  g_pConn = NULL;
@@ -88,9 +89,10 @@ void CClient::connect()
 //    }
     
     string strPriorIp("127.0.0.1");
-    uint16_t nPort = 8888;
-    g_pConn = new ClientConn();
+    uint16_t nPort = 8889;
+    g_pConn = new ClientConn(this);
     m_nHandle = g_pConn->connect(strPriorIp.c_str(), nPort, m_strName, m_strPass);
+	std::cout << "m_nHandle:" << m_nHandle << std::endl;
     if(m_nHandle != INVALID_SOCKET)
     {
         netlib_register_timer(CClient::TimerCallback, NULL, 1000);

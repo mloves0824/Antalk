@@ -28,15 +28,19 @@ void imconn_callback(void* callback_data, uint8_t msg, uint32_t handle, void* pP
 	NOTUSED_ARG(handle);
 	NOTUSED_ARG(pParam);
 
-	if (!callback_data)
+	if (!callback_data) {
+		log("imconn_callback, callback_data is empty, msg=%d, handle=%d ", msg, handle);
 		return;
+	}
 
 	ConnMap_t* conn_map = (ConnMap_t*)callback_data;
 	CImConn* pConn = FindImConn(conn_map, handle);
-	if (!pConn)
+	if (!pConn) {
+		log("imconn_callback, pConn is empty, msg=%d, handle=%d ", msg, handle);
 		return;
+	}
 
-	//log("msg=%d, handle=%d ", msg, handle);
+	log("msg=%d, handle=%d ", msg, handle);
 
 	switch (msg)
 	{
